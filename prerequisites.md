@@ -51,13 +51,17 @@ sadf
 
 * [Install VS Code extensions](https://developers.sap.com/tutorials/btp-app-set-up-local-development.html#cc41d842-5014-4e9e-a16b-8897a1f11ffc)
 
-* [Install SAP Fiori tools Extension Pack](https://developers.sap.com/tutorials/btp-app-set-up-local-development.html#38489d38-c635-4efb-b6eb-dd5a8d1bee87)  
+* [Install SAP Fiori tools Extension Pack](https://developers.sap.com/tutorials/btp-app-set-up-local-development.html#38489d38-c635-4efb-b6eb-dd5a8d1bee87)
+
+* [Install SAP Cloud MTA Build Tool](https://sap.github.io/cloud-mta-build-tool/download/)  
 
 ### Local Services
 
 * See [Normal Prerequisites Services Section](#services)
 
 ## Prerequisites for Performing the Exercises in a Dev Container
+
+https://code.visualstudio.com/docs/remote/containers
 
 ### Dev Container Hardware
 
@@ -67,7 +71,15 @@ sadf
 
 * [Install Microsoft Visual Studio Code](https://developers.sap.com/tutorials/btp-app-set-up-local-development.html#8ccbe83d-2182-45b7-a891-178f46e1a117)
 
-* 
+* [Install Git](https://developers.sap.com/tutorials/btp-app-set-up-local-development.html#e131f039-c4d4-4e29-8d64-c774b0dff9c1)
+
+* [VS Code Extension for Remote Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+  
+* A Docker based container orchestration tool such as [Docker Desktop](https://www.docker.com/products/docker-desktop/) on Windows and MacOS or [Docker for Linux](https://docs.docker.com/engine/install/) on Linux
+  > The license for Docker Desktop has changed - see [Docker is Updating and Extending Our Product Subscriptions](https://www.docker.com/blog/updating-product-subscriptions/) for an overview.
+  
+* [Clone this Repository](https://github.com/SAP-samples/cap-hana-exercises-codejam)
+  * ![Clone Project](images/prereq/clone_project.png)
 
 ### Dev Container Services
 
@@ -75,13 +87,17 @@ sadf
 
 ## Prerequisites for Performing the Exercises in a Codespaces
 
+https://github.com/features/codespaces
+
 ### Codespaces Hardware
 
 * None
 
 ### Codespaces Software
 
-* None
+* From GitHub choose the option to create a new codespace.
+
+* You can then use this codespace from the browser or open it remotely in your locally VSCode installation. The codespace will be pre-configured with the correct Node.js runtime, all other development tools and already has the project cloned into it.
 
 ### Codespaces Services
 
