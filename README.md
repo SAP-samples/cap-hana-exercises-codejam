@@ -30,9 +30,22 @@ If you finish an exercise early, please resist the temptation to continue with t
 
 Here's an overview of the exercises in this CodeJam.
 
-* [Getting Started](exercises/ex0/)
-* [Exercise 1 - Creating your first ABAP classes](exercises/ex1/)
-  * [Exercise 1.1 - Expose an HTTP Service in ABAP](exercises/ex1#exercise-11-expose-an-http-service-in-abap)
+* [Deploy SAP HANA Cloud](https://developers.sap.com/tutorials/hana-cloud-deploying.html)
+* https://developers.sap.com/tutorials/appstudio-onboarding.html
+* https://developers.sap.com/tutorials/hana-cloud-cap-create-project.html
+* https://developers.sap.com/tutorials/hana-cloud-cap-create-database-cds.html
+* https://developers.sap.com/tutorials/hana-cloud-cap-create-ui.html
+* https://developers.sap.com/tutorials/hana-cloud-cap-add-authentication.html
+* https://developers.sap.com/tutorials/hana-cloud-cap-calc-view.html
+* https://developers.sap.com/tutorials/hana-cloud-cap-stored-proc.html
+* https://developers.sap.com/tutorials/hana-cloud-cap-add-list-report.html
+
+Merge these two?
+* https://developers.sap.com/tutorials/hana-cloud-cap-add-auth-deploy.html
+* https://developers.sap.com/tutorials/hana-cloud-cap-deploy-mta.html
+
+* https://developers.sap.com/tutorials/hana-cloud-integrate-fe-launchpad.html
+
 
 ## Known Issues
 
