@@ -1,4 +1,4 @@
-# [CodeJam - Combine SAP Cloud Application Programming Model with SAP HANA Cloud to Create Full-Stack Applications]
+# CodeJam - Combine SAP Cloud Application Programming Model with SAP HANA Cloud to Create Full-Stack Applications
 <!--- Register repository https://api.reuse.software/register, then add REUSE badge:
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/cap-hana-exercises-codejam)](https://api.reuse.software/info/github.com/SAP-samples/cap-hana-exercises-codejam)
 -->
