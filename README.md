@@ -7,6 +7,11 @@
 
 This repository contains the material for the CodeJam on using the SAP Cloud Application Programming Model and SAP HANA Cloud to create Full-Stack Applications. In this CodeJam we will learn how to Deploy and configure an instance of the SAP HANA Cloud trial, develop a multi-target application using SAP Business Application Studio and SAP Cloud Application Programming Model, and create a service layer and SAP Fiori UI that also includes SAP HANA native artifacts, such as calculation views.
 
+## Overview
+
+* [SAP Cloud Application Programming Model PowerPoint Presentation from Introduction](./slides/CAP_Small.pdf)
+* [Introduction to SAP Cloud Application Programming Model Video](https://youtu.be/T1gqalbwzHk)
+
 ### Material organization
 
 The material consists of a series of exercises. Each exercise is meant to be independent of each other so, attendees can potential pick and choose which exercise to work on.  Each exercise is contained in a directory, with a main 'readme' file containing the core exercise instructions, with optional supporting files, such as screenshots and sample files.
