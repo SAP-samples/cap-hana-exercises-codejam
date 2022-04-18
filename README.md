@@ -12,6 +12,10 @@ This repository contains the material for the CodeJam on using the SAP Cloud App
 * [SAP Cloud Application Programming Model PowerPoint Presentation from Introduction](./slides/CAP_Small.pdf)
 * [Introduction to SAP Cloud Application Programming Model Video](https://youtu.be/T1gqalbwzHk)
 
+## Requirements
+
+The requirements to follow the exercises in this repository, including hardware and software, are detailed in the [prerequisites](prerequisites.md) file.
+
 ### Material organization
 
 The material consists of a series of exercises. Each exercise is meant to be independent of each other so, attendees can potential pick and choose which exercise to work on.  Each exercise is contained in a directory, with a main 'readme' file containing the core exercise instructions, with optional supporting files, such as screenshots and sample files.
@@ -26,13 +30,9 @@ If you finish an exercise early, please resist the temptation to continue with t
 
 Here's an overview of the exercises in this CodeJam.
 
-- [Getting Started](exercises/ex0/)
-- [Exercise 1 - Creating your first ABAP classes](exercises/ex1/)
-  - [Exercise 1.1 - Expose an HTTP Service in ABAP](exercises/ex1#exercise-11-expose-an-http-service-in-abap)
-
-## Requirements
-
-The requirements to follow the exercises in this repository, including hardware and software, are detailed in the [prerequisites](prerequisites.md) file.
+* [Getting Started](exercises/ex0/)
+* [Exercise 1 - Creating your first ABAP classes](exercises/ex1/)
+  * [Exercise 1.1 - Expose an HTTP Service in ABAP](exercises/ex1#exercise-11-expose-an-http-service-in-abap)
 
 ## Known Issues
 
