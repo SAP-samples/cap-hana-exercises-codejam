@@ -46,7 +46,6 @@ Merge these two?
 
 * https://developers.sap.com/tutorials/hana-cloud-integrate-fe-launchpad.html
 
-
 ## Known Issues
 
 None
@@ -55,7 +54,7 @@ None
 
 If you can spare a couple of minutes at the end of the session, please help me improve for next time by giving me some feedback.
 
-Simply use this [Give Feedback](https://github.com/SAP-samples/cap-hana-exercises-codejam/issues/new?assignees=&labels=feedback&template=feedback-template.md&title=Feedback) link to create a special "feedback" issue, and follow the instructions in there.
+Simply use this [Give Feedback](https://github.com/SAP-samples/cap-hana-exercises-codejam/issues/new?assignees=&labels=feedback&template=session-feedback-template.md&title=Feedback) link to create a special "feedback" issue, and follow the instructions in there.
 
 ## How to obtain support
 
