@@ -25,11 +25,11 @@ There are hardware, software and service prerequisites for participating in this
 In this exercise variant you will install all development tools locally in your laptop and develop test there. Unfortunately the SAP HANA Graphical Calculation View Editor is not supported as a VSCode Extension yet, so those steps must be performed in the SAP Business Application Studio. However the rest of the exercises are possible locally.
 
 <details><summary>BAS</summary>
-sadf
+BAS Test
 </details>
 
 <details><summary>VSCode</summary>
-sadf
+VSCode Test
 </details>
 
 ### Local Hardware
@@ -61,7 +61,8 @@ sadf
 
 ## Prerequisites for Performing the Exercises in a Dev Container
 
-https://code.visualstudio.com/docs/remote/containers
+In this scenario you will develop locally but we will reduce the amount of setup steps and tools you need to install by using [development containers](https://code.visualstudio.com/docs/remote/containers
+). This uses Docker Desktop and VSCode extensions provided by Microsoft to configure and remotely connect VSCode to this a container.
 
 ### Dev Container Hardware
 
@@ -81,13 +82,15 @@ https://code.visualstudio.com/docs/remote/containers
 * [Clone this Repository](https://github.com/SAP-samples/cap-hana-exercises-codejam)
   * ![Clone Project](images/prereq/clone_project.png)
 
+* TO-DO Add step for starting local devcontainer (I don't have Docker Desktop currently installed)
+
 ### Dev Container Services
 
 * See [Normal Prerequisites Services Section](#services)
 
 ## Prerequisites for Performing the Exercises in a Codespaces
 
-https://github.com/features/codespaces
+This is a bit of a hybrid scenario.  It uses the Dev Container configuration but runs the Dev Container and development tools in the cloud via [GitHub Codespaces](https://github.com/features/codespaces). It has the ease of starting similar to SAP Business Application Studio and its Dev Spaces, but allows for more customization of the environment and usage of a larger range of VSCode Extensions.
 
 ### Codespaces Hardware
 
@@ -95,7 +98,7 @@ https://github.com/features/codespaces
 
 ### Codespaces Software
 
-* From GitHub choose the option to create a new codespace.
+* From GitHub choose the option to create a new codespace. TO-DO Add screenshot once repo is Public.
 
 * You can then use this codespace from the browser or open it remotely in your locally VSCode installation. The codespace will be pre-configured with the correct Node.js runtime, all other development tools and already has the project cloned into it.
 
