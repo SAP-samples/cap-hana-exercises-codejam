@@ -33,8 +33,14 @@ If you finish an exercise early, please resist the temptation to continue with t
 Here's an overview of the exercises in this CodeJam.
 
 * Make certain that you have successfully completed all the [prerequisites](prerequisites.md)
-* [Exercise 1 - Set Up SAP HANA Cloud and CAP Project](exercises/ex1/README.md)
+* [Exercise 1 - Set Up SAP HANA Cloud and Development Environment](exercises/ex1/README.md)
   * [Exercise 1.1 - Deploy SAP HANA Cloud](exercises/ex1/README.md#exercise-11-deploy-sap-hana-cloud)
+  * [Exercise 1.2 - Set Up SAP Business Application Studio for Development](exercises/ex1/README.md#exercise-12-set-up-sap-business-application-studio-for-development)
+* [Exercise 2 - Create an SAP Cloud Application Programming Model Project for SAP HANA Cloud]
+* [Exercise 2 - ]
+
+
+
 * [Deploy SAP HANA Cloud](https://developers.sap.com/tutorials/hana-cloud-deploying.html)
 * https://developers.sap.com/tutorials/appstudio-onboarding.html
 * https://developers.sap.com/tutorials/hana-cloud-cap-create-project.html
