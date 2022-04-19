@@ -17,12 +17,16 @@ We will use the SAP BTP cockpit as a graphical tool to provision your free SAP H
 SAP Business Application Studio is a development environment available on SAP Business Technology Platform. Before you can start developing using SAP Business Application Studio, you must perform the required onboarding steps that are described in this step once.
 
 <details><summary>SAP BTP free tier</summary>
+
 1. If you are using the SAP BTP free tier, then you only need to perform the following steps
-2. safdas
+2. Step 2
+
 </details>
 
 <details><summary>SAP BTP free trial</summary>
+
 1. If you are using the SAP BTP free trial, then perform all the steps in [this tutorial - Set Up SAP Business Application Studio for Development](https://developers.sap.com/tutorials/appstudio-onboarding.html)
+
 </details>
 
 ## Summary
