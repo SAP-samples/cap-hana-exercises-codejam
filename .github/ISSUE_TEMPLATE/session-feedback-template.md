@@ -39,7 +39,7 @@ Thanks for taking a couple of minutes to give feedback, which will help me impro
 - [ ] Didn't really read it, didn't really bother me though
 - [ ] Found it helpful as context and background
 
-### How did you find the actual individual (👉) tasks in the exercises?
+### How did you find the actual individual tasks in the exercises?
 
 - [ ] Not relevant enough
 - [ ] Hard to do

@@ -9,7 +9,9 @@ This repository contains the material for the CodeJam on using the SAP Cloud App
 
 ## Overview
 
-* [SAP Cloud Application Programming Model PowerPoint Presentation from Introduction](./slides/CAP_Small.pdf)
+* [SAP Cloud Application Programming Model Presentation from Introduction](./slides/CAP_Small.pdf)
+* [SAP HANA CLoud Presentation from Introduction](./slides/HANA_Small.pdf)
+* [SAP Business Application Studio Presentation from Introduction](./slides/BAS_Small.pdf)
 * [Introduction to SAP Cloud Application Programming Model Video](https://youtu.be/T1gqalbwzHk)
 
 ## Requirements
@@ -30,6 +32,9 @@ If you finish an exercise early, please resist the temptation to continue with t
 
 Here's an overview of the exercises in this CodeJam.
 
+* Make certain that you have successfully completed all the [prerequisites](prerequisites.md)
+* [Exercise 1 - Set Up SAP HANA Cloud and CAP Project](exercises/ex1/README.md)
+  * [Exercise 1.1 - Deploy SAP HANA Cloud](exercises/ex1/README.md#exercise-11-deploy-sap-hana-cloud)
 * [Deploy SAP HANA Cloud](https://developers.sap.com/tutorials/hana-cloud-deploying.html)
 * https://developers.sap.com/tutorials/appstudio-onboarding.html
 * https://developers.sap.com/tutorials/hana-cloud-cap-create-project.html

@@ -80,7 +80,10 @@ In this scenario you will develop locally but we will reduce the amount of setup
   > The license for Docker Desktop has changed - see [Docker is Updating and Extending Our Product Subscriptions](https://www.docker.com/blog/updating-product-subscriptions/) for an overview.
   
 * [Clone this Repository](https://github.com/SAP-samples/cap-hana-exercises-codejam)
-  * ![Clone Project](images/prereq/clone_project.png)
+  ![Clone Project](images/prereq/clone_project.png)
+
+* When the project opens in VSCode you should receive a dialog in the lower right corner that the "Folder contains a Dev Container".  Choose to `Reopen in Container`
+  ![Reopen in Container](images/prereq/reopen_remote_container.png)
 
 * TO-DO Add step for starting local devcontainer (I don't have Docker Desktop currently installed)
 
