@@ -24,14 +24,6 @@ There are hardware, software and service prerequisites for participating in this
 
 In this exercise variant you will install all development tools locally in your laptop and develop test there. Unfortunately the SAP HANA Graphical Calculation View Editor is not supported as a VSCode Extension yet, so those steps must be performed in the SAP Business Application Studio. However the rest of the exercises are possible locally.
 
-<details><summary>BAS</summary>
-BAS Test
-</details>
-
-<details><summary>VSCode</summary>
-VSCode Test
-</details>
-
 ### Local Hardware
 
 * None
