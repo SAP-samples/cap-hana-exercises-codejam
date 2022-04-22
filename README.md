@@ -36,26 +36,13 @@ Here's an overview of the exercises in this CodeJam.
 * [Exercise 1 - Set Up SAP HANA Cloud and Development Environment](exercises/ex1/README.md)
   * [Exercise 1.1 - Deploy SAP HANA Cloud](exercises/ex1/README.md#exercise-11-deploy-sap-hana-cloud)
   * [Exercise 1.2 - Set Up SAP Business Application Studio for Development](exercises/ex1/README.md#exercise-12-set-up-sap-business-application-studio-for-development)
-* [Exercise 2 - Create an SAP Cloud Application Programming Model Project for SAP HANA Cloud]
-* [Exercise 2 - ]
-
-
-
-* [Deploy SAP HANA Cloud](https://developers.sap.com/tutorials/hana-cloud-deploying.html)
-* https://developers.sap.com/tutorials/appstudio-onboarding.html
-* https://developers.sap.com/tutorials/hana-cloud-cap-create-project.html
-* https://developers.sap.com/tutorials/hana-cloud-cap-create-database-cds.html
-* https://developers.sap.com/tutorials/hana-cloud-cap-create-ui.html
-* https://developers.sap.com/tutorials/hana-cloud-cap-add-authentication.html
-* https://developers.sap.com/tutorials/hana-cloud-cap-calc-view.html
-* https://developers.sap.com/tutorials/hana-cloud-cap-stored-proc.html
-* https://developers.sap.com/tutorials/hana-cloud-cap-add-list-report.html
-
-Merge these two?
-* https://developers.sap.com/tutorials/hana-cloud-cap-add-auth-deploy.html
-* https://developers.sap.com/tutorials/hana-cloud-cap-deploy-mta.html
-
-* https://developers.sap.com/tutorials/hana-cloud-integrate-fe-launchpad.html
+* [Exercise 2 - Create an SAP Cloud Application Programming Model Project for SAP HANA Cloud](exercises/ex2/README.md)
+* [Exercise 3 - Create Database Artifacts Using Core Data Services (CDS) for SAP HANA Cloud](exercises/ex3/README.md)
+* [Exercise 4 - Create a User Interface with CAP (SAP HANA Cloud)](exercises/ex4/README.md)
+* [Exercise 5 - Add User Authentication to Your Application (SAP HANA Cloud)](exercises/ex5/README.md)
+* [Exercise 6 - Create Calculation View and Expose via CAP (SAP HANA Cloud)](exercises/ex6/README.md)
+* [Exercise 7 - Create HANA Stored Procedure and Expose as CAP Service Function (SAP HANA Cloud)](exercises/ex7/README.md)
+* [Exercise 8 - Deploy CAP with SAP HANA Cloud project as MTA](exercises/ex8/README.md)
 
 ## Known Issues
 

@@ -1,6 +1,6 @@
 # Exercise 1 - Set Up SAP HANA Cloud and CAP Project
 
-Before we can begin development we need to provision an SAP HANA Cloud database instance and ensure that we have access to our chosen development environment. 
+Before we can begin development we need to provision an SAP HANA Cloud database instance and ensure that we have access to our chosen development environment.
 
 ## Exercise 1.1 Deploy SAP HANA Cloud
 
