@@ -51,7 +51,7 @@ SAP Business Application Studio is a development environment available on SAP Bu
 
 Now that you have your SAP HANA Cloud database instance and have setup the basics of your development environment, we are ready to start our development project.
 
-Continue to - [Exercise 2 - Exposing and Consuming Services via HTTP](../ex2/README.md)
+Continue to - [Exercise 2 - Create an SAP Cloud Application Programming Model Project for SAP HANA Cloud](../ex2/README.md)
 
 ## Further Study
 

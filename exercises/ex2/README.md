@@ -4,13 +4,11 @@ In this exercise we will use the wizard for the SAP Cloud Application Programmin
 
 Perform all the steps in [tutorial: Create an SAP Cloud Application Programming Model Project for SAP HANA Cloud](https://developers.sap.com/tutorials/hana-cloud-cap-create-project.html)
 
-
-
 ## Summary
 
 Summary
 
-Continue to - [Exercise 3 - Exposing and Consuming Services via HTTP](../ex3/README.md)
+Continue to - [Exercise 3 - Create Database Artifacts Using Core Data Services (CDS) for SAP HANA Cloud](../ex3/README.md)
 
 ## Further Study
 
