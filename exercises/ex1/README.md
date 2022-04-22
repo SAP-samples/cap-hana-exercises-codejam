@@ -20,7 +20,24 @@ SAP Business Application Studio is a development environment available on SAP Bu
 
 1. If you are using the [SAP BTP free tier](https://developers.sap.com/tutorials/btp-free-tier-account.html), then complete the following steps
 
-2. Step 2
+2. From you SAP BTP Global Account in the SAP BTP Cockpit, select the subaccount in which you want to enable the SAP Business Application Studio subscription.
+
+3. From the navigation area, click Service Marketplace.
+   ![Service Marketplace](../../images/ex1/service_marketplace.png)
+
+4. In the Service Marketplace page, search for `studio`.
+   ![Search for Studio](../../images/ex1/studio.png)
+
+5. Click Actions icon (three dots) to open the list of available actions.
+   ![Three Dots](../../images/ex1/three_dots.png)
+
+6. Click Create to launch the wizard for subscribing to SAP Business Application Studio.
+   ![Create](../../images/ex1/create.png)
+
+7. In the wizard verify that `SAP Business Application Studio` is selected in the Service field and `free` is selected in the Plan field.
+   ![Free Plan](../../images/ex1/free.png)
+
+8. Click `Create` to subscribe to SAP Business Application Studio.
 
 </details>
 
