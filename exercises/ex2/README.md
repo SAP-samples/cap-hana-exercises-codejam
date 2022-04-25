@@ -8,7 +8,7 @@ Perform all the steps in [tutorial: Create an SAP Cloud Application Programming 
 
 At the end of this tutorial you have your `dev space`, the basic CAP project and have configured source control for this project. 
 
-### Questions for discussion
+### Questions for Discussion
 
 1. What is the value of the `dev space` in the SAP Business Application Studio? To help with this discussion point consider the [prerequisites section](../../prerequisites.md) for not using the SAP Business Application Studio.
 
