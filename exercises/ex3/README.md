@@ -10,9 +10,9 @@ You've now designed database tables, deployed them into an SAP HANA Cloud databa
 
 ### Questions for Discussion
 
-1. We loaded data into the tables using the import feature of the Database Explorer. Is anyone familiar with alternatives to this to get initial data into your new tables?
+1. We loaded data into the tables using the import feature of the Database Explorer. Is anyone familiar with [alternatives](https://cap.cloud.sap/docs/guides/databases#providing-initial-data) to this to get initial data into your new tables?
 
-2. Where is Country coming from in interactions.cds?
+2. Where is Country coming from in interactions.cds? [Hint](https://cap.cloud.sap/docs/guides/reuse-and-compose)
 
    ```cds
    using { Country } from '@sap/cds/common';

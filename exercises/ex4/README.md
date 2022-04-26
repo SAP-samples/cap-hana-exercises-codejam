@@ -6,12 +6,24 @@ Perform all the steps in 👉 [tutorial: Create a User Interface with CAP (SAP H
 
 ## Summary
 
-Summary
+You now have an SAPUI5 based user interface for your CAP application. But in fact we've done much more than that in this exercise.  You've also added and configured the application router and "wired" the configuration between the CAP and the application router.
 
-Continue to - [Exercise 5 - Add User Authentication to Your Application (SAP HANA Cloud)](../ex5/README.md)
+### Questions for Discussion
+
+1. We added an [Application Router](https://www.npmjs.com/package/@sap/approuter) to your application, but what is it really and why is it helpful?
+
+2. We added a [Standalone Approuter](https://blogs.sap.com/2020/04/03/sap-application-router/), but there was also an option for a Managed Approuter. What's [the difference](https://blogs.sap.com/2021/05/17/sap-tech-bytes-faq-managed-approuter-vs.-standalone-approuter/)?
+
+3. Why does the file default-env.json work?  Hint it has everything to do with [@sap/xsenv](https://www.npmjs.com/package/@sap/xsenv).
+
+4. When we change the `Requires` section of the [mta.yaml](https://help.sap.com/docs/SAP_HANA_PLATFORM/4505d0bdaf4948449b7f7379d24d0f0d/4050fee4c469498ebc31b10f2ae15ff2.html) what are we doing?
 
 ## Further Study
 
-* [Tools to Manage and Access the SAP HANA Cloud, SAP HANA Database](https://developers.sap.com/tutorials/hana-cloud-mission-trial-3.html)
-* [SAP HANA Cloud](https://community.sap.com/topics/hana)
-* [SAP Business Application Studio](https://community.sap.com/topics/business-application-studio)
+* [@sap/approuter](https://www.npmjs.com/package/@sap/approuter)
+* [@sap/xsenv](https://www.npmjs.com/package/@sap/xsenv)
+* [SAPUI5](https://sapui5.hana.ondemand.com/)
+
+## Next
+
+Continue to 👉 [Exercise 5 - Add User Authentication to Your Application (SAP HANA Cloud)](../ex5/README.md)

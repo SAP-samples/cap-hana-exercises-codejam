@@ -16,11 +16,9 @@ At the end of this tutorial you have your `dev space`, the basic CAP project and
 
 3. What's the purpose of the [mta.yaml](https://help.sap.com/docs/HANA_CLOUD_DATABASE/c2b99f19e9264c4d9ae9221b22f6f589/d8226e641a124b629b0e8f7c111cd1ae.html) file?
 
-4. Who can explain what NPM is and how and why it is used?
+4. Who can explain what [NPM](https://docs.npmjs.com/about-npm) is and how and why it is used?
 
-5. Version Control with Git. How familiar is everyone with Git? Any ABAP developers in the room (if so we should talk). What's the reason/impact of using local Git repository as we did in this tutorial?
-
-Continue to 👉 [Exercise 3 - Create Database Artifacts Using Core Data Services (CDS) for SAP HANA Cloud](../ex3/README.md)
+5. Version Control with [Git](https://git-scm.com/). How familiar is everyone with Git? Any ABAP developers in the room (if so we should talk). What's the reason/impact of using local Git repository as we did in this tutorial?
 
 ## Further Study
 
@@ -30,3 +28,7 @@ Continue to 👉 [Exercise 3 - Create Database Artifacts Using Core Data Service
 * [HANA Cloud: HDI - Under the Hood](https://www.youtube.com/watch?v=UmOkjPxE6Us)
 * [openSAP Version Control with Git](https://open.sap.com/courses/git1)
 * [Git basics in 10 minutes](https://www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/)
+
+## Next
+
+Continue to 👉 [Exercise 3 - Create Database Artifacts Using Core Data Services (CDS) for SAP HANA Cloud](../ex3/README.md)
