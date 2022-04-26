@@ -22,10 +22,12 @@ You've now designed database tables, deployed them into an SAP HANA Cloud databa
 
 4. In the service implementation (interaction_srv.cds), how do you know you are creating an OData service?
 
-Continue to 👉 [Exercise 4 - Create a User Interface with CAP (SAP HANA Cloud)](../ex4/README.md)
-
 ## Further Study
 
 * [Video Version of this Tutorial](https://youtu.be/hlHY7eBriRA)
 * [SAP HANA Database Explorer](https://help.sap.com/docs/HANA_CLOUD/a2cea64fa3ac4f90a52405d07600047b/7fa981c8f1b44196b243faeb4afb5793.html)
 * [Domain Modeling with CDS](https://cap.cloud.sap/docs/guides/domain-models)
+
+## Next
+
+Continue to 👉 [Exercise 4 - Create a User Interface with CAP (SAP HANA Cloud)](../ex4/README.md)

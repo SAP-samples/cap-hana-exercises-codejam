@@ -2,7 +2,7 @@
 
 In this exercise we will use services based on SAP Cloud Application Programming Model Node.js and use an SAP Fiori wizard to create a user interface.
 
-Perform all the steps in [tutorial: Create a User Interface with CAP (SAP HANA Cloud)](https://developers.sap.com/tutorials/hana-cloud-cap-create-ui.html)
+Perform all the steps in 👉 [tutorial: Create a User Interface with CAP (SAP HANA Cloud)](https://developers.sap.com/tutorials/hana-cloud-cap-create-ui.html)
 
 ## Summary
 
