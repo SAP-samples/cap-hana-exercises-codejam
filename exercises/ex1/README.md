@@ -6,7 +6,7 @@ Before we can begin development we need to provision an SAP HANA Cloud database 
 
 We will use the SAP BTP cockpit as a graphical tool to provision your free SAP HANA Cloud instance if you don't already have one in your account.
 
-1. Perform all the steps in [tutorial: Deploy SAP HANA Cloud](https://developers.sap.com/tutorials/hana-cloud-deploying.html)
+1. Perform all the steps in 👉 [tutorial: Deploy SAP HANA Cloud](https://developers.sap.com/tutorials/hana-cloud-deploying.html)
 
 2. This is a one time activity. You now have an SAP HANA database fully accessible to you with the full range of HANA Cloud capabilities.  
 
@@ -51,7 +51,7 @@ SAP Business Application Studio is a development environment available on SAP Bu
 
 Now that you have your SAP HANA Cloud database instance and have setup the basics of your development environment, we are ready to start our development project.
 
-Continue to - [Exercise 2 - Create an SAP Cloud Application Programming Model Project for SAP HANA Cloud](../ex2/README.md)
+Continue to 👉 [Exercise 2 - Create an SAP Cloud Application Programming Model Project for SAP HANA Cloud](../ex2/README.md)
 
 ## Further Study
 

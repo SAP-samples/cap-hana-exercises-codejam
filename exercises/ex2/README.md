@@ -2,11 +2,11 @@
 
 In this exercise we will use the wizard for the SAP Cloud Application Programming Model to create a project in SAP Business Application Studio that will also support SAP HANA Cloud.
 
-Perform all the steps in [tutorial: Create an SAP Cloud Application Programming Model Project for SAP HANA Cloud](https://developers.sap.com/tutorials/hana-cloud-cap-create-project.html)
+Perform all the steps in 👉 [tutorial: Create an SAP Cloud Application Programming Model Project for SAP HANA Cloud](https://developers.sap.com/tutorials/hana-cloud-cap-create-project.html)
 
 ## Summary
 
-At the end of this tutorial you have your `dev space`, the basic CAP project and have configured source control for this project. 
+At the end of this tutorial you have your `dev space`, the basic CAP project and have configured source control for this project.
 
 ### Questions for Discussion
 
@@ -20,7 +20,7 @@ At the end of this tutorial you have your `dev space`, the basic CAP project and
 
 5. Version Control with Git. How familiar is everyone with Git? Any ABAP developers in the room (if so we should talk). What's the reason/impact of using local Git repository as we did in this tutorial?
 
-Continue to - [Exercise 3 - Create Database Artifacts Using Core Data Services (CDS) for SAP HANA Cloud](../ex3/README.md)
+Continue to 👉 [Exercise 3 - Create Database Artifacts Using Core Data Services (CDS) for SAP HANA Cloud](../ex3/README.md)
 
 ## Further Study
 

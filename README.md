@@ -28,6 +28,8 @@ During the CodeJam you will complete each exercise one at a time. At the end of 
 
 If you finish an exercise early, please resist the temptation to continue with the next one. Instead, explore what you've just done and see if you can find out more about the subject that was covered. That way we all stay on track together and can benefit from some reflection via the questions (and answers).
 
+> The exercises are written in a conversational way; this is so that they have enough context and information to be completed outside the hands-on session itself. To help you navigate and find what you have to actually do next, there are pointers like this 👉 throughout that indicate the things you have to actually do (as opposed to just read for background information).
+
 ### The exercises
 
 Here's an overview of the exercises in this CodeJam.

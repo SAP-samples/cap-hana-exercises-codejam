@@ -2,7 +2,7 @@
 
 In this exercise we will use SAP Cloud Application Programming Model (CAP) and Core Data Services (CDS) to generate SAP HANA Cloud basic database artifacts.
 
-Perform all the steps in [tutorial: Create Database Artifacts Using Core Data Services (CDS) for SAP HANA Cloud](https://developers.sap.com/tutorials/hana-cloud-cap-create-database-cds.html)
+Perform all the steps in 👉 [tutorial: Create Database Artifacts Using Core Data Services (CDS) for SAP HANA Cloud](https://developers.sap.com/tutorials/hana-cloud-cap-create-database-cds.html)
 
 ## Summary
 
@@ -22,7 +22,7 @@ You've now designed database tables, deployed them into an SAP HANA Cloud databa
 
 4. In the service implementation (interaction_srv.cds), how do you know you are creating an OData service?
 
-Continue to - [Exercise 4 - Create a User Interface with CAP (SAP HANA Cloud)](../ex4/README.md)
+Continue to 👉 [Exercise 4 - Create a User Interface with CAP (SAP HANA Cloud)](../ex4/README.md)
 
 ## Further Study
 
