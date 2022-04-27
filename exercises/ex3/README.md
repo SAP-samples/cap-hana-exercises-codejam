@@ -6,7 +6,7 @@ Perform all the steps in 👉 [tutorial: Create Database Artifacts Using Core Da
 
 ## Summary
 
-You've now designed database tables, deployed them into an SAP HANA Cloud database instance, and loaded data into them using the Database Explorer.
+You've now designed database tables, deployed them into an SAP HANA Cloud database instancey , and loaded data into them using the Database Explorer.
 
 ### Questions for Discussion
 
