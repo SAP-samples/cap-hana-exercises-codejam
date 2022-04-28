@@ -9,6 +9,6 @@
         "start": "node node_modules/@sap/approuter/approuter.js"
     },
     "dependencies": {
-        "@sap/approuter": "^8"
+        "@sap/approuter": "^10.15.3"
     }
 }

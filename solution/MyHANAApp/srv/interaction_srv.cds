@@ -1,4 +1,5 @@
 using app.interactions from '../db/interactions';
+@requires: 'authenticated-user'
 service CatalogService {
 
  entity Interactions_Header

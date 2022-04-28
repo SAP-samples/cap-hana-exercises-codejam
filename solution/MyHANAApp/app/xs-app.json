@@ -1,9 +1,21 @@
 {
-  "authenticationMethod": "none",
-  "routes": [{
-	      "source": "/catalog/(.*)",
-	        "destination": "srv-api",
-	          "csrfProtection": true
-    }]
+  "authenticationMethod": "route",
+  "routes": [
+    {
+      "source": "/catalog/(.*)",
+      "destination": "srv-api",
+      "csrfProtection": true,
+      "authenticationType": "xsuaa"
+    },
+    {
+      "source": "^/user-api(.*)",
+      "target": "$1",
+      "service": "sap-approuter-userapi"
+    },
+    {
+      "source": "/(.*)",
+      "localDir": ".",
+      "authenticationType": "xsuaa"
+    }
+  ]
 }
-

@@ -6,13 +6,16 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@sap/audit-logging": "^5.5.3",
     "@sap/cds": "^5",
+    "@sap/xsenv": "^3.2.2",
+    "@sap/xssec": "^3.2.13",
     "express": "^4",
-    "hdb": "^0.19.0"
+    "hdb": "^0.19.0",
+    "passport": "^0.5.2"
   },
   "scripts": {
-    "start": "cds run",
-    "watch-interaction_items": "cds watch --open interaction_items/webapp/index.html?sap-ui-xx-viewCache=false#fe-lrop-v4"
+    "start": "set NODE_ENV=production&&cds run"
   },
   "eslintConfig": {
     "extends": "eslint:recommended",
@@ -57,6 +60,9 @@
     "requires": {
       "db": {
         "kind": "hana"
+      },
+      "uaa": {
+        "kind": "xsuaa"
       }
     }
   },
