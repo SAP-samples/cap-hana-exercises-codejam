@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="CatalogService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="Interactions_Header" EntityType="CatalogService.Interactions_Header">
+                    <NavigationPropertyBinding Path="ITEMS" Target="Interactions_Items"/>
+                    <NavigationPropertyBinding Path="BPCOUNTRY" Target="Countries"/>
+                </EntitySet>
+                <EntitySet Name="Interactions_Items" EntityType="CatalogService.Interactions_Items">
+                    <NavigationPropertyBinding Path="INTHeader" Target="Interactions_Header"/>
+                </EntitySet>
+                <EntitySet Name="Countries" EntityType="CatalogService.Countries">
+                    <NavigationPropertyBinding Path="texts" Target="Countries_texts"/>
+                    <NavigationPropertyBinding Path="localized" Target="Countries_texts"/>
+                </EntitySet>
+                <EntitySet Name="Countries_texts" EntityType="CatalogService.Countries_texts"/>
+            </EntityContainer>
+            <EntityType Name="Interactions_Header">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+                <NavigationProperty Name="ITEMS" Type="Collection(CatalogService.Interactions_Items)" Partner="INTHeader">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <Property Name="PARTNER" Type="Edm.String" MaxLength="10"/>
+                <Property Name="LOG_DATE" Type="Edm.DateTimeOffset"/>
+                <NavigationProperty Name="BPCOUNTRY" Type="CatalogService.Countries">
+                    <ReferentialConstraint Property="BPCOUNTRY_code" ReferencedProperty="code"/>
+                </NavigationProperty>
+                <Property Name="BPCOUNTRY_code" Type="Edm.String" MaxLength="3"/>
+            </EntityType>
+            <EntityType Name="Interactions_Items">
+                <Key>
+                    <PropertyRef Name="INTHeader_ID"/>
+                    <PropertyRef Name="TEXT_ID"/>
+                </Key>
+                <NavigationProperty Name="INTHeader" Type="CatalogService.Interactions_Header" Partner="ITEMS">
+                    <ReferentialConstraint Property="INTHeader_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="INTHeader_ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="TEXT_ID" Type="Edm.String" MaxLength="10" Nullable="false"/>
+                <Property Name="LANGU" Type="Edm.String" MaxLength="2"/>
+                <Property Name="LOGTEXT" Type="Edm.String" MaxLength="1024"/>
+            </EntityType>
+            <EntityType Name="Countries">
+                <Key>
+                    <PropertyRef Name="code"/>
+                </Key>
+                <Property Name="name" Type="Edm.String" MaxLength="255"/>
+                <Property Name="descr" Type="Edm.String" MaxLength="1000"/>
+                <Property Name="code" Type="Edm.String" MaxLength="3" Nullable="false"/>
+                <NavigationProperty Name="texts" Type="Collection(CatalogService.Countries_texts)">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+                <NavigationProperty Name="localized" Type="CatalogService.Countries_texts">
+                    <ReferentialConstraint Property="code" ReferencedProperty="code"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="Countries_texts">
+                <Key>
+                    <PropertyRef Name="locale"/>
+                    <PropertyRef Name="code"/>
+                </Key>
+                <Property Name="locale" Type="Edm.String" MaxLength="14" Nullable="false"/>
+                <Property Name="name" Type="Edm.String" MaxLength="255"/>
+                <Property Name="descr" Type="Edm.String" MaxLength="1000"/>
+                <Property Name="code" Type="Edm.String" MaxLength="3" Nullable="false"/>
+            </EntityType>
+            <Annotations Target="CatalogService.Interactions_Header/BPCOUNTRY">
+                <Annotation Term="Common.Label" String="{i18n>Country}"/>
+                    <Annotation Term="Core.Description" String="{i18n>CountryCode.Description}"/>
+                    </Annotations>
+                    <Annotations Target="CatalogService.Interactions_Header/BPCOUNTRY_code">
+                        <Annotation Term="Common.Label" String="{i18n>Country}"/>
+                            <Annotation Term="Common.ValueList">
+                                <Record Type="Common.ValueListType">
+                                    <PropertyValue Property="Label" String="{i18n>Country}"/>
+                                        <PropertyValue Property="CollectionPath" String="Countries"/>
+                                        <PropertyValue Property="Parameters">
+                                            <Collection>
+                                                <Record Type="Common.ValueListParameterInOut">
+                                                    <PropertyValue Property="LocalDataProperty" PropertyPath="BPCOUNTRY_code"/>
+                                                    <PropertyValue Property="ValueListProperty" String="code"/>
+                                                </Record>
+                                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                                    <PropertyValue Property="ValueListProperty" String="name"/>
+                                                </Record>
+                                            </Collection>
+                                        </PropertyValue>
+                                    </Record>
+                                </Annotation>
+                                <Annotation Term="Core.Description" String="{i18n>CountryCode.Description}"/>
+                                </Annotations>
+                                <Annotations Target="CatalogService.Countries">
+                                    <Annotation Term="UI.Identification">
+                                        <Collection>
+                                            <Record Type="UI.DataField">
+                                                <PropertyValue Property="Value" Path="name"/>
+                                            </Record>
+                                        </Collection>
+                                    </Annotation>
+                                </Annotations>
+                                <Annotations Target="CatalogService.Countries/name">
+                                    <Annotation Term="Common.Label" String="{i18n>Name}"/>
+                                    </Annotations>
+                                    <Annotations Target="CatalogService.Countries/descr">
+                                        <Annotation Term="Common.Label" String="{i18n>Description}"/>
+                                        </Annotations>
+                                        <Annotations Target="CatalogService.Countries/code">
+                                            <Annotation Term="Common.Text" Path="name"/>
+                                            <Annotation Term="Common.Label" String="{i18n>CountryCode}"/>
+                                            </Annotations>
+                                            <Annotations Target="CatalogService.Countries_texts/name">
+                                                <Annotation Term="Common.Label" String="{i18n>Name}"/>
+                                                </Annotations>
+                                                <Annotations Target="CatalogService.Countries_texts/descr">
+                                                    <Annotation Term="Common.Label" String="{i18n>Description}"/>
+                                                    </Annotations>
+                                                    <Annotations Target="CatalogService.Countries_texts/code">
+                                                        <Annotation Term="Common.Text" Path="name"/>
+                                                        <Annotation Term="Common.Label" String="{i18n>CountryCode}"/>
+                                                        </Annotations>
+                                                    </Schema>
+                                                </edmx:DataServices>
+                                            </edmx:Edmx>

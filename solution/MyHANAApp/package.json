@@ -11,7 +11,8 @@
     "hdb": "^0.19.0"
   },
   "scripts": {
-    "start": "cds run"
+    "start": "cds run",
+    "watch-interaction_items": "cds watch --open interaction_items/webapp/index.html?sap-ui-xx-viewCache=false#fe-lrop-v4"
   },
   "eslintConfig": {
     "extends": "eslint:recommended",
@@ -58,5 +59,8 @@
         "kind": "hana"
       }
     }
-  }
+  },
+  "sapux": [
+    "app/interaction_items"
+  ]
 }

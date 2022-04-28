@@ -12,6 +12,21 @@ build-parameters:
         - npx -p @sap/cds-dk cds build --production
 
 modules:
+  - name: app
+    type: approuter.nodejs
+    path: app
+    requires:
+    - name: MyHANAApp-html5-repo-runtime
+    - name: MyHANAApp-uaa
+    - name: srv-api
+      group: destinations
+      properties:
+        forwardAuthToken: true
+        name: srv-api
+        url: ~{srv-url}
+    parameters:
+      disk-quota: 256M
+      memory: 256M
   - name: MyHANAApp-srv
     type: nodejs
     path: gen/srv
@@ -35,6 +50,14 @@ modules:
       - name: MyHANAApp-db
 
 resources:
+  - name: MyHANAApp-uaa 
+    type: org.cloudfoundry.managed-service
+    parameters:
+      config:
+        tenant-mode: dedicated
+      xsappname: MyHANAApp-${space-guid}
+      service: xsuaa
+    service-plan: application
   - name: MyHANAApp-db
     type: com.sap.xs.hdi-container
     parameters:
