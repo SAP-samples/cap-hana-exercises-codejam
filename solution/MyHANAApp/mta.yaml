@@ -1,5 +1,4 @@
----
-_schema-version: '3.1'
+_schema-version: "3.1"
 ID: MyHANAApp
 version: 1.0.0
 description: "A simple CAP project."
@@ -49,18 +48,22 @@ modules:
       buildpack: nodejs_buildpack
     requires:
       - name: MyHANAApp-db
+        properties:
+          TARGET_CONTAINER: ~{hdi-container-name}
 
 resources:
-  - name: MyHANAApp-uaa 
-    type: org.cloudfoundry.managed-service
-    parameters:
-      config:
-        tenant-mode: dedicated
-      xsappname: MyHANAApp-${space-guid}
-      service: xsuaa
-    service-plan: application
   - name: MyHANAApp-db
     type: com.sap.xs.hdi-container
     parameters:
       service: hana # or 'hanatrial' on trial landscapes
       service-plan: hdi-shared
+    properties:
+      hdi-container-name: ${service-name}
+#  - name: MyHANAApp-uaa 
+#    type: org.cloudfoundry.managed-service
+#    parameters:
+#      config:
+#        tenant-mode: dedicated
+#      xsappname: MyHANAApp-${space-guid}
+#      service: xsuaa
+#    service-plan: application

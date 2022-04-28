@@ -1,3 +1,5 @@
 {
-    "SAP HANA Database Explorer.displaySapWebAnalyticsStartupNotification": false
+    "SAP HANA Database Explorer.displaySapWebAnalyticsStartupNotification": false,
+    "SAP HANA SQLScript LSP.URL": "https://hana-cockpit.cfapps.us10.hana.ondemand.com",
+    "SAP HANA Database Artifacts.displaySapWebAnalyticsStartupNotification": false
 }

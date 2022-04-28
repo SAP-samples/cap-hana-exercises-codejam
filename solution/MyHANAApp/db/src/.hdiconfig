@@ -1,6 +1,6 @@
 
         {
-            "minimum_feature_version": "1000",
+            "minimum_feature_version": "1006",
             "file_suffixes": {
                 "hdbapplicationtime": {
                     "plugin_name": "com.sap.hana.di.applicationtime"
