@@ -13,7 +13,8 @@
     "@sap/xssec": "^3.2.13",
     "express": "^4",
     "hdb": "^0.19.0",
-    "passport": "^0.5.2"
+    "passport": "^0.5.2",
+    "sap-hdb-promisfied": "^2.202203.3"
   },
   "scripts": {
     "start": "set NODE_ENV=production&&cds run"
