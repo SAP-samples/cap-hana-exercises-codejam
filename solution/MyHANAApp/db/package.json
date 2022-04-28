@@ -1,8 +1,7 @@
 {
         "name": "deploy",
         "dependencies": {
-                "@sap/hdi-deploy": "^4.3.3",
-                "sap-hdb-promisfied": "^2.202203.3"
+                "@sap/hdi-deploy": "^4.3.3"
         },
         "engines": {
                 "node": "^12.18.0 || ^14.0.0 || ^16.0.0"

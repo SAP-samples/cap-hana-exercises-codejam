@@ -1,3 +1,5 @@
 {
-    "SAP HANA Database Explorer.displaySapWebAnalyticsStartupNotification": false
+    "SAP HANA Database Explorer.displaySapWebAnalyticsStartupNotification": false,
+    "SAP HANA Database Artifacts.displaySapWebAnalyticsStartupNotification": false,
+    "SAP HANA Database Artifacts.lastSelectedTargetPath": "c:\\SAPDevelop\\git\\cap-hana-exercises-codejam\\solution\\MyHANAApp\\db\\src"
 }
