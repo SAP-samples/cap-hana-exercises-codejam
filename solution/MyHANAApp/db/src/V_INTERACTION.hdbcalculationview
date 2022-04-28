@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="V_INTERACTION" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="V_INTERACTION"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="APP_INTERACTIONS_INTERACTIONS_HEADER">
+    <resourceUri>APP_INTERACTIONS_INTERACTIONS_HEADER</resourceUri>
+  </DataSource>
+  <DataSource id="APP_INTERACTIONS_INTERACTIONS_ITEMS">
+    <resourceUri>APP_INTERACTIONS_INTERACTIONS_ITEMS</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="C1_N" joinType="inner">
+    <viewAttributes>
+      <viewAttribute id="ID"/>
+      <viewAttribute id="PARTNER"/>
+      <viewAttribute id="LOG_DATE"/>
+      <viewAttribute id="BPCOUNTRY_CODE"/>
+      <viewAttribute id="LOGTEXT"/>
+      <viewAttribute id="LANGU"/>
+      <viewAttribute id="TEXT_ID"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <input node="APP_INTERACTIONS_INTERACTIONS_HEADER">
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID" source="ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PARTNER" source="PARTNER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LOG_DATE" source="LOG_DATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="BPCOUNTRY_CODE" source="BPCOUNTRY_CODE"/>
+    </input>
+    <input node="APP_INTERACTIONS_INTERACTIONS_ITEMS">
+      <mapping xsi:type="Calculation:AttributeMapping" target="LOGTEXT" source="LOGTEXT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="LANGU" source="LANGU"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TEXT_ID" source="TEXT_ID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="ID" source="INTHEADER_ID"/>
+    </input>
+    <joinAttribute name="ID"/>
+  </calculationView>
+</calculationViews>
+
+<logicalModel id="Join_1">
+  <attributes>
+    <attribute id="ID" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID"/>
+      <keyMapping columnObjectName="Join_1" columnName="ID"/>
+    </attribute>
+    <attribute id="PARTNER" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PARTNER"/>
+      <keyMapping columnObjectName="Join_1" columnName="PARTNER"/>
+    </attribute>
+    <attribute id="LOG_DATE" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LOG_DATE"/>
+      <keyMapping columnObjectName="Join_1" columnName="LOG_DATE"/>
+    </attribute>
+    <attribute id="BPCOUNTRY_CODE" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="BPCOUNTRY_CODE"/>
+      <keyMapping columnObjectName="Join_1" columnName="BPCOUNTRY_CODE"/>
+    </attribute>
+    <attribute id="LOGTEXT" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LOGTEXT"/>
+      <keyMapping columnObjectName="Join_1" columnName="LOGTEXT"/>
+    </attribute>
+    <attribute id="LANGU" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="LANGU"/>
+      <keyMapping columnObjectName="Join_1" columnName="LANGU"/>
+    </attribute>
+    <attribute id="TEXT_ID" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TEXT_ID"/>
+      <keyMapping columnObjectName="Join_1" columnName="TEXT_ID"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+    
+  
+    <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="282"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+    <shape modelObjectName="APP_INTERACTIONS_INTERACTIONS_HEADER" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="20" y="30"/>
+      <rectangleSize width="339.3671875"/>
+    </shape>
+    <shape modelObjectName="APP_INTERACTIONS_INTERACTIONS_ITEMS" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="522" y="30"/>
+      <rectangleSize width="325.36328125"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
