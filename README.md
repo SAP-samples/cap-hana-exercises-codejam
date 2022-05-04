@@ -9,7 +9,7 @@ This repository contains the material for the CodeJam on using the SAP Cloud App
 ## Overview
 
 * [SAP Cloud Application Programming Model Presentation from Introduction](./slides/CAP_Small.pdf)
-* [SAP HANA CLoud Presentation from Introduction](./slides/HANA_Small.pdf)
+* [SAP HANA Cloud Presentation from Introduction](./slides/HANA_Small.pdf)
 * [SAP Business Application Studio Presentation from Introduction](./slides/BAS_Small.pdf)
 * [Introduction to SAP Cloud Application Programming Model Video](https://youtu.be/T1gqalbwzHk)
 
