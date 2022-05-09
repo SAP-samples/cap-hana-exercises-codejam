@@ -12,7 +12,7 @@ At the end of this tutorial you have your `dev space`, the basic CAP project and
 
 1. What is the value of the `dev space` in the SAP Business Application Studio? To help with this discussion point consider the [prerequisites section](../../prerequisites.md) for not using the SAP Business Application Studio.
 
-2. Why do you think it was necessary to login to Cloud Foundry?  HANA Cloud itself isn't actually running in Cloud Foundry not does it use Cloud Foundry for technical connections. But it's important to understand [HDI (HANA Deployment Infrastructure)](https://help.sap.com/docs/HANA_CLOUD_DATABASE/c2cc2e43458d4abda6788049c58143dc/e28abca91a004683845805efc2bf967c.html) containers and how they are controlled via Cloud Foundry service instances.
+2. Why do you think it was necessary to login to Cloud Foundry?  HANA Cloud itself isn't actually running in Cloud Foundry nor does it use Cloud Foundry for technical connections. But it's important to understand [HDI (HANA Deployment Infrastructure)](https://help.sap.com/docs/HANA_CLOUD_DATABASE/c2cc2e43458d4abda6788049c58143dc/e28abca91a004683845805efc2bf967c.html) containers and how they are controlled via Cloud Foundry service instances.
 
 3. What's the purpose of the [mta.yaml](https://help.sap.com/docs/HANA_CLOUD_DATABASE/c2b99f19e9264c4d9ae9221b22f6f589/d8226e641a124b629b0e8f7c111cd1ae.html) file?
 
