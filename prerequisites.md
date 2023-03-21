@@ -33,17 +33,17 @@ In this exercise variant you will install all development tools locally in your 
 * Ensure that you have [Node.js](https://nodejs.org/en/download/) ver [12](https://nodejs.org/dist/latest-v12.x/), [14](https://nodejs.org/dist/latest-v14.x/) or [16](https://nodejs.org/dist/latest-v16.x/) installed locally. In case of problems, see the [Troubleshooting guide for CAP](https://cap.cloud.sap/docs/advanced/troubleshooting#npm-installation).
   ![Node.js Version Check](images/prereq/node_v_check.png)
 
-* [Install Git](https://developers.sap.com/tutorials/btp-app-set-up-local-development.html#e131f039-c4d4-4e29-8d64-c774b0dff9c1)
+* [Install Git](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#3872690e-3bb4-42a7-b33c-6b81582bd12a)
 
-* [Install the Cloud Foundry command line interface](https://developers.sap.com/tutorials/btp-app-set-up-local-development.html#2e0990e0-9c79-491c-9bc0-e6ead997225a)
+* [Install the Cloud Foundry command line interface](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#86f2934b-c91e-423d-9037-2aaebe36d694)
   
-* [Add CAP tooling](https://developers.sap.com/tutorials/btp-app-set-up-local-development.html#7ff02f69-2fe9-4061-b19c-39f8ee9ae08d)
+* [Add CAP tooling](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#1c61ee3b-639c-4127-b7ab-490eab48ccca)
 
-* [Install Microsoft Visual Studio Code](https://developers.sap.com/tutorials/btp-app-set-up-local-development.html#8ccbe83d-2182-45b7-a891-178f46e1a117)
+* [Install Microsoft Visual Studio Code](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#ed83503e-9fe6-4121-b7a3-80436d93e223)
 
-* [Install VS Code extensions](https://developers.sap.com/tutorials/btp-app-set-up-local-development.html#cc41d842-5014-4e9e-a16b-8897a1f11ffc)
+* [Install VS Code extensions](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#17c0863d-d859-4fcf-8995-9be04894d70d)
 
-* [Install SAP Fiori tools Extension Pack](https://developers.sap.com/tutorials/btp-app-set-up-local-development.html#38489d38-c635-4efb-b6eb-dd5a8d1bee87)
+* [Install SAP Fiori tools Extension Pack](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#7ea1e0c8-7482-4c74-95b6-be402ba87d7d)
 
 * [Install SAP Cloud MTA Build Tool](https://sap.github.io/cloud-mta-build-tool/download/)  
 
@@ -62,9 +62,9 @@ In this scenario you will develop locally but we will reduce the amount of setup
 
 ### Dev Container Software
 
-* [Install Microsoft Visual Studio Code](https://developers.sap.com/tutorials/btp-app-set-up-local-development.html#8ccbe83d-2182-45b7-a891-178f46e1a117)
+* [Install Microsoft Visual Studio Code](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#ed83503e-9fe6-4121-b7a3-80436d93e223)
 
-* [Install Git](https://developers.sap.com/tutorials/btp-app-set-up-local-development.html#e131f039-c4d4-4e29-8d64-c774b0dff9c1)
+* [Install Git](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#3872690e-3bb4-42a7-b33c-6b81582bd12a)
 
 * [VS Code Extension for Remote Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
   
