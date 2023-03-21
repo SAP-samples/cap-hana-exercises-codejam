@@ -1,5 +1,5 @@
 {
-    "xsappname": "myhanaapp",
+    "xsappname": "myhanaapp2",
     "tenant-mode": "dedicated",
     "description": "Security profile of called application",
     "scopes": [
@@ -18,6 +18,10 @@
         }
     ],
     "oauth2-configuration": {
+        "credential-types": [
+            "binding-secret",
+            "x509"
+        ],
         "redirect-uris": [
             "https://*.applicationstudio.cloud.sap/**",
             "http://localhost:5000/**"
