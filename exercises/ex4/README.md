@@ -14,9 +14,7 @@ You now have an SAPUI5 based user interface for your CAP application. But in fac
 
 2. We added a [Standalone Approuter](https://blogs.sap.com/2020/04/03/sap-application-router/), but there was also an option for a Managed Approuter. What's [the difference](https://blogs.sap.com/2021/05/17/sap-tech-bytes-faq-managed-approuter-vs.-standalone-approuter/)?
 
-3. Why does the file default-env.json work?  Hint it has everything to do with [@sap/xsenv](https://www.npmjs.com/package/@sap/xsenv).
-
-4. When we change the `Requires` section of the [mta.yaml](https://help.sap.com/docs/SAP_HANA_PLATFORM/4505d0bdaf4948449b7f7379d24d0f0d/4050fee4c469498ebc31b10f2ae15ff2.html) what are we doing?
+3. Why does the file default-env.json work?  Hint it has everything to do with [@sap/xsenv](https://www.npmjs.com/package/@sap/xsenv). How does `cds bind` avoid the need for the default-env.json? 
 
 ## Further Study
 
