@@ -12,9 +12,9 @@ While we could use CAP to mock the authentication, we've gone a step further in 
 
 1. Why is the `redirect-uris` needed in the [xs-security.json](https://www.npmjs.com/package/@sap/approuter#xs-appjson-configuration-file)?
 
-2. What other [authentication strategies](https://cap.cloud.sap/docs/node.js/authentication#strategies) could we have used with CAP?
+1. What other [authentication strategies](https://cap.cloud.sap/docs/node.js/authentication#strategies) could we have used with CAP?
 
-3. Why did the request to `/user-api/` work?  We didn't code it and CAP didn't provide it. So [where did it come from](https://blogs.sap.com/2021/02/20/sap-tech-bytes-approuter-user-api-service/)?
+1. Why did the request to `/user-api/` work?  We didn't code it and CAP didn't provide it. So [where did it come from](https://blogs.sap.com/2021/02/20/sap-tech-bytes-approuter-user-api-service/)?
 
 ## Further Study
 

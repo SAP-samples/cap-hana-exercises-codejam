@@ -4,10 +4,10 @@
 	"name": "SAP cap-hana-exercises-codejam CodeJam Student Devcontainer",
 	"build": {
 		"dockerfile": "Dockerfile",
-		// Update 'VARIANT' to pick a Node version: 16, 14, 12.
+		// Update 'VARIANT' to pick a Node version: 20, 18, 16, 14.
 		// Append -bullseye or -buster to pin to an OS version.
 		// Use -bullseye variants on local arm64/Apple Silicon.
-		"args": { "VARIANT": "16-buster" }
+		"args": { "VARIANT": "18-buster" }
 	},
 
 	// Set *default* container specific settings.json values on container create.

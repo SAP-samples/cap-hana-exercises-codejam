@@ -12,21 +12,21 @@ You've now designed database tables, deployed them into an SAP HANA Cloud databa
 
 1. We loaded data into the tables using the import feature of the Database Explorer. Is anyone familiar with [alternatives](https://cap.cloud.sap/docs/guides/databases#providing-initial-data) to this to get initial data into your new tables?
 
-2. Where is Country coming from in interactions.cds? [Hint](https://cap.cloud.sap/docs/guides/reuse-and-compose)
+1. Where is Country coming from in interactions.cds? [Hint](https://cap.cloud.sap/docs/guides/reuse-and-compose)
 
    ```cds
    using { Country } from '@sap/cds/common';
    ```
 
-3. What's the difference between [Composition](https://cap.cloud.sap/docs/guides/domain-models#compositions--document-oriented-modeling) and [Association](https://cap.cloud.sap/docs/guides/domain-models#associations--structured-models)?
+1. What's the difference between [Composition](https://cap.cloud.sap/docs/guides/domain-modeling#_5-add-compositions) and [Association](https://cap.cloud.sap/docs/guides/domain-modeling#associations)? [Additional reading on Compositions](https://cap.cloud.sap/docs/cds/cdl#compositions) and [additional reading on Associations](https://cap.cloud.sap/docs/cds/cdl#associations)
 
-4. In the service implementation (interaction_srv.cds), how do you know you are creating an OData service?
+1. In the service implementation (interaction_srv.cds), how do you know you are creating an OData service?
 
 ## Further Study
 
 * [Video Version of this Tutorial](https://youtu.be/hlHY7eBriRA)
-* [SAP HANA Database Explorer](https://help.sap.com/docs/HANA_CLOUD/a2cea64fa3ac4f90a52405d07600047b/7fa981c8f1b44196b243faeb4afb5793.html)
-* [Domain Modeling with CDS](https://cap.cloud.sap/docs/guides/domain-models)
+* [SAP HANA Database Explorer](https://help.sap.com/docs/HANA_CLOUD/a2cea64fa3ac4f90a52405d07600047b/7fa981c8f1b44196b243faeb4afb5793.html?locale=en-US)
+* [Domain Modeling with CDS](https://cap.cloud.sap/docs/guides/domain-modeling)
 
 ## Next
 

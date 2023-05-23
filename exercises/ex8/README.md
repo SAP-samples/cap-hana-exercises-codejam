@@ -12,8 +12,6 @@ All the development doesn't mean much if you can't deploy your project.  In this
 
 1. After you deployed the application, why was the data that we loaded from CSV gone from the newly deployed application?
 
-2. Why do you think we added `node_modules` to the build-parameters ignore?
-
 ## Further Study
 
 * [CAP - Deploy to Cloud Foundry](https://cap.cloud.sap/docs/guides/deployment/to-cf)

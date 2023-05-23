@@ -12,9 +12,7 @@ You now have an SAPUI5 based user interface for your CAP application. But in fac
 
 1. We added an [Application Router](https://www.npmjs.com/package/@sap/approuter) to your application, but what is it really and why is it helpful?
 
-2. We added a [Standalone Approuter](https://blogs.sap.com/2020/04/03/sap-application-router/), but there was also an option for a Managed Approuter. What's [the difference](https://blogs.sap.com/2021/05/17/sap-tech-bytes-faq-managed-approuter-vs.-standalone-approuter/)?
-
-3. Why does the file default-env.json work?  Hint it has everything to do with [@sap/xsenv](https://www.npmjs.com/package/@sap/xsenv). How does `cds bind` avoid the need for the default-env.json? 
+1. Why does the file default-env.json work?  Hint it has everything to do with [@sap/xsenv](https://www.npmjs.com/package/@sap/xsenv). How does `cds bind` [avoid the need for the default-env.json](https://cap.cloud.sap/docs/advanced/hybrid-testing#bind-to-cloud-services)?
 
 ## Further Study
 

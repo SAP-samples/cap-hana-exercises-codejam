@@ -19,7 +19,7 @@ The requirements to follow the exercises in this repository, including hardware 
 
 ### Material organization
 
-The material consists of a series of exercises. Each exercise is meant to be independent of each other so, attendees can potential pick and choose which exercise to work on.  Each exercise is contained in a directory, with a main 'readme' file containing the core exercise instructions, with optional supporting files, such as screenshots and sample files.
+The material consists of a series of exercises. Each exercise is contained in a directory, with a main 'readme' file containing the core exercise instructions, with optional supporting files, such as screenshots and sample files.
 
 ### Following the exercises
 
@@ -47,7 +47,7 @@ Here's an overview of the exercises in this CodeJam.
 
 ## Known Issues
 
-None
+When creating the HDI Container instance in Exercise 3, the Business Application Studio tooling sometimes does not properly wait for the container creation. In these situations, simply wait a moment for creation to complete and then repeat the step. 
 
 ## Feedback
 
@@ -71,4 +71,4 @@ If you wish to contribute code, offer fixes or improvements, please send a pull 
 
 ## License
 
-Copyright (c) 2022 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSES/Apache-2.0.txt) file.
+Copyright (c) 2023 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSES/Apache-2.0.txt) file.
