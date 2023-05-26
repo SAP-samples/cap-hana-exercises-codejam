@@ -15,7 +15,7 @@ Thanks for taking a couple of minutes to give feedback, which will help me impro
 1. Then go through the questions and mark a single checkbox for each, to represent your answer
 1. Finally, in the empty comment box below this one, please describe what you liked and what you didn't like
 
-### What was your experience of the btp CLI before this session?
+### What was your experience of the SAP Cloud Application Programming Model before this session?
 
 - [ ] Not much at all
 - [ ] Basic knowledge
