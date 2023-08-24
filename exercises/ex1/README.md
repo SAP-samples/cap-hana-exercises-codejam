@@ -1,16 +1,37 @@
 # Exercise 1 - Set Up SAP HANA Cloud and CAP Project
 
-Before we can begin development we need to provision an SAP HANA Cloud database instance and ensure that we have access to our chosen development environment.
+Before we can begin development we must perform a couple of important steps.
+
+First, we need to provision an SAP HANA Cloud database instance. This will be in a "multi-environment" context (see [Subscribing to the SAP HANA Cloud Administration Tools](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-administration-guide/subscribing-to-sap-hana-cloud-administration-tools) in the "Further Study" section below for more information on this). We must then make that database instance available to the environment instance where we'll be managing deployments with HDI containers, which here will be in your Cloud Foundry environment instance.
+
+Second, we must also ensure that we have access to our chosen development environment.
 
 ## Exercise 1.1 Deploy SAP HANA Cloud
 
 We will use the SAP BTP cockpit as a graphical tool to provision your free SAP HANA Cloud instance if you don't already have one in your account.
 
-1. Perform all the steps in 👉 [tutorial: Deploy SAP HANA Cloud](https://developers.sap.com/tutorials/hana-cloud-deploying.html)
+First, perform all the steps in 👉 [tutorial: Deploy SAP HANA Cloud](https://developers.sap.com/tutorials/hana-cloud-deploying.html). This is a one time activity. You now have an SAP HANA database fully accessible to you with the full range of HANA Cloud capabilities.  
 
-2. This is a one time activity. You now have an SAP HANA database fully accessible to you with the full range of HANA Cloud capabilities.  
+Once your database instance is up and running, use the same SAP HANA Cloud Central tool (to which you have a subscription) to map the details of your Cloud Foundry instance to the database instance, so that your development-focused working environment, where you'll be creating an instance of the service for using HDI containers, can access and utilize the SAP HANA Cloud database instance itself.
 
-3. **Very important** The system is stopped automatically each night and you need to manually restart every day you want to use it as described in the above tutorial. The most common error that people make is not restarting their HANA Cloud instance.
+In the SAP HANA Cloud Central tool, identify the database instance you just created, and use the context menu to select "Manage Configuration":
+
+![Selecting Manage Configuration in the context menu](../../images/ex1/selecting_manage_configuration.png)
+
+In the SAP HANA Database Advanced Settings page, within the Instance Mapping section, use the "Add Mapping" button to add a new entry; the Environment Type is preset to "Cloud Foundry", and you must specify the following values for the Environment Instance ID and Environment Group:
+
+* Environment Instance ID: The ID of the Cloud Foundry organization
+* Environment Group: The ID of the Cloud Foundry space within the organization
+
+![Adding a mapping](../../images/ex1/adding_a_mapping.png)
+
+Note that these IDs are GUIDs, and a quick way to get hold of both is to navigate in the SAP BTP Cockpit to the page for your Cloud Foundry space, and take the values from the URL when you get there. Here's an example:
+
+![Org and Space IDs in URL](../../images/ex1/org_and_space_ids_in_url.png)
+
+Be sure to save your update to the configuration.
+
+> **Very important** The system is stopped automatically each night and you need to manually restart every day you want to use it as described in the above tutorial. The most common error that people make is not restarting their HANA Cloud instance.
 
 ## Exercise 1.2 Set Up SAP Business Application Studio for Development
 
