@@ -14,11 +14,11 @@ First, perform all the steps in 👉 [tutorial: Deploy SAP HANA Cloud](https://d
 
 Once your database instance is up and running, use the same SAP HANA Cloud Central tool (to which you have a subscription) to map the details of your Cloud Foundry instance to the database instance, so that your development-focused working environment, where you'll be creating an instance of the service for using HDI containers, can access and utilize the SAP HANA Cloud database instance itself.
 
-In the SAP HANA Cloud Central tool, identify the database instance you just created, and use the context menu to select "Manage Configuration":
+To do this, stay within the SAP HANA Cloud Central tool, identify the database instance you just created, and use the context menu to select "Manage Configuration":
 
 ![Selecting Manage Configuration in the context menu](../../images/ex1/selecting_manage_configuration.png)
 
-In the SAP HANA Database Advanced Settings page, within the Instance Mapping section, use the "Add Mapping" button to add a new entry; the Environment Type is preset to "Cloud Foundry", and you must specify ID of your Cloud Foundry organization for the Environment Instance ID. You can leave the Environment Group blank (here you would specify the ID of a specific space within the Cloud Foundry organization if you needed to, but in this case we don't want to restrict the mapping to be that narrow).
+In the SAP HANA Database Advanced Settings page, jump to the Instance Mapping section and use the "Add Mapping" button to add a new entry. The Environment Type is preset to "Cloud Foundry", and you must specify the ID of your Cloud Foundry organization for the Environment Instance ID. You can leave the Environment Group blank (here you would specify the ID of a specific space within the Cloud Foundry organization if you needed to, but in this case we don't want to restrict the mapping to be that narrow).
 
 ![Adding a mapping](../../images/ex1/adding_a_mapping.png)
 
