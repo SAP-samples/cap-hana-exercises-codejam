@@ -18,7 +18,7 @@ To do this, stay within the SAP HANA Cloud Central tool, identify the database i
 
 ![Selecting Manage Configuration in the context menu](../../images/ex1/selecting_manage_configuration.png)
 
-In the SAP HANA Database Advanced Settings page, jump to the Instance Mapping section and use the "Add Mapping" button to add a new entry. The Environment Type is preset to "Cloud Foundry", and you must specify the ID of your Cloud Foundry organization for the Environment Instance ID. You can leave the Environment Group blank (here you would specify the ID of a specific space within the Cloud Foundry organization if you needed to, but in this case we don't want to restrict the mapping to be that narrow).
+In the Manage Configuration page, jump to the Instance Mapping section and use the "Add Mapping" button to add a new entry. The Environment Type is preset to "Cloud Foundry", and you must specify the ID of your Cloud Foundry organization for the Environment Instance ID. You can leave the Environment Group blank (here you would specify the ID of a specific space within the Cloud Foundry organization if you needed to, but in this case we don't want to restrict the mapping to be that narrow).
 
 ![Adding a mapping](../../images/ex1/adding_a_mapping.png)
 
