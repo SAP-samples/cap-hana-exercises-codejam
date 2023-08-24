@@ -2,7 +2,7 @@
 
 Before we can begin development we must perform a couple of important steps.
 
-First, we need to provision an SAP HANA Cloud database instance. This will be in a "multi-environment" context (see [Subscribing to the SAP HANA Cloud Administration Tools](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-administration-guide/subscribing-to-sap-hana-cloud-administration-tools) in the "Further Study" section below for more information on this). We must then make that database instance available to the environment instance where we'll be managing deployments with HDI containers, which here will be in your Cloud Foundry environment instance.
+First, we need to provision an SAP HANA Cloud database instance. This will be in a "multi-environment" context with the SAP HANA Cloud Administration Tools (see the "Further Study" section below for a link to more information on this). We must then make that database instance available to the environment instance where we'll be managing deployments with HDI containers, which here will be in your Cloud Foundry environment instance.
 
 Second, we must also ensure that we have access to our chosen development environment.
 
@@ -77,6 +77,7 @@ Now that you have your SAP HANA Cloud database instance and have setup the basic
 * [Tools to Manage and Access the SAP HANA Cloud, SAP HANA Database](https://developers.sap.com/tutorials/hana-cloud-mission-trial-3.html)
 * [SAP HANA Cloud](https://community.sap.com/topics/hana)
 * [SAP Business Application Studio](https://community.sap.com/topics/business-application-studio)
+* [Subscribing to the SAP HANA Cloud Administration Tools](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-administration-guide/subscribing-to-sap-hana-cloud-administration-tools)
 
 ## Next
 
