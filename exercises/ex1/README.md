@@ -18,18 +18,13 @@ In the SAP HANA Cloud Central tool, identify the database instance you just crea
 
 ![Selecting Manage Configuration in the context menu](../../images/ex1/selecting_manage_configuration.png)
 
-In the SAP HANA Database Advanced Settings page, within the Instance Mapping section, use the "Add Mapping" button to add a new entry; the Environment Type is preset to "Cloud Foundry", and you must specify the following values for the Environment Instance ID and Environment Group:
-
-* Environment Instance ID: The ID of the Cloud Foundry organization
-* Environment Group: The ID of the Cloud Foundry space within the organization
+In the SAP HANA Database Advanced Settings page, within the Instance Mapping section, use the "Add Mapping" button to add a new entry; the Environment Type is preset to "Cloud Foundry", and you must specify ID of your Cloud Foundry organization for the Environment Instance ID. You can leave the Environment Group blank (here you would specify the ID of a specific space within the Cloud Foundry organization if you needed to, but in this case we don't want to restrict the mapping to be that narrow).
 
 ![Adding a mapping](../../images/ex1/adding_a_mapping.png)
 
-Note that these IDs are GUIDs, and a quick way to get hold of both is to navigate in the SAP BTP Cockpit to the page for your Cloud Foundry space, and take the values from the URL when you get there. Here's an example:
+You can get the ID of your Cloud Foundry organization from the subaccount overview page in the SAP BTP Cockpit.
 
-![Org and Space IDs in URL](../../images/ex1/org_and_space_ids_in_url.png)
-
-Be sure to save your update to the configuration.
+Be sure to "Review and Save" your update to the configuration.
 
 > **Very important** The system is stopped automatically each night and you need to manually restart every day you want to use it as described in the above tutorial. The most common error that people make is not restarting their HANA Cloud instance.
 
