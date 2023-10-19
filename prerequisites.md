@@ -2,7 +2,7 @@
 
 There are hardware, software and service prerequisites for participating in this CodeJam. The exercises will be shown executing in the [SAP Business Application Studio](https://community.sap.com/topics/business-application-studio) as the development tool. However you can also execute them [locally on your own tooling such as Microsoft VSCode](#prerequisites-for-performing-the-exercises-locally) or using a [Dev Container](#prerequisites-for-performing-the-exercises-in-a-dev-container) or [Codespace](#prerequisites-for-performing-the-exercises-in-a-codespaces). See separate section for each of these options.
 
-## Normal Prerequisites (SAP Business Application Studio)
+## Normal Prerequisites (SAP Business Application Studio) - Recommended
 
 ### Hardware
 
