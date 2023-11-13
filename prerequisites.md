@@ -29,7 +29,7 @@ There is also a brand new option that allows you to use VSCode locally but remot
 
 ### Local Software
 
-* Ensure that you have [Node.js](https://nodejs.org/en/download/) verb [18](https://nodejs.org/dist/latest-v18.x/) or [20](https://nodejs.org/dist/latest-v20.x/) installed locally. In case of problems, see the [Troubleshooting guide for CAP](https://cap.cloud.sap/docs/get-started/troubleshooting#npm-installation).
+* Ensure that you have [Node.js](https://nodejs.org/en/download/) version [18](https://nodejs.org/dist/latest-v18.x/) or [20](https://nodejs.org/dist/latest-v20.x/) installed locally. In case of problems, see the [Troubleshooting guide for CAP](https://cap.cloud.sap/docs/get-started/troubleshooting#npm-installation).
   ![Node.js Version Check](images/prereq/node_v_check.png)
 
 * [Install Git](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#21385226-8ed8-48c4-bc9e-97c38562ce93).
