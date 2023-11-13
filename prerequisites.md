@@ -32,17 +32,17 @@ There is also a brand new option that allows you to use VSCode locally but remot
 * Ensure that you have [Node.js](https://nodejs.org/en/download/) verb [18](https://nodejs.org/dist/latest-v18.x/) or [20](https://nodejs.org/dist/latest-v20.x/) installed locally. In case of problems, see the [Troubleshooting guide for CAP](https://cap.cloud.sap/docs/get-started/troubleshooting#npm-installation).
   ![Node.js Version Check](images/prereq/node_v_check.png)
 
-* [Install Git](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#68a46e80-ab6d-405d-9b42-1c9c92df2ed4)
+* [Install Git](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#21385226-8ed8-48c4-bc9e-97c38562ce93).
 
-* [Install the Cloud Foundry command line interface](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#9baa3c92-43b8-4277-980a-c887cbc42b84)
+* [Install the Cloud Foundry command line interface](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#f2d28e20-e4da-4eaf-9e55-7b9238b1f8bd)
   
-* [Add CAP tooling](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#f33367af-5def-4b97-a755-c52ecc78856d)
+* [Add CAP tooling](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#79e1644f-4433-47dc-a770-5da00c9afce9)
 
-* [Install Microsoft Visual Studio Code](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#4bcb2bac-c9ae-420a-93a1-1cd2daa244f6)
+* [Install Microsoft Visual Studio Code](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#2dab2b4d-c9c7-40fa-a113-b6c0f02cddad)
 
-* [Install VS Code extensions](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#95f77362-a7a9-4fed-bc42-5701fe06c43a)
+* [Install VS Code extensions](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#63037f80-b6bc-4b86-a8db-b0d9d23ea7d1)
 
-* [Install SAP Fiori tools Extension Pack](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#c93de253-74c9-43c7-87d1-76e1305b882b)
+* [Install SAP Fiori tools Extension Pack](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#28ca825f-00b0-43ae-b34c-40f24facead8)
 
 * [Install SAP Cloud MTA Build Tool](https://sap.github.io/cloud-mta-build-tool/download/)  
 
@@ -52,18 +52,17 @@ There is also a brand new option that allows you to use VSCode locally but remot
 
 ## Prerequisites for Performing the Exercises in a Dev Container
 
-In this scenario you will develop locally but we will reduce the amount of setup steps and tools you need to install by using [development containers](https://code.visualstudio.com/docs/remote/containers
-). This uses Docker Desktop and VSCode extensions provided by Microsoft to configure and remotely connect VSCode to this a container.
+In this scenario you will develop locally but we will reduce the amount of setup steps and tools you need to install by using [development containers](https://code.visualstudio.com/docs/remote/containers). This uses Docker Desktop and VSCode extensions provided by Microsoft to configure and remotely connect VSCode to this a container.
 
 ### Dev Container Hardware
 
-* If running on arm64/Apple Silicon (otherwise known as the [Apple M1](https://en.wikipedia.org/wiki/Apple_M1)), the please change the [devcontainer.json](..devcontainer/devcontainer.json) file and the VARIANT value from `18-buster` to `18-bullseye` after cloning and starting the Dev Container
+* If running on arm64/Apple Silicon (otherwise known as the [Apple M1](https://en.wikipedia.org/wiki/Apple_M1)), the please change the [devcontainer.json](..devcontainer/devcontainer.json) file and the VARIANT value from `20-buster` to `20-bullseye` after cloning and starting the Dev Container
 
 ### Dev Container Software
 
-* [Install Microsoft Visual Studio Code](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#4bcb2bac-c9ae-420a-93a1-1cd2daa244f6)
+* [Install Microsoft Visual Studio Code](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#2dab2b4d-c9c7-40fa-a113-b6c0f02cddad)
 
-* [Install Git](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#68a46e80-ab6d-405d-9b42-1c9c92df2ed4)
+* [Install Git](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#21385226-8ed8-48c4-bc9e-97c38562ce93)
 
 * [VS Code Extension for Remote Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
   
@@ -90,7 +89,7 @@ This is a bit of a hybrid scenario.  It uses the Dev Container configuration but
 
 ### Codespaces Software
 
-* From GitHub choose the option to create a new codespace. TO-DO Add screenshot once repo is Public.
+* From GitHub choose the option to create a new codespace.
 
 * You can then use this codespace from the browser or open it remotely in your locally VSCode installation. The codespace will be pre-configured with the correct Node.js runtime, all other development tools and already has the project cloned into it.
 
