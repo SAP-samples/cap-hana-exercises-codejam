@@ -15,10 +15,7 @@ There are hardware, software and service prerequisites for participating in this
 ### Services
 
 * Get a free SAP Business Technology Platform trial account (if you don't already have one):
-  * [Tutorial: Get an Account on SAP BTP to Try Out Free Tier Service Plans](https://developers.sap.com/tutorials/btp-free-tier-account.html)
-  * [Video: SAP BTP Free Tier: Create Your Individual Account](https://www.youtube.com/watch?v=0zGuMus4R10)
-
-* [Manage Entitlements Using the Cockpit](https://developers.sap.com/tutorials/btp-cockpit-entitlements.html)
+  * [Tutorial: Get an SAP BTP Account for Tutorials](https://developers.sap.com/tutorials/btp-cockpit-setup.html)
 
 ## Prerequisites for Performing the Exercises Locally
 
@@ -32,7 +29,7 @@ There is also a brand new option that allows you to use VSCode locally but remot
 
 ### Local Software
 
-* Ensure that you have [Node.js](https://nodejs.org/en/download/) ver [14](https://nodejs.org/dist/latest-v14.x/) or [16](https://nodejs.org/dist/latest-v16.x/) or [18](https://nodejs.org/dist/latest-v18.x/) installed locally. In case of problems, see the [Troubleshooting guide for CAP](https://cap.cloud.sap/docs/advanced/troubleshooting#npm-installation).
+* Ensure that you have [Node.js](https://nodejs.org/en/download/) verb [18](https://nodejs.org/dist/latest-v18.x/) or [20](https://nodejs.org/dist/latest-v20.x/) installed locally. In case of problems, see the [Troubleshooting guide for CAP](https://cap.cloud.sap/docs/get-started/troubleshooting#npm-installation).
   ![Node.js Version Check](images/prereq/node_v_check.png)
 
 * [Install Git](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#68a46e80-ab6d-405d-9b42-1c9c92df2ed4)
