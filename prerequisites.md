@@ -90,7 +90,8 @@ This is a bit of a hybrid scenario.  It uses the Dev Container configuration but
 ### Codespaces Software
 
 * From GitHub choose the option to create a new codespace.
-
+  ![Create Codespace](images/prereq/codespace.png)
+  
 * You can then use this codespace from the browser or open it remotely in your locally VSCode installation. The codespace will be pre-configured with the correct Node.js runtime, all other development tools and already has the project cloned into it.
 
 ### Codespaces Services
