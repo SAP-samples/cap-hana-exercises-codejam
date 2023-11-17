@@ -18,6 +18,11 @@ First, perform all the steps in 👉 [tutorial: Deploy SAP HANA Cloud](https://d
 
 SAP Business Application Studio is a development environment available on SAP Business Technology Platform. Before you can start developing using SAP Business Application Studio, you must perform the required onboarding steps that are described in this step once. Please choose your path based upon if you are using the [SAP BTP free tier](https://developers.sap.com/tutorials/btp-free-tier-account.html) or [SAP BTP free trial](https://developers.sap.com/tutorials/hcp-create-trial-account.html).
 
+<details><summary>SAP BTP free trial</summary>
+
+1. If you are using the [SAP BTP free trial](https://developers.sap.com/tutorials/hcp-create-trial-account.html), then perform all the steps in [this tutorial - Set Up SAP Business Application Studio for Development](https://developers.sap.com/tutorials/appstudio-onboarding.html)
+
+</details>
 <details><summary>SAP BTP free tier</summary>
 
 1. If you are using the [SAP BTP free tier](https://developers.sap.com/tutorials/btp-free-tier-account.html), then complete the following steps
@@ -40,12 +45,6 @@ SAP Business Application Studio is a development environment available on SAP Bu
    ![Free Plan](../../images/ex1/free.png)
 
 1. Click `Create` to subscribe to SAP Business Application Studio.
-
-</details>
-
-<details><summary>SAP BTP free trial</summary>
-
-1. If you are using the [SAP BTP free trial](https://developers.sap.com/tutorials/hcp-create-trial-account.html), then perform all the steps in [this tutorial - Set Up SAP Business Application Studio for Development](https://developers.sap.com/tutorials/appstudio-onboarding.html)
 
 </details>
 
