@@ -54,7 +54,7 @@ Now that you have your SAP HANA Cloud database instance and have setup the basic
 
 ## Further Study
 
-* [Tools to Manage and Access the SAP HANA Cloud, SAP HANA Database](https://developers.sap.com/tutorials/hana-cloud-mission-trial-3.html)
+* [Tools to Manage and Access the SAP HANA Cloud, SAP HANA Database](https://developers.sap.com/tutorials/hana-cloud-mission-trial-4.html)
 * [SAP HANA Cloud](https://community.sap.com/topics/hana)
 * [SAP Business Application Studio](https://community.sap.com/topics/business-application-studio)
 * [Subscribing to the SAP HANA Cloud Administration Tools](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-administration-guide/subscribing-to-sap-hana-cloud-administration-tools)
