@@ -27,6 +27,7 @@ You've now designed database tables, deployed them into an SAP HANA Cloud databa
 * [Video Version of this Tutorial](https://youtu.be/hlHY7eBriRA)
 * [SAP HANA Database Explorer](https://help.sap.com/docs/HANA_CLOUD/a2cea64fa3ac4f90a52405d07600047b/7fa981c8f1b44196b243faeb4afb5793.html?locale=en-US)
 * [Domain Modeling with CDS](https://cap.cloud.sap/docs/guides/domain-modeling)
+* [Generated HDI Artifacts](https://cap.cloud.sap/docs/guides/databases-hana#generated-hdi-artifacts)
 
 ## Next
 
