@@ -14,7 +14,7 @@ There are hardware, software and service prerequisites for participating in this
 
 ### Services
 
-* Get a free SAP Business Technology Platform trial account (if you don't already have one):
+* You will get access to the provided SAP BTP account for the CodeJam. If you want to continue learning afterwards, you can also sign up for a free SAP Business Technology Platform trial account:
   * [Tutorial: Get an SAP BTP Account for Tutorials](https://developers.sap.com/tutorials/btp-cockpit-setup.html)
 
 ## Prerequisites for Performing the Exercises Locally
@@ -29,20 +29,20 @@ There is also a brand new option that allows you to use VSCode locally but remot
 
 ### Local Software
 
-* Ensure that you have [Node.js](https://nodejs.org/en/download/) version [18](https://nodejs.org/dist/latest-v18.x/) or [20](https://nodejs.org/dist/latest-v20.x/) installed locally. In case of problems, see the [Troubleshooting guide for CAP](https://cap.cloud.sap/docs/get-started/troubleshooting#npm-installation).
+* Ensure that you have [Node.js](https://nodejs.org/en/download/) version [18](https://nodejs.org/dist/latest-v18.x/), [20](https://nodejs.org/dist/latest-v20.x/), or [22](https://nodejs.org/dist/latest-v22.x/) installed locally. Make sure you run the latest long-term support (LTS) version of Node.js with an even number like 20. Refrain from using odd versions, for which some modules with native parts will have no support and thus might even fail to install. In case of problems, see the [Troubleshooting guide for CAP](https://cap.cloud.sap/docs/get-started/troubleshooting#npm-installation).
   ![Node.js Version Check](images/prereq/node_v_check.png)
 
-* [Install Git](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#21385226-8ed8-48c4-bc9e-97c38562ce93).
+* [Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-* [Install the Cloud Foundry command line interface](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#f2d28e20-e4da-4eaf-9e55-7b9238b1f8bd)
+* [Install the Cloud Foundry command line interface](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html)
   
-* [Add CAP tooling](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#79e1644f-4433-47dc-a770-5da00c9afce9)
+* [Add CAP tooling](https://developers.sap.com/tutorials/cp-apm-nodejs-create-service.html#f1f8e95a-3c77-462b-80fc-0579d49e4afe)
 
-* [Install Microsoft Visual Studio Code](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#2dab2b4d-c9c7-40fa-a113-b6c0f02cddad)
+* [Install Microsoft Visual Studio Code](https://code.visualstudio.com/)
 
-* [Install VS Code extensions](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#63037f80-b6bc-4b86-a8db-b0d9d23ea7d1)
+* [Install VS Code extensions](https://developers.sap.com/tutorials/cp-apm-nodejs-create-service.html#77505c79-8374-4afb-99a6-9530fb52f968)
 
-* [Install SAP Fiori tools Extension Pack](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#28ca825f-00b0-43ae-b34c-40f24facead8)
+* [Install SAP Fiori tools Extension Pack](https://marketplace.visualstudio.com/items?itemName=SAPSE.sap-ux-fiori-tools-extension-pack)
 
 * [Install SAP Cloud MTA Build Tool](https://sap.github.io/cloud-mta-build-tool/download/)  
 
@@ -54,9 +54,7 @@ There is also a brand new option that allows you to use VSCode locally but remot
 
 In this scenario you will develop locally but we will reduce the amount of setup steps and tools you need to install by using [development containers](https://code.visualstudio.com/docs/remote/containers). This uses Docker Desktop and VSCode extensions provided by Microsoft to configure and remotely connect VSCode to this a container.
 
-### Dev Container Hardware
-
-* If running on arm64/Apple Silicon (otherwise known as the [Apple M1](https://en.wikipedia.org/wiki/Apple_M1)), the please change the [devcontainer.json](..devcontainer/devcontainer.json) file and the VARIANT value from `20-buster` to `20-bullseye` after cloning and starting the Dev Container
+![Dev Container Architecture](https://code.visualstudio.com/assets/docs/devcontainers/containers/architecture-containers.png)
 
 ### Dev Container Software
 
