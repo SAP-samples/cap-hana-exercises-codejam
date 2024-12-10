@@ -23,6 +23,16 @@ In this exercise variant, you will install all development tools locally in your
 
 There is also a brand new option that allows you to use VSCode locally but remotely connect it to your Business Application Studio dev space. This avoids the need to install all the prerequisites to local development. To read more about this option, [see here](https://blogs.sap.com/2023/05/09/product-updates-for-sap-business-application-studio-2304/?source=social-Global-YOUTUBE-MarketingCampaign-Developers-Business_Technology_Platform_Umbrella-spr-9927419192-account_name&campaigncode=CRM-XB23-MKT-DGEALL&sprinklrid=9927419192).
 
+### Summary of Microsoft Visual Studio Code Desktop Client for SAP Business Application Studio
+
+The Microsoft Visual Studio Code Desktop Client for SAP Business Application Studio allows developers to use the familiar VSCode interface while connecting remotely to their SAP Business Application Studio dev space. This setup provides the following benefits:
+
+* **Reduced Local Setup**: Developers can avoid installing all development tools locally, as they can leverage the tools available in the remote dev space.
+* **Seamless Integration**: The integration ensures a smooth development experience with access to all necessary tools and extensions.
+* **Flexibility**: Developers can work from different environments without worrying about local setup inconsistencies.
+
+For detailed information, refer to the [blog post](https://blogs.sap.com/2023/05/09/product-updates-for-sap-business-application-studio-2304/?source=social-Global-YOUTUBE-MarketingCampaign-Developers-Business_Technology_Platform_Umbrella-spr-9927419192-account_name&campaigncode=CRM-XB23-MKT-DGEALL&sprinklrid=9927419192).
+
 ### Local Hardware
 
 * None
@@ -58,9 +68,9 @@ In this scenario you will develop locally but we will reduce the amount of setup
 
 ### Dev Container Software
 
-* [Install Microsoft Visual Studio Code](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#2dab2b4d-c9c7-40fa-a113-b6c0f02cddad)
+* [Install Microsoft Visual Studio Code](https://code.visualstudio.com/)
 
-* [Install Git](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#21385226-8ed8-48c4-bc9e-97c38562ce93)
+* [Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 * [VS Code Extension for Remote Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
   
@@ -72,6 +82,16 @@ In this scenario you will develop locally but we will reduce the amount of setup
 
 * When the project opens in VSCode you should receive a dialog in the lower right corner that the "Folder contains a Dev Container".  Choose to `Reopen in Container`
   ![Reopen in Container](images/prereq/reopen_remote_container.png)
+
+### Node.js Docker Images for Dev Containers
+
+When using Dev Containers, you might encounter different Node.js Docker images such as `buster`, `bullseye`, and `bookworm`. These names refer to different Debian releases that the Node.js images are based on:
+
+* **buster**: This is based on Debian 10. It is an older, stable release.
+* **bullseye**: This is based on Debian 11. It is the current stable release and is recommended for most users.
+* **bookworm**: This is based on Debian 12. It is the testing release and includes the latest features but might not be as stable as `bullseye`.
+
+In the context of Dev Containers, these images are used to provide a consistent development environment. You can choose the appropriate image based on your stability and feature requirements. For most users, `bullseye` is recommended as it provides a good balance between stability and up-to-date features.
 
 ### Dev Container Services
 
