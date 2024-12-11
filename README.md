@@ -45,7 +45,7 @@ Here's an overview of the exercises in this CodeJam.
 * [Exercise 5 - Add User Authentication to Your Application (SAP HANA Cloud)](exercises/ex5/README.md)
 * [Exercise 6 - Create Calculation View and Expose via CAP (SAP HANA Cloud)](exercises/ex6/README.md)
 * [Exercise 7 - Create HANA Stored Procedure and Expose as CAP Service Function (SAP HANA Cloud)](exercises/ex7/README.md)
-* [Exercise 8 - Deploy CAP with SAP HANA Cloud project as MTA](exercises/ex8/README.md)
+* [Bonus Homework - Deploy CAP with SAP HANA Cloud project as MTA](exercises/ex8/README.md)
 
 ## Known Issues
 
