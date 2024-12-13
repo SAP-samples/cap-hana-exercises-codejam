@@ -1,5 +1,5 @@
 {
-  "_version": "1.12.0",
+  "_version": "1.65.0",
   "sap.app": {
     "id": "interactionitems",
     "type": "application",
@@ -11,16 +11,16 @@
     "description": "{{appDescription}}",
     "resources": "resources.json",
     "sourceTemplate": {
-      "id": "@sap-ux/fiori-freestyle-writer:worklist",
-      "version": "0.11.6"
+      "id": "@sap/generator-fiori:worklist",
+      "version": "1.15.7",
+      "toolsId": "64f88c49-5e13-468f-8bb5-b5c1cc7cc4e9"
     },
     "dataSources": {
       "mainService": {
-        "uri": "/catalog/",
+        "uri": "/odata/v4/catalog/",
         "type": "OData",
         "settings": {
           "annotations": [],
-          "localUri": "localService/metadata.xml",
           "odataVersion": "4.0"
         }
       }
@@ -45,16 +45,11 @@
   "sap.ui5": {
     "flexEnabled": true,
     "dependencies": {
-      "minUI5Version": "1.101.1",
+      "minUI5Version": "1.131.1",
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
-        "sap.f": {},
-        "sap.suite.ui.generic.template": {},
-        "sap.ui.comp": {},
-        "sap.ui.generic.app": {},
-        "sap.ui.table": {},
-        "sap.ushell": {}
+        "sap.fe.templates": {}
       }
     },
     "contentDensities": {
@@ -72,75 +67,99 @@
         "dataSource": "mainService",
         "preload": true,
         "settings": {
-          "synchronizationMode": "None",
           "operationMode": "Server",
           "autoExpandSelect": true,
-          "earlyRequests": true,
-          "groupId": "$direct"
+          "earlyRequests": true
         }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
       }
     },
     "resources": {
       "css": []
     },
     "routing": {
-      "config": {
-        "routerClass": "sap.m.routing.Router",
-        "viewType": "XML",
-        "viewPath": "interactionitems.view",
-        "controlId": "app",
-        "controlAggregation": "pages",
-        "bypassed": {
-          "target": [
-            "notFound"
-          ]
-        },
-        "async": true
-      },
+      "config": {},
       "routes": [
         {
-          "pattern": "",
-          "name": "worklist",
-          "target": [
-            "worklist"
-          ]
+          "pattern": ":?query:",
+          "name": "Interactions_HeaderList",
+          "target": "Interactions_HeaderList"
         },
         {
-          "pattern": "Interactions_Items/{objectId}",
-          "name": "object",
-          "target": [
-            "object"
-          ]
+          "pattern": "Interactions_Header({key}):?query:",
+          "name": "Interactions_HeaderObjectPage",
+          "target": "Interactions_HeaderObjectPage"
+        },
+        {
+          "pattern": "Interactions_Header({key})/items({key2}):?query:",
+          "name": "Interactions_ItemsObjectPage",
+          "target": "Interactions_ItemsObjectPage"
         }
       ],
       "targets": {
-        "worklist": {
-          "viewName": "Worklist",
-          "viewId": "worklist",
-          "viewLevel": 1,
-          "title": "{i18n>worklistViewTitle}"
+        "Interactions_HeaderList": {
+          "type": "Component",
+          "id": "Interactions_HeaderList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/Interactions_Header",
+              "variantManagement": "Page",
+              "hideFilterBar": true,
+              "navigation": {
+                "Interactions_Header": {
+                  "detail": {
+                    "route": "Interactions_HeaderObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  }
+                }
+              }
+            }
+          }
         },
-        "object": {
-          "viewName": "Object",
-          "viewId": "object",
-          "viewLevel": 2,
-          "title": "{i18n>objectViewTitle}"
+        "Interactions_HeaderObjectPage": {
+          "type": "Component",
+          "id": "Interactions_HeaderObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Interactions_Header",
+              "navigation": {
+                "items": {
+                  "detail": {
+                    "route": "Interactions_ItemsObjectPage"
+                  }
+                }
+              }
+            }
+          }
         },
-        "objectNotFound": {
-          "viewName": "ObjectNotFound",
-          "viewId": "objectNotFound"
-        },
-        "notFound": {
-          "viewName": "NotFound",
-          "viewId": "notFound"
+        "Interactions_ItemsObjectPage": {
+          "type": "Component",
+          "id": "Interactions_ItemsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Interactions_Header/items"
+            }
+          }
         }
       }
-    },
-    "rootView": {
-      "viewName": "interactionitems.view.App",
-      "type": "XML",
-      "async": true,
-      "id": "app"
     }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
   }
 }
