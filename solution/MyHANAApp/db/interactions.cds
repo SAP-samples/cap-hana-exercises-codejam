@@ -1,39 +1,46 @@
 //namespace app.interactions;
-using {Country} from '@sap/cds/common';
+
+using {
+    Country,
+    Currency,
+    cuid,
+    managed
+} from '@sap/cds/common';
 
 context app.interactions {
-  type BusinessKey : String(10);
-  type SDate : DateTime;
-  type LText : String(1024);
+    type BusinessKey : String(10);
+    type Price       : Decimal(10, 2);
+    type Text        : String(1024);
 
+    entity Headers : cuid, managed {
+        items   : Composition of many Items
+                      on items.interaction = $self;
+        partner : BusinessKey;
+        country : Country;
+    };
 
-  entity Interactions_Header {
-    key ID        : Integer;
-        ITEMS     : Composition of many Interactions_Items
-                      on ITEMS.INTHeader = $self;
-        PARTNER   : BusinessKey;
-        LOG_DATE  : SDate;
-        BPCOUNTRY : Country;
+    entity Items : cuid {
+        interaction : Association to Headers;
+        text        : localized Text;
+        date        : DateTime;
 
-  };
-
-  entity Interactions_Items {
-
-    key INTHeader : Association to Interactions_Header;
-    key TEXT_ID   : BusinessKey;
-        LANGU     : String(2);
-        LOGTEXT   : LText;
-  };
+        @Semantics.amount.currencyCode: 'currency'
+        price       : Price;
+        currency    : Currency;
+    };
 }
 
-@cds.persistence.calcview
 @cds.persistence.exists 
-Entity ![V_INTERACTION] {
-key     ![ID]: Integer  @title: 'ID: ID' ;
-key     ![PARTNER]: String(10)  @title: 'PARTNER: PARTNER' ;
-key     ![LOG_DATE]: String  @title: 'LOG_DATE: LOG_DATE' ;
-key     ![BPCOUNTRY_CODE]: String(3)  @title: 'BPCOUNTRY_CODE: BPCOUNTRY_CODE' ;
-key     ![LOGTEXT]: String(1024)  @title: 'LOGTEXT: LOGTEXT' ;
-key     ![LANGU]: String(2)  @title: 'LANGU: LANGU' ;
-key     ![TEXT_ID]: String(10)  @title: 'TEXT_ID: TEXT_ID' ;
+@cds.persistence.calcview 
+Entity V_INTERACTION {
+key     CREATEDAT: Timestamp  @title: 'CREATEDAT: CREATEDAT' ; 
+        CREATEDBY: String(255)  @title: 'CREATEDBY: CREATEDBY' ; 
+        MODIFIEDAT: Timestamp  @title: 'MODIFIEDAT: MODIFIEDAT' ; 
+        MODIFIEDBY: String(255)  @title: 'MODIFIEDBY: MODIFIEDBY' ; 
+        PARTNER: String(10)  @title: 'PARTNER: PARTNER' ; 
+        COUNTRY_CODE: String(3)  @title: 'COUNTRY_CODE: COUNTRY_CODE' ; 
+        TEXT: String(1024)  @title: 'TEXT: TEXT' ; 
+        DATE: String  @title: 'DATE: DATE' ; 
+        PRICE: Decimal(10)  @title: 'PRICE: PRICE' ; 
+        CURRENCY_CODE: String(3)  @title: 'CURRENCY_CODE: CURRENCY_CODE' ; 
 }

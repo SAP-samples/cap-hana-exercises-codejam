@@ -1,73 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="V_INTERACTION" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="V_INTERACTION" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="true" application="BAS">
 <descriptions defaultDescription="V_INTERACTION"/>
 <localVariables/>
 <variableMappings/>
 <dataSources>
-  <DataSource id="APP_INTERACTIONS_INTERACTIONS_HEADER">
-    <resourceUri>APP_INTERACTIONS_INTERACTIONS_HEADER</resourceUri>
+  <DataSource id="APP_INTERACTIONS_HEADERS">
+    <resourceUri>APP_INTERACTIONS_HEADERS</resourceUri>
   </DataSource>
-  <DataSource id="APP_INTERACTIONS_INTERACTIONS_ITEMS">
-    <resourceUri>APP_INTERACTIONS_INTERACTIONS_ITEMS</resourceUri>
+  <DataSource id="APP_INTERACTIONS_ITEMS">
+    <resourceUri>APP_INTERACTIONS_ITEMS</resourceUri>
   </DataSource>
 </dataSources>
+<snapshotProcedures/>
 <calculationViews>
   <calculationView xsi:type="Calculation:JoinView" id="Join_1" cardinality="C1_N" joinType="inner">
     <viewAttributes>
-      <viewAttribute id="ID"/>
+      <viewAttribute id="CREATEDAT"/>
+      <viewAttribute id="CREATEDBY"/>
+      <viewAttribute id="MODIFIEDAT"/>
+      <viewAttribute id="MODIFIEDBY"/>
       <viewAttribute id="PARTNER"/>
-      <viewAttribute id="LOG_DATE"/>
-      <viewAttribute id="BPCOUNTRY_CODE"/>
-      <viewAttribute id="LOGTEXT"/>
-      <viewAttribute id="LANGU"/>
-      <viewAttribute id="TEXT_ID"/>
+      <viewAttribute id="COUNTRY_CODE"/>
+      <viewAttribute id="TEXT"/>
+      <viewAttribute id="DATE"/>
+      <viewAttribute id="PRICE"/>
+      <viewAttribute id="CURRENCY_CODE"/>
+      <viewAttribute hidden="true" id="JOIN$ID$INTERACTION_ID"/>
     </viewAttributes>
     <calculatedViewAttributes/>
-    <input node="APP_INTERACTIONS_INTERACTIONS_HEADER">
-      <mapping xsi:type="Calculation:AttributeMapping" target="ID" source="ID"/>
+    <input node="APP_INTERACTIONS_HEADERS">
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREATEDAT" source="CREATEDAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CREATEDBY" source="CREATEDBY"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MODIFIEDAT" source="MODIFIEDAT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MODIFIEDBY" source="MODIFIEDBY"/>
       <mapping xsi:type="Calculation:AttributeMapping" target="PARTNER" source="PARTNER"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="LOG_DATE" source="LOG_DATE"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="BPCOUNTRY_CODE" source="BPCOUNTRY_CODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="COUNTRY_CODE" source="COUNTRY_CODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID$INTERACTION_ID" source="ID"/>
     </input>
-    <input node="APP_INTERACTIONS_INTERACTIONS_ITEMS">
-      <mapping xsi:type="Calculation:AttributeMapping" target="LOGTEXT" source="LOGTEXT"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="LANGU" source="LANGU"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="TEXT_ID" source="TEXT_ID"/>
-      <mapping xsi:type="Calculation:AttributeMapping" target="ID" source="INTHEADER_ID"/>
+    <input node="APP_INTERACTIONS_ITEMS">
+      <mapping xsi:type="Calculation:AttributeMapping" target="TEXT" source="TEXT"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="DATE" source="DATE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="PRICE" source="PRICE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="CURRENCY_CODE" source="CURRENCY_CODE"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="JOIN$ID$INTERACTION_ID" source="INTERACTION_ID"/>
     </input>
-    <joinAttribute name="ID"/>
+    <joinAttribute name="JOIN$ID$INTERACTION_ID"/>
   </calculationView>
 </calculationViews>
 
 <logicalModel id="Join_1">
   <attributes>
-    <attribute id="ID" order="1" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="ID"/>
-      <keyMapping columnObjectName="Join_1" columnName="ID"/>
+    <attribute id="CREATEDAT" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CREATEDAT"/>
+      <keyMapping columnObjectName="Join_1" columnName="CREATEDAT"/>
     </attribute>
-    <attribute id="PARTNER" order="2" displayAttribute="false" attributeHierarchyActive="false">
+    <attribute id="CREATEDBY" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CREATEDBY"/>
+      <keyMapping columnObjectName="Join_1" columnName="CREATEDBY"/>
+    </attribute>
+    <attribute id="MODIFIEDAT" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MODIFIEDAT"/>
+      <keyMapping columnObjectName="Join_1" columnName="MODIFIEDAT"/>
+    </attribute>
+    <attribute id="MODIFIEDBY" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MODIFIEDBY"/>
+      <keyMapping columnObjectName="Join_1" columnName="MODIFIEDBY"/>
+    </attribute>
+    <attribute id="PARTNER" order="5" displayAttribute="false" attributeHierarchyActive="false">
       <descriptions defaultDescription="PARTNER"/>
       <keyMapping columnObjectName="Join_1" columnName="PARTNER"/>
     </attribute>
-    <attribute id="LOG_DATE" order="3" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="LOG_DATE"/>
-      <keyMapping columnObjectName="Join_1" columnName="LOG_DATE"/>
+    <attribute id="COUNTRY_CODE" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="COUNTRY_CODE"/>
+      <keyMapping columnObjectName="Join_1" columnName="COUNTRY_CODE"/>
     </attribute>
-    <attribute id="BPCOUNTRY_CODE" order="4" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="BPCOUNTRY_CODE"/>
-      <keyMapping columnObjectName="Join_1" columnName="BPCOUNTRY_CODE"/>
+    <attribute id="TEXT" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TEXT"/>
+      <keyMapping columnObjectName="Join_1" columnName="TEXT"/>
     </attribute>
-    <attribute id="LOGTEXT" order="5" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="LOGTEXT"/>
-      <keyMapping columnObjectName="Join_1" columnName="LOGTEXT"/>
+    <attribute id="DATE" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DATE"/>
+      <keyMapping columnObjectName="Join_1" columnName="DATE"/>
     </attribute>
-    <attribute id="LANGU" order="6" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="LANGU"/>
-      <keyMapping columnObjectName="Join_1" columnName="LANGU"/>
+    <attribute id="PRICE" order="9" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="PRICE"/>
+      <keyMapping columnObjectName="Join_1" columnName="PRICE"/>
     </attribute>
-    <attribute id="TEXT_ID" order="7" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="TEXT_ID"/>
-      <keyMapping columnObjectName="Join_1" columnName="TEXT_ID"/>
+    <attribute id="CURRENCY_CODE" order="10" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CURRENCY_CODE"/>
+      <keyMapping columnObjectName="Join_1" columnName="CURRENCY_CODE"/>
     </attribute>
   </attributes>
   <calculatedAttributes/>
@@ -83,16 +104,16 @@
     
   
     <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
-      <upperLeftCorner x="100" y="282"/>
+      <upperLeftCorner x="92" y="283"/>
       <rectangleSize height="30" width="160"/>
     </shape>
-    <shape modelObjectName="APP_INTERACTIONS_INTERACTIONS_HEADER" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+    <shape modelObjectName="APP_INTERACTIONS_HEADERS" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
       <upperLeftCorner x="20" y="30"/>
-      <rectangleSize width="339.3671875"/>
+      <rectangleSize width="250.697265625"/>
     </shape>
-    <shape modelObjectName="APP_INTERACTIONS_INTERACTIONS_ITEMS" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
-      <upperLeftCorner x="522" y="30"/>
-      <rectangleSize width="325.36328125"/>
+    <shape modelObjectName="APP_INTERACTIONS_ITEMS" modelObjectNameSpace="Join_1" modelObjectType="JoinNodeInput">
+      <upperLeftCorner x="320" y="30"/>
+      <rectangleSize width="228.689453125"/>
     </shape>
   </shapes>
 </layout>
