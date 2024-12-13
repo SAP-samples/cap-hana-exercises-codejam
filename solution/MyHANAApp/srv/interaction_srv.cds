@@ -1,17 +1,30 @@
 using app.interactions from '../db/interactions';
+using {sap} from '@sap/cds-common-content';
 using V_INTERACTION from '../db/interactions';
 
-@requires: 'authenticated-user'
 service CatalogService {
 
- entity Interactions_Header
-	as projection on interactions.Interactions_Header;
+    @requires           : 'authenticated-user'
+    @cds.redirection.target
+    @odata.draft.enabled: true
+    entity Interactions_Header as projection on interactions.Headers;
 
- entity Interactions_Items
-	as projection on  interactions.Interactions_Items;
+    @requires: 'Admin'
+    entity Interactions_Items  as projection on interactions.Items;
 
-function sleep() returns Boolean;
+    @readonly
+    entity Languages           as projection on sap.common.Languages;
 
- @readonly
- entity V_Interaction as projection on V_INTERACTION;
+    @readonly
+    @restrict: [{
+        grant: 'READ',
+        where: 'country_code = ''DE'''
+    }]
+    entity HeaderView          as projection on interactions.Headers;
+
+    function sleep() returns Boolean;
+
+    @readonly
+    entity V_Interaction       as projection on V_INTERACTION;
+
 }

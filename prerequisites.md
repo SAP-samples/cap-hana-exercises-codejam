@@ -14,7 +14,7 @@ There are hardware, software and service prerequisites for participating in this
 
 ### Services
 
-* Get a free SAP Business Technology Platform trial account (if you don't already have one):
+* You will get access to the provided SAP BTP account for the CodeJam. If you want to continue learning afterwards, you can also sign up for a free SAP Business Technology Platform trial account:
   * [Tutorial: Get an SAP BTP Account for Tutorials](https://developers.sap.com/tutorials/btp-cockpit-setup.html)
 
 ## Prerequisites for Performing the Exercises Locally
@@ -23,26 +23,36 @@ In this exercise variant, you will install all development tools locally in your
 
 There is also a brand new option that allows you to use VSCode locally but remotely connect it to your Business Application Studio dev space. This avoids the need to install all the prerequisites to local development. To read more about this option, [see here](https://blogs.sap.com/2023/05/09/product-updates-for-sap-business-application-studio-2304/?source=social-Global-YOUTUBE-MarketingCampaign-Developers-Business_Technology_Platform_Umbrella-spr-9927419192-account_name&campaigncode=CRM-XB23-MKT-DGEALL&sprinklrid=9927419192).
 
+### Summary of Microsoft Visual Studio Code Desktop Client for SAP Business Application Studio
+
+The Microsoft Visual Studio Code Desktop Client for SAP Business Application Studio allows developers to use the familiar VSCode interface while connecting remotely to their SAP Business Application Studio dev space. This setup provides the following benefits:
+
+* **Reduced Local Setup**: Developers can avoid installing all development tools locally, as they can leverage the tools available in the remote dev space.
+* **Seamless Integration**: The integration ensures a smooth development experience with access to all necessary tools and extensions.
+* **Flexibility**: Developers can work from different environments without worrying about local setup inconsistencies.
+
+For detailed information, refer to the [blog post](https://blogs.sap.com/2023/05/09/product-updates-for-sap-business-application-studio-2304/?source=social-Global-YOUTUBE-MarketingCampaign-Developers-Business_Technology_Platform_Umbrella-spr-9927419192-account_name&campaigncode=CRM-XB23-MKT-DGEALL&sprinklrid=9927419192).
+
 ### Local Hardware
 
 * None
 
 ### Local Software
 
-* Ensure that you have [Node.js](https://nodejs.org/en/download/) version [18](https://nodejs.org/dist/latest-v18.x/) or [20](https://nodejs.org/dist/latest-v20.x/) installed locally. In case of problems, see the [Troubleshooting guide for CAP](https://cap.cloud.sap/docs/get-started/troubleshooting#npm-installation).
+* Ensure that you have [Node.js](https://nodejs.org/en/download/) version [18](https://nodejs.org/dist/latest-v18.x/), [20](https://nodejs.org/dist/latest-v20.x/), or [22](https://nodejs.org/dist/latest-v22.x/) installed locally. Make sure you run the latest long-term support (LTS) version of Node.js with an even number like 20. Refrain from using odd versions, for which some modules with native parts will have no support and thus might even fail to install. In case of problems, see the [Troubleshooting guide for CAP](https://cap.cloud.sap/docs/get-started/troubleshooting#npm-installation).
   ![Node.js Version Check](images/prereq/node_v_check.png)
 
-* [Install Git](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#21385226-8ed8-48c4-bc9e-97c38562ce93).
+* [Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-* [Install the Cloud Foundry command line interface](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#f2d28e20-e4da-4eaf-9e55-7b9238b1f8bd)
+* [Install the Cloud Foundry command line interface](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html)
   
-* [Add CAP tooling](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#79e1644f-4433-47dc-a770-5da00c9afce9)
+* [Add CAP tooling](https://developers.sap.com/tutorials/cp-apm-nodejs-create-service.html#f1f8e95a-3c77-462b-80fc-0579d49e4afe)
 
-* [Install Microsoft Visual Studio Code](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#2dab2b4d-c9c7-40fa-a113-b6c0f02cddad)
+* [Install Microsoft Visual Studio Code](https://code.visualstudio.com/)
 
-* [Install VS Code extensions](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#63037f80-b6bc-4b86-a8db-b0d9d23ea7d1)
+* [Install VS Code extensions](https://developers.sap.com/tutorials/cp-apm-nodejs-create-service.html#77505c79-8374-4afb-99a6-9530fb52f968)
 
-* [Install SAP Fiori tools Extension Pack](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#28ca825f-00b0-43ae-b34c-40f24facead8)
+* [Install SAP Fiori tools Extension Pack](https://marketplace.visualstudio.com/items?itemName=SAPSE.sap-ux-fiori-tools-extension-pack)
 
 * [Install SAP Cloud MTA Build Tool](https://sap.github.io/cloud-mta-build-tool/download/)  
 
@@ -54,15 +64,13 @@ There is also a brand new option that allows you to use VSCode locally but remot
 
 In this scenario you will develop locally but we will reduce the amount of setup steps and tools you need to install by using [development containers](https://code.visualstudio.com/docs/remote/containers). This uses Docker Desktop and VSCode extensions provided by Microsoft to configure and remotely connect VSCode to this a container.
 
-### Dev Container Hardware
-
-* If running on arm64/Apple Silicon (otherwise known as the [Apple M1](https://en.wikipedia.org/wiki/Apple_M1)), the please change the [devcontainer.json](..devcontainer/devcontainer.json) file and the VARIANT value from `20-buster` to `20-bullseye` after cloning and starting the Dev Container
+![Dev Container Architecture](https://code.visualstudio.com/assets/docs/devcontainers/containers/architecture-containers.png)
 
 ### Dev Container Software
 
-* [Install Microsoft Visual Studio Code](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#2dab2b4d-c9c7-40fa-a113-b6c0f02cddad)
+* [Install Microsoft Visual Studio Code](https://code.visualstudio.com/)
 
-* [Install Git](https://developers.sap.com/tutorials/btp-app-prepare-dev-environment-cap.html#21385226-8ed8-48c4-bc9e-97c38562ce93)
+* [Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 * [VS Code Extension for Remote Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
   
@@ -74,6 +82,16 @@ In this scenario you will develop locally but we will reduce the amount of setup
 
 * When the project opens in VSCode you should receive a dialog in the lower right corner that the "Folder contains a Dev Container".  Choose to `Reopen in Container`
   ![Reopen in Container](images/prereq/reopen_remote_container.png)
+
+### Node.js Docker Images for Dev Containers
+
+When using Dev Containers, you might encounter different Node.js Docker images such as `buster`, `bullseye`, and `bookworm`. These names refer to different Debian releases that the Node.js images are based on:
+
+* **buster**: This is based on Debian 10. It is an older, stable release.
+* **bullseye**: This is based on Debian 11. It is the current stable release and is recommended for most users.
+* **bookworm**: This is based on Debian 12. It is the testing release and includes the latest features but might not be as stable as `bullseye`.
+
+In the context of Dev Containers, these images are used to provide a consistent development environment. You can choose the appropriate image based on your stability and feature requirements. For most users, `bullseye` is recommended as it provides a good balance between stability and up-to-date features.
 
 ### Dev Container Services
 

@@ -6,66 +6,27 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@sap/audit-logging": "^5.5.3",
-    "@sap/cds": "^5",
-    "@sap/hana-project-explorer": "^1.2.0",
-    "@sap/xsenv": "^3.2.2",
-    "@sap/xssec": "^3.2.13",
-    "express": "^4",
-    "hdb": "^0.19.0",
-    "passport": "^0.5.2",
-    "sap-hdb-promisfied": "^2.202203.3"
+    "@cap-js/hana": "^1",
+    "@sap/cds": "^8",
+    "@sap/cds-common-content": "^2.1.0",
+    "@sap/xssec": "^4",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/cds-types": "^0.7.0",
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^8"
   },
   "scripts": {
-    "start": "set NODE_ENV=production&&cds run"
-  },
-  "eslintConfig": {
-    "extends": "eslint:recommended",
-    "env": {
-      "es2020": true,
-      "node": true,
-      "jest": true,
-      "mocha": true
-    },
-    "globals": {
-      "SELECT": true,
-      "INSERT": true,
-      "UPDATE": true,
-      "DELETE": true,
-      "CREATE": true,
-      "DROP": true,
-      "CDL": true,
-      "CQL": true,
-      "CXL": true,
-      "cds": true
-    },
-    "rules": {
-      "no-console": "off",
-      "require-atomic-updates": "off"
-    }
+    "start": "cds-serve",
+    "watch-interaction_items": "cds watch --open interaction_items/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
-    "build": {
-      "tasks": [
-        {
-          "for": "hana",
-          "dest": "../db"
-        },
-        {
-          "for": "node-cf"
-        }
-      ]
-    },
-    "hana": {
-      "deploy-format": "hdbtable"
-    },
     "requires": {
-      "db": {
-        "kind": "hana"
-      },
-      "uaa": {
-        "kind": "xsuaa"
-      }
+      "auth": "xsuaa"
+    },
+    "sql": {
+      "native_hana_associations": false
     }
   },
   "sapux": [

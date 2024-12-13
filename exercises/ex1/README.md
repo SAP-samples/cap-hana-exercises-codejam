@@ -1,10 +1,12 @@
 # Exercise 1 - Set Up SAP HANA Cloud and CAP Project
 
-Before we can begin development we must perform a couple of important steps.
+NOTE: **For the CodeJam it is no longer necessary to provision the SAP HANA Cloud instance**. Your instructor will provide you with access to an SAP BTP Subaccount which already contains an SAP HANA Cloud instance ready to perform the necessary setps in this CodeJam. However you will only have temporary access to this account. If you wish to continue learning from your own account, this page contains the necessary steps to provision your own SAP HANA Cloud instance on SAP BTP Free Trial.
+
+Only perform these remain steps in Exercise 1 if you want to create your own system after the CodeJam. Otherwise you can proceed directly to 👉 [Exercise 2 - Create an SAP Cloud Application Programming Model Project for SAP HANA Cloud](../ex2/README.md)
+
+## Introduction
 
 First, we need to provision an SAP HANA Cloud database instance. This will be in a "multi-environment" context with the SAP HANA Cloud Administration Tools (see the "Further Study" section below for a link to more information on this). We must then make that database instance available to the environment instance where we'll be managing deployments with HDI containers, which here will be in your Cloud Foundry environment instance.
-
-Second, we must also ensure that we have access to our chosen development environment.
 
 ## Exercise 1.1 Deploy SAP HANA Cloud
 
@@ -58,6 +60,17 @@ Now that you have your SAP HANA Cloud database instance and have setup the basic
 * [SAP HANA Cloud](https://community.sap.com/topics/hana)
 * [SAP Business Application Studio](https://community.sap.com/topics/business-application-studio)
 * [Subscribing to the SAP HANA Cloud Administration Tools](https://help.sap.com/docs/hana-cloud/sap-hana-cloud-administration-guide/subscribing-to-sap-hana-cloud-administration-tools)
+
+### What is SAP HANA Cloud Multi-Environment?
+
+The SAP HANA Cloud multi-environment is a modern approach to managing and deploying SAP HANA databases. It allows for greater flexibility and scalability by supporting multiple environments such as Cloud Foundry and Kyma. This multi-environment setup enables seamless integration and management of various services and applications within the SAP ecosystem.
+
+#### Differences from Older Options
+
+* **Flexibility**: The multi-environment setup supports multiple runtime environments, unlike older options which were limited to a single environment.
+* **Scalability**: It provides better scalability options, allowing for dynamic allocation of resources based on demand.
+* **Integration**: Enhanced integration capabilities with other SAP services and third-party applications.
+* **Management**: Improved tools and interfaces for managing databases and services across different environments.
 
 ## Next
 

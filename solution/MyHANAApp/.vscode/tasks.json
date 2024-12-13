@@ -1,13 +1,13 @@
 {
-  // See https://go.microsoft.com/fwlink/?LinkId=733558
-  // for the documentation about the tasks.json format
   "version": "2.0.0",
   "tasks": [
     {
       "type": "shell",
       "label": "cds watch",
       "command": "cds",
-      "args": ["watch"],
+      "args": [
+        "watch"
+      ],
       "group": {
         "kind": "build",
         "isDefault": true
@@ -16,9 +16,13 @@
     },
     {
       "type": "shell",
-      "label": "cds run",
+      "label": "cds serve",
       "command": "cds",
-      "args": ["run", "--with-mocks", "--in-memory?"],
+      "args": [
+        "serve",
+        "--with-mocks",
+        "--in-memory?"
+      ],
       "problemMatcher": []
     }
   ]
