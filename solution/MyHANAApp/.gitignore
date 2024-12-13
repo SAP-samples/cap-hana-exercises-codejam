@@ -1,6 +1,7 @@
 # CAP MyHANAApp
 _out
 *.db
+*.sqlite
 connection.properties
 default-*.json
 .cdsrc-private.json
@@ -28,6 +29,9 @@ mta_archives/
 # IDEs
 # .vscode
 # .idea
+
+# @cap-js/cds-typer
+@cds-models
 
 # auto generated wildcard
 db/.env
