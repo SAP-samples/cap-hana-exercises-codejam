@@ -47,4 +47,8 @@ Instructions on how to clean up resources after the event.
 
 1. Remove Users
    * `Security -> Users` ![Navigate to User Management](images/instructor/securityUsers.png "Navigate to User Management")
-   * Manually Delete all workshop users ![Delete Users](images/instructor/deleteUsers.png "Delete Users")
+   * Manually delete all workshop users ![Delete Users](images/instructor/deleteUsers.png "Delete Users")
+
+1. Remove created Role Collections
+   * `Security -> Role Collections`
+   * Manually delete all role collections created by the workshop users ![Delete Role Collection](images/instructor/deleterolecollection.png)
