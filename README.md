@@ -6,6 +6,9 @@
 
 This repository contains the material for the CodeJam on using the SAP Cloud Application Programming Model and SAP HANA Cloud to create Full-Stack Applications. In this CodeJam we will learn how to use an instance of SAP HANA Cloud, develop a multi-target application using SAP Business Application Studio and SAP Cloud Application Programming Model, and create a service layer and SAP Fiori UI that also includes SAP HANA native artifacts, such as calculation views.
 
+Complete this in-person CodeJam experience and you can receive the following badge on Credly:
+[![Credley Badge](https://images.credly.com/images/5d79c77c-2def-4f1a-94a9-9b40d50c6202/blob)](https://www.credly.com/org/sap/badge/developer-skills-codejam-combine-sap-cap-with-sap-h)
+
 ## What is an SAP CodeJam?
 
 SAP CodeJam is a hands-on, collaborative event where developers come together to learn about SAP technologies, share knowledge, and work on practical exercises. These events are typically led by SAP experts and provide a great opportunity to network with peers, ask questions, and gain a deeper understanding of SAP solutions through guided tutorials and real-world scenarios.
