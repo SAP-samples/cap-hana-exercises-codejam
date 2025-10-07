@@ -1,9 +1,5 @@
 # Exercise 1 - Set Up SAP HANA Cloud and CAP Project
 
-NOTE: **For the CodeJam it is no longer necessary to provision the SAP HANA Cloud instance**. Your instructor will provide you with access to an SAP BTP Subaccount which already contains an SAP HANA Cloud instance ready to perform the necessary setps in this CodeJam. However you will only have temporary access to this account. If you wish to continue learning from your own account, this page contains the necessary steps to provision your own SAP HANA Cloud instance on SAP BTP Free Trial.
-
-Only perform these remain steps in Exercise 1 if you want to create your own system after the CodeJam. Otherwise you can proceed directly to 👉 [Exercise 2 - Create an SAP Cloud Application Programming Model Project for SAP HANA Cloud](../ex2/README.md)
-
 ## Introduction
 
 First, we need to provision an SAP HANA Cloud database instance. This will be in a "multi-environment" context with the SAP HANA Cloud Administration Tools (see the "Further Study" section below for a link to more information on this). We must then make that database instance available to the environment instance where we'll be managing deployments with HDI containers, which here will be in your Cloud Foundry environment instance.
