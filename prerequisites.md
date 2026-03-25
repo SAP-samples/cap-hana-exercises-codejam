@@ -175,21 +175,21 @@ In this scenario you will develop locally but reduce the amount of setup steps a
 
 ![Dev Container Architecture](https://code.visualstudio.com/assets/docs/devcontainers/containers/architecture-containers.png)
 
-```Mermaid
+```mermaid
 graph LR
     subgraph local["Local Machine"]
-        UI["VS Code UI\n(themes, keybindings, snippets)"]
+        UI["VS Code UI<br/>(themes, keybindings, snippets)"]
         FS["Local File System"]
     end
 
     subgraph container["Dev Container (Docker)"]
-        EXT["Extensions\n(language servers, debuggers, linters)"]
-        TOOLS["Tools & Runtimes\n(Node.js, Python, compilers...)"]
-        WS["Workspace\n(source code)"]
+        EXT["Extensions<br/>(language servers, debuggers, linters)"]
+        TOOLS["Tools & Runtimes<br/>(Node.js, Python, compilers...)"]
+        WS["Workspace<br/>(source code)"]
     end
 
-    UI -- "VS Code Server\n(remote extension host)" --> EXT
-    FS -- "volume mount\nor clone/copy" --> WS
+    UI -- "VS Code Server<br/>(remote extension host)" --> EXT
+    FS -- "volume mount<br/>or clone/copy" --> WS
     EXT --> TOOLS
     EXT --> WS
 ```
