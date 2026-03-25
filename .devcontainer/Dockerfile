@@ -1,7 +1,7 @@
 # See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.231.6/containers/javascript-node/.devcontainer/base.Dockerfile
 
-# [Choice] Node.js version (use -bullseye variants on local arm64/Apple Silicon): 16-bullseye, 14-bullseye, 12-bullseye, 16-buster, 14-buster, 12-buster
-ARG VARIANT="22-bookworm"
+# [Choice] Node.js version (use -bookworm variants): 24-bookworm, 22-bookworm, 20-bookworm
+ARG VARIANT="24-bookworm"
 FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:${VARIANT}
 
 # Prepare for apt-based install of Cloud Foundry CLI by adding Cloud Foundry Foundation public key & package repository
