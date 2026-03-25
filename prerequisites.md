@@ -173,7 +173,7 @@ Then configure your editor's LSP client to use `cds-lsp --stdio` as the language
 
 In this scenario you will develop locally but reduce the amount of setup steps and tools you need to install by using [development containers](https://code.visualstudio.com/docs/remote/containers). This uses Docker Desktop and VSCode extensions provided by Microsoft to configure and remotely connect VSCode to a container.
 
-![Dev Container Architecture](https://code.visualstudio.com/assets/docs/devcontainers/containers/architecture-containers.png)
+### Devcontainer Architecture
 
 ```mermaid
 graph LR
@@ -192,6 +192,13 @@ graph LR
     FS -- "volume mount<br/>or clone/copy" --> WS
     EXT --> TOOLS
     EXT --> WS
+
+    classDef localNode fill:#354A5E,stroke:#1B2A3B,color:#FFFFFF
+    classDef containerNode fill:#0070F2,stroke:#0057C2,color:#FFFFFF
+    class UI,FS localNode
+    class EXT,TOOLS,WS containerNode
+    style local fill:#E8ECF0,stroke:#354A5E,color:#1B2A3B
+    style container fill:#E6F3FC,stroke:#0070F2,color:#1B2A3B
 ```
 
 All Node.js, npm, Git, CF CLI, CAP tooling, and VS Code extensions are pre-configured inside the container image — you do not need to install them on your host machine.

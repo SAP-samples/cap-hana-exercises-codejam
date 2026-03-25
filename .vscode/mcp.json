@@ -1,0 +1,17 @@
+{
+	"servers": {
+		"io.github.SAP/mdk-mcp-server": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"-y",
+				"@sap/mdk-mcp-server@0.3.3",
+				"mdk-mcp",
+				"--schema-version",
+				"25.9"
+			],
+			"env": {}
+		}
+	},
+	"inputs": []
+}
