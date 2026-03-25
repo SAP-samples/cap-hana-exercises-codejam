@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-Thanks for taking a couple of minutes to give feedback, which will help me improve for next time. 
+Thanks for taking a couple of minutes to give feedback, which will help me improve for next time.
 
 ## Instructions
 

@@ -39,7 +39,7 @@ For detailed information, refer to the [blog post](https://blogs.sap.com/2023/05
 
 ### Local Software
 
-* Ensure that you have [Node.js](https://nodejs.org/en/download/) version [18](https://nodejs.org/dist/latest-v18.x/), [20](https://nodejs.org/dist/latest-v20.x/), or [22](https://nodejs.org/dist/latest-v22.x/) installed locally. Make sure you run the latest long-term support (LTS) version of Node.js with an even number like 20. Refrain from using odd versions, for which some modules with native parts will have no support and thus might even fail to install. In case of problems, see the [Troubleshooting guide for CAP](https://cap.cloud.sap/docs/get-started/troubleshooting#npm-installation).
+* Ensure that you have [Node.js](https://nodejs.org/en/download/) version [18](https://nodejs.org/dist/latest-v18.x/), [20](https://nodejs.org/dist/latest-v20.x/), [22](https://nodejs.org/dist/latest-v22.x/), or [24](https://nodejs.org/dist/latest-v24.x/) installed locally. Make sure you run the latest long-term support (LTS) version of Node.js with an even number like 20. Refrain from using odd versions, for which some modules with native parts will have no support and thus might even fail to install. In case of problems, see the [Troubleshooting guide for CAP](https://cap.cloud.sap/docs/get-started/troubleshooting#npm-installation).
   ![Node.js Version Check](images/prereq/node_v_check.png)
 
 * [Install Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
