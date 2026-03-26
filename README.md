@@ -53,6 +53,20 @@ If you finish an exercise early, please resist the temptation to continue with t
 
 When creating the HDI Container instance in Exercise 3, the Business Application Studio tooling sometimes does not properly wait for the container creation. In these situations, simply wait a moment for creation to complete and then repeat the step.
 
+## The exercises
+
+Here's an overview of the exercises in this CodeJam.
+
+* Make certain that you have successfully completed all the [prerequisites](prerequisites.md)
+* [Exercise 1 - Set Up SAP HANA Cloud and Development Environment](exercises/ex1/README.md) — Set up an SAP HANA Cloud instance and configure your development environment in BAS
+* [Exercise 2 - Create an SAP Cloud Application Programming Model Project for SAP HANA Cloud](exercises/ex2/README.md) — Scaffold a CAP Node.js project and connect it to your HANA Cloud HDI container
+* [Exercise 3 - Create Database Artifacts Using Core Data Services (CDS) for SAP HANA Cloud](exercises/ex3/README.md) — Define the data model using CDS and deploy database artifacts to HANA Cloud
+* [Exercise 4 - Create a User Interface with CAP (SAP HANA Cloud)](exercises/ex4/README.md) — Generate an SAP Fiori Elements list report UI served by the CAP service
+* [Exercise 5 - Add User Authentication to Your Application (SAP HANA Cloud)](exercises/ex5/README.md) — Add XSUAA-based user authentication and role-based access control
+* [Exercise 6 - Create Calculation View and Expose via CAP (SAP HANA Cloud)](exercises/ex6/README.md) — Build a HANA calculation view and expose it as a read-only CAP entity
+* [Exercise 7 - Create HANA Stored Procedure and Expose as CAP Service Function (SAP HANA Cloud)](exercises/ex7/README.md) — Implement a HANA stored procedure and surface it as a CAP service function
+* [Bonus Homework - Deploy CAP with SAP HANA Cloud project as MTA](exercises/ex8/README.md) — Package and deploy the full application as an MTA to SAP BTP Cloud Foundry
+
 ## Feedback
 
 If you can spare a couple of minutes at the end of the session, please help me improve for next time by giving me some feedback.
