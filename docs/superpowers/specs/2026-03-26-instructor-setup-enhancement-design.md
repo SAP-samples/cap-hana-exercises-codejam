@@ -25,27 +25,35 @@ Full restructure (Option B): add introduction, pre-event checklist, expand each 
 - 2–3 sentences: what this document covers, that all steps must be completed before the event day, and what access the instructor needs (Global Account administrator access).
 
 ### 2. Pre-Event Checklist
-- A `- [ ]` tick-list of 5–6 items covering every major action.
-- Targeted at returning instructors who want a quick scan before an event.
-- Items mirror the subsections in Pre-Event Setup.
+
+A `- [ ]` tick-list of exactly 6 items covering every discrete action, targeted at returning instructors who want a quick scan before an event:
+
+- [ ] Navigate to the SAP BTP subaccount
+- [ ] Enable Cloud Foundry and create the `dev` space
+- [ ] Provision the SAP HANA Cloud instance
+- [ ] Map the HANA Cloud instance to the CF org and space
+- [ ] Set HANA Cloud allowed connections to "Allow All IP Addresses"
+- [ ] Create participant users, assign the `CodeJam` Role Collection, and add to the CF `dev` space
 
 ### 3. Pre-Event Setup
 Four subsections, each with a one-sentence context intro and numbered steps:
 
 #### 3a. The SAP BTP SubAccount
 - Fix typo: "Direcotries" → "Directories"
+- Fix missing space: "section.There" → "section. There"
 - Context: this is a shared, persistent subaccount — do not create a new one.
 - Steps unchanged otherwise.
 
 #### 3b. Enable Cloud Foundry and Create a `dev` Space
 - Fix typos: "Enviroment" (×2) → "Environment", "Enablment" → "Enablement", "Enablment dialog" → "Enablement dialog"
+- Fix heading capitalisation: change `'Dev'` → `` `dev` `` to match the actual CF space name used throughout the document.
 - Context: CF is required because participants deploy HDI container service instances into this space.
 - Steps unchanged otherwise.
 
 #### 3c. Provision SAP HANA Cloud
 - Context: a single shared HANA Cloud instance serves all participants.
 - Keep the link to the SAP tutorial.
-- Add a prominent warning callout (⚠️) for two steps that are covered in the tutorial but are easy to miss and cause serious problems if skipped:
+- Add a warning callout after the tutorial link using a `> ⚠️ **Important:**` blockquote (no GitHub-specific extensions), covering two steps that are easy to miss and cause serious problems if skipped:
   1. **CF org/space mapping** — the HANA Cloud instance must be mapped to the Cloud Foundry org and space.
   2. **Allow All IP Addresses** — the instance's allowed connections must be set to "Allow All IP Addresses"; without this, dev tools (BAS, etc.) cannot connect.
 
