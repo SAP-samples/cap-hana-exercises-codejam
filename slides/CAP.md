@@ -72,8 +72,8 @@ w/ *1st-class support* by and for…
 
 ```mermaid
 block-beta
-  columns 3
-  block:ide["web based IDE + local"]:1
+  columns 1
+  block:ide["Web Based IDE + Local"]:1
     BAS["SAP BAS"]
     Eclipse["VSCode / CLI"]
   end
@@ -89,7 +89,7 @@ block-beta
     Concur["SAP Concur"]
     Fieldglass["SAP Fieldglass"]
   end
-  Infra["Infrastructure"]:3
+  Infra["Infrastructure"]:1
 ```
 
 ---
