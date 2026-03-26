@@ -49,7 +49,7 @@ If you finish an exercise early, please resist the temptation to continue with t
 
 > The exercises are written in a conversational way; this is so that they have enough context and information to be completed outside the hands-on session itself. To help you navigate and find what you have to actually do next, there are pointers like this 👉 throughout that indicate the things you have to actually do (as opposed to just read for background information).
 
-## Known Issues
+## Known Issues (affects Exercise 3)
 
 When creating the HDI Container instance in Exercise 3, the Business Application Studio tooling sometimes does not properly wait for the container creation. In these situations, simply wait a moment for creation to complete and then repeat the step.
 
