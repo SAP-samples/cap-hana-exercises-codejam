@@ -78,6 +78,6 @@ Run these steps after every event to avoid ongoing costs and reset the subaccoun
    * `Security -> Users` ![Navigate to User Management](images/instructor/securityUsers.png "Navigate to User Management")
    * Manually delete all workshop users ![Delete Users](images/instructor/deleteUsers.png "Delete Users")
 
-1. Remove created Role Collections
+1. Remove Role Collections created by participants during the event
    * `Security -> Role Collections`
-   * Manually delete all role collections created by the workshop users ![Delete Role Collection](images/instructor/deleterolecollection.png)
+   * Delete any Role Collections that participants created during the event. Do **not** delete the `CodeJam` Role Collection — it is pre-existing and reused across events. ![Delete Role Collection](images/instructor/deleterolecollection.png)
