@@ -19,13 +19,17 @@ Full restructure (Option B): add introduction, pre-event checklist, expand each 
 
 ---
 
+## Shared Implementation Notes
+
+- The document's top-level `# Instructor Setup for CodeJam` H1 heading is preserved unchanged.
+- All new top-level sections are `##`-level headings. The four subsections within Pre-Event Setup are `###`-level headings.
+- Each section currently opens with a generic prose line (e.g., "Instructions on how to…"). **Replace** each of these with the new one-sentence context intro described per section below — do not retain the old line alongside the new one.
+- The `> ⚠️ **Important:**` blockquote callout format is chosen for HANA Cloud warnings. The repo has no existing warning-callout convention; no conflict exists.
+- Anchor-link safety for the "Clean Up After the Event" rename was verified by searching the repo for the string `clean-up-after` and `InstructorSetup` across all Markdown files — no inbound anchor links were found. Confirmed safe to rename.
+
+---
+
 ## Document Structure
-
-The document's top-level `# Instructor Setup for CodeJam` H1 heading is preserved unchanged.
-
-All new top-level sections (Introduction, Pre-Event Checklist, Pre-Event Setup, After the Event) are `##`-level headings. The four subsections within Pre-Event Setup are `###`-level headings.
-
-The `> ⚠️ **Important:**` blockquote callout format is chosen for the HANA Cloud warnings. The repo has no existing warning-callout convention, so no conflict exists.
 
 ### 1. Introduction (`##`)
 
@@ -44,40 +48,42 @@ A `- [ ]` tick-list of 6 items covering every discrete action, targeted at retur
 
 Notes:
 
-- The "Enable CF" checklist item explicitly includes adding co-instructors as Space Members, since this step (existing line 18 of the file) is preserved in the detailed instructions but easy to overlook. It is kept as a parenthetical within the existing item rather than a separate 7th item, since it is a one-time setup for a persistent space.
-- The checklist user item stays as a single combined line despite the two distinct sub-steps in section 3d — the checklist is a scan aid, not a 1:1 mirror of every sub-step.
+- The "Enable CF" item includes co-instructors as a parenthetical — this step (existing line 18) is a one-time setup for a persistent space and does not warrant a separate checklist line.
+- The user item stays as a single combined line despite the two distinct sub-steps in section 3d — the checklist is a scan aid, not a 1:1 mirror of every sub-step.
 
 ### 3. Pre-Event Setup (`##`)
 
-Four `###`-level subsections, each with a one-sentence context intro and numbered steps.
+Four `###`-level subsections, each with a new one-sentence context intro (replacing the existing generic "Instructions on how to…" line) and numbered steps.
 
 #### 3a. The SAP BTP SubAccount (`###`)
 
 - Rename heading: "The SAP BTP SubAccount Details" → "The SAP BTP SubAccount" (drop "Details").
+- Replace existing intro line with context sentence: this is a shared, persistent subaccount — do not create a new one.
 - Fix typo: "Direcotries" → "Directories"
 - Fix missing space: "section.There" → "section. There"
-- Context sentence: this is a shared, persistent subaccount — do not create a new one.
-- Steps unchanged otherwise.
+- Numbered steps unchanged otherwise.
 
 #### 3b. Enable Cloud Foundry and Create a `dev` Space (`###`)
 
-- Fix heading capitalisation: change `` `Dev` `` → `` `dev` `` to match the actual CF space name used throughout the document.
-- Fix typos: "Enviroment" (one instance) → "Environment", "Enablment" → "Enablement"
-- Context sentence: CF is required because participants deploy HDI container service instances into this space.
-- Steps unchanged otherwise (including the step to add co-instructors as Space Members with all roles).
+- Fix heading capitalisation: change `` `Dev` `` → `` `dev` `` in the heading to match the actual CF space name.
+- Replace existing intro line with context sentence: CF is required because participants deploy HDI container service instances into this space.
+- Fix typos: "Enviroment" (one instance in this section) → "Environment", "Enablment" → "Enablement"
+- Numbered steps unchanged otherwise (including the step to add co-instructors as Space Members with all roles).
 
-#### 3c. Provision SAP HANA Cloud (`###`)
+#### 3c. Provisioning of SAP HANA Cloud (`###`)
 
-- Context sentence: a single shared HANA Cloud instance serves all participants.
-- Keep the link to the SAP tutorial.
-- Add a warning callout after the tutorial link using a `> ⚠️ **Important:**` blockquote, covering two steps that are easy to miss and cause serious problems if skipped:
+- Heading text "Provisioning of SAP HANA Cloud" is preserved unchanged.
+- Replace existing intro line with context sentence: a single shared HANA Cloud instance serves all participants.
+- Keep the tutorial link step as-is, including the trailing sentence ("You now have an SAP HANA database fully accessible…").
+- Add a `> ⚠️ **Important:**` blockquote callout after the tutorial step, covering two steps easy to miss:
   1. **CF org/space mapping** — the HANA Cloud instance must be mapped to the Cloud Foundry org and space.
   2. **Allow All IP Addresses** — the instance's allowed connections must be set to "Allow All IP Addresses"; without this, dev tools (BAS, etc.) cannot connect.
 
 #### 3d. Adding Users (`###`)
 
+- Heading text "Adding Users" is preserved unchanged.
 - No typos to fix in this section.
-- Context sentence: participants need both a BTP subaccount user and a CF space membership to complete all exercises.
+- Replace existing intro line with context sentence: participants need both a BTP subaccount user and a CF space membership to complete all exercises.
 - Add explicit note: the `CodeJam` Role Collection **already exists** (pre-built with all 41 roles covering BAS, HANA Cloud, Destinations, and more) — do not create a new one, simply assign the existing one.
 - Clarify the user setup as two distinct numbered actions:
   1. Create user in `Security → Users` and assign the `CodeJam` Role Collection.
@@ -85,10 +91,10 @@ Four `###`-level subsections, each with a one-sentence context intro and numbere
 
 ### 4. After the Event (`##`)
 
-- Rename from "Clean Up After the Event" to "After the Event". No inbound anchor links exist in the repo pointing to the old heading — confirmed safe to rename.
-- One-sentence intro: cleanup avoids ongoing costs and resets the subaccount for the next event.
+- Rename heading from "Clean Up After the Event" to "After the Event" (anchor-link safety confirmed — see Shared Implementation Notes).
+- Replace existing intro line with context sentence: cleanup avoids ongoing costs and resets the subaccount for the next event.
 - Fix typo: "Enviroment" → "Environment"
-- Step order unchanged:
+- Numbered step order unchanged:
   1. Delete HDI container service instances
   2. Disable the Cloud Foundry Environment
   3. Delete the HANA Cloud instance
