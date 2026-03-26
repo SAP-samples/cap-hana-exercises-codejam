@@ -67,12 +67,7 @@ Read back lines 1–25 of `InstructorSetup.md` and confirm:
 - `## Pre-Event Checklist` section exists with 6 `- [ ]` items
 - `## Pre-Event Setup` container heading exists immediately before the SubAccount heading
 
-- [ ] **Step 3: Commit**
-
-```bash
-git add InstructorSetup.md
-git commit -m "docs: add Introduction and Pre-Event Checklist to InstructorSetup"
-```
+Do not commit yet — wait until all four subsections (Tasks 2–5) are updated so the heading hierarchy is valid before committing.
 
 ---
 
@@ -115,12 +110,7 @@ Read back the subsection and confirm:
 - "Directories" is spelled correctly
 - "section. There" has the space after the period
 
-- [ ] **Step 3: Commit**
-
-```bash
-git add InstructorSetup.md
-git commit -m "docs: update SubAccount subsection heading, intro, and typos"
-```
+Do not commit yet — wait until all four subsections are updated.
 
 ---
 
@@ -162,12 +152,7 @@ Read back the subsection and confirm:
 - "Enablement" is spelled correctly (no "Enablment")
 - The remaining two steps (create space, add co-instructors) are unchanged
 
-- [ ] **Step 3: Commit**
-
-```bash
-git add InstructorSetup.md
-git commit -m "docs: update Enable CF subsection heading, intro, and typos"
-```
+Do not commit yet — wait until all four subsections are updated.
 
 ---
 
@@ -211,12 +196,7 @@ Read back the subsection and confirm:
 - Tutorial link step and trailing sentence are unchanged
 - Warning callout appears after the tutorial step with both sub-points
 
-- [ ] **Step 3: Commit**
-
-```bash
-git add InstructorSetup.md
-git commit -m "docs: update HANA Cloud subsection and add CF mapping and IP allowlist warnings"
-```
+Do not commit yet — wait until Task 5 (Adding Users) is also complete, then commit all structural changes together.
 
 ---
 
@@ -271,11 +251,13 @@ Read back the subsection and confirm:
 - Steps are split into Action 1 (4 steps) and Action 2 (1 step)
 - All image references are intact and unchanged
 
-- [ ] **Step 3: Commit**
+- [ ] **Step 3: Commit all structural changes (Tasks 1–5)**
+
+This is the first commit — it covers all changes from Tasks 1–5 together so no intermediate state with a broken heading hierarchy is ever persisted to git.
 
 ```bash
 git add InstructorSetup.md
-git commit -m "docs: update Adding Users subsection with Role Collection note and two-action structure"
+git commit -m "docs: restructure InstructorSetup with intro, checklist, Pre-Event Setup container, and expanded subsections"
 ```
 
 ---
