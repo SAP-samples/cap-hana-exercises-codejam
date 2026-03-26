@@ -5,7 +5,18 @@
 
 ## Description
 
-This repository contains the material for the CodeJam on using the SAP Cloud Application Programming Model and SAP HANA Cloud to create Full-Stack Applications. In this CodeJam we will learn how to use an instance of SAP HANA Cloud, develop a multi-target application using SAP Business Application Studio and SAP Cloud Application Programming Model, and create a service layer and SAP Fiori UI that also includes SAP HANA native artifacts, such as calculation views.
+In this CodeJam you will build a full-stack application using SAP Cloud Application Programming Model (CAP) and SAP HANA Cloud, progressing through 8 exercises from project setup to deployment.
+
+**Tech stack at a glance:**
+
+* SAP Cloud Application Programming Model — Node.js
+* SAP HANA Cloud (HDI containers)
+* SAP Business Application Studio
+* SAP Fiori Elements UI (OData V4)
+* XSUAA authentication
+* HANA-native artifacts: calculation views and stored procedures
+
+Complete all 8 exercises at an in-person CodeJam event to earn a Credly badge.
 
 ## What is an SAP CodeJam?
 
