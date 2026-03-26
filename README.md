@@ -85,7 +85,7 @@ Here are a few pointers to resources for further connections and information:
 
 ### What is the SAP Cloud Application Programming Model?
 
-The SAP Cloud Application Programming Model (CAP) is a framework of languages, libraries, and tools for building enterprise-grade services and applications. It provides a consistent end-to-end programming model that includes best practices, out-of-the-box solutions for common tasks, and a set of tools to simplify development. CAP is designed to help developers focus on their business logic while leveraging SAP's powerful technologies.
+The SAP Cloud Application Programming Model (CAP) is a framework of languages, libraries, and tools for building enterprise-grade services and applications. It provides a consistent end-to-end programming model with built-in best practices and out-of-the-box solutions for common tasks.
 
 For more information, visit the following resources:
 
@@ -95,7 +95,7 @@ For more information, visit the following resources:
 
 ### What is SAP HANA Cloud?
 
-SAP HANA Cloud is a fully managed, in-memory cloud database as a service (DBaaS) that provides advanced data management capabilities. It allows you to manage, store, and process data in real-time, enabling you to build modern applications that require high performance and scalability. SAP HANA Cloud integrates seamlessly with other SAP services and provides tools for data integration, analytics, and application development.
+SAP HANA Cloud is a fully managed, in-memory cloud database as a service (DBaaS) that provides advanced analytics and data management capabilities. It integrates seamlessly with other SAP services including CAP, and supports real-time processing for modern enterprise applications.
 
 For more information, visit the following resources:
 
@@ -105,7 +105,7 @@ For more information, visit the following resources:
 
 ### What is SAP Business Application Studio?
 
-SAP Business Application Studio is a modern development environment tailored for efficient development of business applications for the SAP ecosystem. It provides a powerful set of tools and services for developing, testing, and deploying applications, including support for SAP Fiori, SAP Cloud Application Programming Model (CAP), and SAP HANA. Business Application Studio offers a cloud-based IDE with features such as code completion, debugging, and integrated DevOps capabilities.
+SAP Business Application Studio is a cloud-based IDE tailored for SAP application development. It provides built-in support for CAP, SAP Fiori, and SAP HANA, including the graphical calculation view editor used in Exercise 6.
 
 For more information, visit the following resources:
 
