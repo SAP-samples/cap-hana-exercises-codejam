@@ -22,7 +22,7 @@ Use this checklist before each event to confirm everything is in place.
 This is a shared, persistent subaccount used for all CAP CodeJams — do not create a new one.
 
 1. Log in the [SAP BTP Global Account: Developer Advocates Free Tier](https://emea.cockpit.btp.cloud.sap/cockpit/#/globalaccount/275320f9-4c26-4622-8728-b6f5196075f5/accountModel&//?section=HierarchySection&view=TreeTableView).
-1. Navigate to the Directories and SubAccounts section. There you will find a folder for CodeJams. Within that is the Subaccount [CAP CodeJam](https://emea.cockpit.btp.cloud.sap/cockpit/#/globalaccount/275320f9-4c26-4622-8728-b6f5196075f5/subaccount/13f4f274-4515-4c67-8274-cbde80a4e744/subaccountoverview).  That's where we will work.
+1. Navigate to the Directories and SubAccounts section. There you will find a folder for CodeJams. Within that is the Subaccount [CAP CodeJam](https://emea.cockpit.btp.cloud.sap/cockpit/#/globalaccount/275320f9-4c26-4622-8728-b6f5196075f5/subaccount/13f4f274-4515-4c67-8274-cbde80a4e744/subaccountoverview). That's where we will work.
 ![SAP BTP SubAccount](images/instructor/subaccount.png "SAP BTP SubAccount")
 
 ### Enable Cloud Foundry and Create a `dev` Space
@@ -58,7 +58,7 @@ Each participant needs both a BTP subaccount user and a Cloud Foundry space memb
 1. Enter the email addresses of the participants and use the `Default identity provider` ![Create User Dialog](images/instructor/createUserDialog.png "Create User Dialog")
 1. Assign them to the `CodeJam` Role Collection. ![Assign Role Collection](images/instructor/assignRoleCollection.png "Assign Role Collection") ![Assign CodeJam Role Collection](images/instructor/assignCodeJamRC.png "Assign CodeJam Role Collection")
 
-**Action 2: Add the user to the Cloud Foundry space**
+**Action 2: Add users to the Cloud Foundry space**
 
 1. Assign the users to the Cloud Foundry `dev` Space ![Add Space Members](images/instructor/spaceMembers.png "Add Space Members")
 
