@@ -1,41 +1,98 @@
 # Exercise 2 - Create an SAP Cloud Application Programming Model Project for SAP HANA Cloud
 
-In this exercise we will use the wizard for the SAP Cloud Application Programming Model to create a project in SAP Business Application Studio that will also support SAP HANA Cloud.
+In this exercise you will use the SAP CAP project wizard in SAP Business Application Studio to scaffold a new CAP Node.js application that is pre-configured to target SAP HANA Cloud as its database. By the end you will have a working project skeleton, a Git repository to track your changes, and a Cloud Foundry login ready for HDI container deployment.
 
-Perform all the steps in 👉 [tutorial: Create an SAP Cloud Application Programming Model Project for SAP HANA Cloud](https://developers.sap.com/tutorials/hana-cloud-cap-create-project.html)
+## Background
+
+SAP Cloud Application Programming Model (CAP) is SAP's opinionated framework for building full-stack cloud-native applications. Rather than writing raw SQL or low-level service code, you describe your data model and services in **CDS (Core Data Services)** — a high-level, declarative language — and CAP generates the boilerplate for you: OData endpoints, database tables, service bindings, and more.
+
+By default, CAP uses an in-memory SQLite database for local development. To use SAP HANA Cloud instead, you need to configure the project for **HDI (HANA Deployment Infrastructure)** — the mechanism that deploys and manages database artifacts inside an isolated HANA container. The CAP wizard handles this configuration for you automatically.
+
+## Exercise 2.1 Create the CAP Project
+
+The CAP project wizard in SAP Business Application Studio generates the project skeleton, sets up the `package.json` with the correct SAP dependencies, and adds the `mta.yaml` deployment descriptor needed for Cloud Foundry deployment.
+
+👉 Perform all the steps in the tutorial: [Create an SAP Cloud Application Programming Model Project for SAP HANA Cloud](https://developers.sap.com/tutorials/hana-cloud-cap-create-project.html)
+
+> **What the wizard creates:** After running the wizard, your project contains a `db/` folder for your data model, a `srv/` folder for your service definitions, an `app/` folder for any UI content, and a `package.json` that already includes `@sap/cds`, `@sap/hdi-deploy`, and other SAP-specific dependencies.
+
+## Exercise 2.2 Log In to Cloud Foundry
+
+Before you can deploy or bind an HDI container, the Cloud Foundry CLI in BAS needs to know which Cloud Foundry organization and space to use.
+
+👉 In BAS, open the command palette and run **CF: Login to Cloud Foundry**. Select your API endpoint, provide your credentials, and select the org and space where your HANA Cloud instance is mapped.
+
+> **Why Cloud Foundry?** SAP HANA Cloud instances are provisioned in a "multi-environment" context — the database itself is not running inside Cloud Foundry — but HDI containers are still created and managed as Cloud Foundry service instances (using the `hana` service with the `hdi-shared` plan). Logging in lets the CAP tooling find and bind those containers later.
+
+## Exercise 2.3 Initialize a Git Repository
+
+Version control is important from day one. The tutorial has you initialize a local Git repository so you can track every change you make as you progress through the exercises.
+
+👉 Follow the Git initialization steps in the tutorial. Stage and commit your initial project files once the wizard finishes.
+
+> **Local vs. remote:** A local Git repository gives you commit history and the ability to revert changes, but the code only lives on your BAS dev space. In a real project you would push to a central repository (GitHub, GitLab, Azure DevOps, etc.) for backup, collaboration, and CI/CD integration.
 
 ## Summary
 
-At the end of this tutorial you have your `dev space`, the basic CAP project and have configured source control for this project.
+At the end of this exercise you have:
+
+- A CAP Node.js project scaffolded and configured for SAP HANA Cloud
+- A `package.json` with the correct SAP dependencies (`@sap/cds`, `@sap/hdi-deploy`, etc.)
+- An `mta.yaml` deployment descriptor ready for Cloud Foundry MTA builds
+- A Cloud Foundry CLI session pointed at the correct org and space
+- A local Git repository with an initial commit
 
 ### Questions for Discussion
 
-1. What is the value of the `dev space` in the SAP Business Application Studio? To help with this discussion point consider the [prerequisites section](../../prerequisites.md) for not using the SAP Business Application Studio.<details><summary>Answer</summary>
-   The `dev space` in SAP Business Application Studio is a pre-configured development environment tailored for specific scenarios, such as SAP Fiori, SAP HANA, and more. It provides all the necessary tools, extensions, and configurations required for development, reducing setup time and ensuring consistency across different development environments.</details>
+1. What is the value of the dev space in SAP Business Application Studio? To help with this discussion point consider the [prerequisites section](../../prerequisites.md) for not using SAP Business Application Studio.<details><summary>Answer</summary>
+   A dev space is a pre-configured, containerized development environment in BAS tailored to a specific scenario — such as Full Stack Cloud Application, SAP Fiori, or SAP HANA Native. It ships with the correct extensions, CLI tools (`@sap/cds-dk`, Cloud Foundry CLI, MTA Build Tool), and runtimes already installed, so you can start coding immediately without any local setup.
 
-1. Why do you think it was necessary to login to Cloud Foundry?  HANA Cloud itself isn't actually running in Cloud Foundry nor does it use Cloud Foundry for technical connections. But it's important to understand [HDI (HANA Deployment Infrastructure)](https://help.sap.com/docs/HANA_CLOUD_DATABASE/c2cc2e43458d4abda6788049c58143dc/e28abca91a004683845805efc2bf967c.html) containers and how they are controlled via Cloud Foundry service instances.<details><summary>Answer</summary>
-   Logging into Cloud Foundry is necessary because HDI containers, which are used for managing database artifacts in HANA Cloud, can be controlled via Cloud Foundry service instances regardless of if the HANA instance is deployed into Cloud Foundry or not (it's not in our case). This integration allows for better management and deployment of database artifacts within the SAP ecosystem.</details>
+   The trade-off versus a local environment like VS Code is that BAS requires an internet connection and runs inside SAP BTP, which can simplify connectivity to SAP services. SAP also provides a [CDS language extension for VS Code](https://marketplace.visualstudio.com/items?itemName=SAPSE.vscode-cds) for developers who prefer to work locally — see the [prerequisites](../../prerequisites.md) for details.</details>
 
-1. What's the purpose of the [mta.yaml](https://help.sap.com/docs/HANA_CLOUD_DATABASE/c2b99f19e9264c4d9ae9221b22f6f589/d8226e641a124b629b0e8f7c111cd1ae.html) file?<details><summary>Answer</summary>
-   The `mta.yaml` file is used to define the structure and components of a multi-target application (MTA). It specifies the modules, resources, and their relationships, enabling the deployment of complex applications across different environments and services in a consistent and automated manner.
-   * In the context of CAP (Cloud Application Programming), HANA, and Cloud Foundry BTP applications, the `mta.yaml` file helps in bundling different components like database modules, service modules, and UI modules into a single deployable unit. This ensures that all parts of the application are deployed together and can interact seamlessly.</details>
+1. Why was it necessary to log in to Cloud Foundry, even though SAP HANA Cloud itself is not running inside Cloud Foundry?<details><summary>Answer</summary>
+   SAP HANA Cloud is provisioned in a multi-environment context — the database is not tied to Cloud Foundry — but **HDI containers** (the isolated schemas where your database artifacts live) are still created and managed as Cloud Foundry service instances using the `hana` service with the `hdi-shared` plan.
 
-1. Who can explain what [NPM](https://docs.npmjs.com/about-npm) is and how and why it is used?<details><summary>Answer</summary>
-   NPM (Node Package Manager) is a package manager for JavaScript, primarily used to manage dependencies for Node.js projects. During CAP (Cloud Application Programming) and HANA development, NPM is used to install and manage libraries and tools required for building, testing, and deploying applications. It simplifies the process of integrating third-party modules and ensures that all dependencies are up-to-date and compatible.
-   * One important package is `@sap/cds-dk`, which provides the core tools and libraries for developing CAP applications, including commands for project initialization, building, and deployment.
-   * Another important package is `@sap/hdi-deploy`, which is used to deploy database artifacts to HANA databases. It helps in managing the deployment of HDI containers and ensures that all database objects are correctly created and maintained.</details>
+   When you run `cds deploy` or build the MTA, the CAP tooling uses your Cloud Foundry session to discover, create, or bind to the correct HDI container in the target space. Without a CF login, the tooling cannot locate or provision the container. See [HDI containers](https://help.sap.com/docs/HANA_CLOUD_DATABASE/c2cc2e43458d4abda6788049c58143dc/e28abca91a004683845805efc2bf967c.html) for more detail.</details>
 
-1. Version Control with [Git](https://git-scm.com/). How familiar is everyone with Git? Any ABAP developers in the room (if so we should talk). What's the reason/impact of using local Git repository as we did in this tutorial?<details><summary>Answer</summary>
-   Using a local Git repository allows developers to track changes to their code, collaborate with others, and maintain a history of their project. It provides version control, enabling developers to revert to previous versions if needed. In this tutorial, using a local Git repository helps in managing the CAP project efficiently, ensuring that changes are documented and can be shared or deployed consistently.
-   * In a real project, moving to a central Git repository such as GitHub is important for better collaboration, backup, and access control. A central repository allows multiple developers to work on the same project simultaneously, merge changes, and resolve conflicts. It also provides a backup of the codebase and ensures that the latest version of the code is always accessible to the team.</details>
+1. What is the purpose of the `mta.yaml` file?<details><summary>Answer</summary>
+   `mta.yaml` is the deployment descriptor for a **Multi-Target Application (MTA)** — a bundle that groups multiple deployable components (a database module, a CAP service module, a UI app, an AppRouter, etc.) into a single archive that can be deployed atomically to Cloud Foundry.
+
+   In this project the `mta.yaml` defines:
+   - A **db module** (`MyHANAApp-db`) that runs `@sap/hdi-deploy` to push database artifacts into the HDI container
+   - A **srv module** (`MyHANAApp-srv`) that runs the CAP Node.js service and exposes the `srv-api` destination
+   - **Resources** for the HANA HDI container and (later) XSUAA, which Cloud Foundry provisions as service instances
+
+   See the [MTA specification](https://help.sap.com/docs/HANA_CLOUD_DATABASE/c2b99f19e9264c4d9ae9221b22f6f589/d8226e641a124b629b0e8f7c111cd1ae.html) for the full descriptor reference.</details>
+
+1. Who can explain what NPM is and how it is used in this project?<details><summary>Answer</summary>
+   NPM (Node Package Manager) is the standard package manager for Node.js. It reads `package.json` to install the libraries your project depends on and makes them available in `node_modules/`.
+
+   Key packages in this CAP project:
+   - **`@sap/cds`** — the CAP runtime: processes CDS models, serves OData endpoints, handles database queries.
+   - **`@sap/cds-dk`** — the CAP development toolkit: provides the `cds` CLI for building, running, and deploying projects.
+   - **`@sap/hdi-deploy`** — the HDI deployer: reads compiled HANA artifacts from `db/src/gen/` and deploys them into the HDI container during the MTA build.
+
+   Run `npm ci` (not `npm install`) in CI/CD or when you first clone a project — it installs exactly the versions listed in `package-lock.json` rather than resolving fresh versions, which ensures reproducible builds.</details>
+
+1. Version control with Git — what is the impact of using a local Git repository as we did in this tutorial?<details><summary>Answer</summary>
+   A local Git repository gives you a full commit history, the ability to branch and experiment, and the safety net of reverting to any previous state. Every `git commit` is a snapshot of your project at a point in time.
+
+   The limitation is that a local repo only exists on your BAS dev space. If the dev space is deleted or your BTP trial expires, that history is gone. In a real project you would push to a central repository (GitHub, GitLab, Azure DevOps, etc.) for:
+   - **Backup** — the code survives beyond any single environment
+   - **Collaboration** — multiple developers can push and pull changes
+   - **CI/CD** — pipelines can trigger automatically on commits and run builds, tests, and deployments
+
+   For ABAP developers in the room: Git-based version control in CAP works similarly to the abapGit / ABAP Development Tools (ADT) workflow you may already know, but operates at the file level rather than the transport level.</details>
 
 ## Further Study
 
-* [Video Version of this Tutorial](https://youtu.be/ydDOGz7P--8)
-* [SAP Business Application Studio](https://community.sap.com/topics/business-application-studio)
-* [SAP HDI Containers](https://help.sap.com/docs/HANA_CLOUD_DATABASE/c2cc2e43458d4abda6788049c58143dc/e28abca91a004683845805efc2bf967c.html)
-* [HANA Cloud: HDI - Under the Hood](https://www.youtube.com/watch?v=UmOkjPxE6Us)
-* [Git basics in 10 minutes](https://www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/)
+- [Video Version of this Tutorial](https://youtu.be/ydDOGz7P--8)
+- [SAP Business Application Studio](https://community.sap.com/topics/business-application-studio)
+- [SAP HDI Containers](https://help.sap.com/docs/HANA_CLOUD_DATABASE/c2cc2e43458d4abda6788049c58143dc/e28abca91a004683845805efc2bf967c.html)
+- [HANA Cloud: HDI — Under the Hood](https://www.youtube.com/watch?v=UmOkjPxE6Us)
+- [CAP — Getting Started](https://cap.cloud.sap/docs/get-started/)
+- [MTA Deployment Descriptor Reference](https://help.sap.com/docs/HANA_CLOUD_DATABASE/c2b99f19e9264c4d9ae9221b22f6f589/d8226e641a124b629b0e8f7c111cd1ae.html)
+- [Git basics in 10 minutes](https://www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/)
 
 ## Next
 
