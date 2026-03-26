@@ -44,6 +44,7 @@ Four `###`-level subsections, each with a one-sentence context intro and numbere
 
 #### 3a. The SAP BTP SubAccount
 
+- Rename heading: "The SAP BTP SubAccount Details" → "The SAP BTP SubAccount" (drop "Details").
 - Fix typo: "Direcotries" → "Directories"
 - Fix missing space: "section.There" → "section. There"
 - Context sentence: this is a shared, persistent subaccount — do not create a new one.
@@ -51,8 +52,8 @@ Four `###`-level subsections, each with a one-sentence context intro and numbere
 
 #### 3b. Enable Cloud Foundry and Create a `dev` Space
 
-- Fix heading capitalisation: change `'Dev'` → `` `dev` `` to match the actual CF space name used throughout the document.
-- Fix typos: "Enviroment" (×2) → "Environment", "Enablment" → "Enablement"
+- Fix heading capitalisation: change `` `Dev` `` → `` `dev` `` to match the actual CF space name used throughout the document.
+- Fix typos: "Enviroment" (one instance, line 15) → "Environment", "Enablment" → "Enablement"
 - Context sentence: CF is required because participants deploy HDI container service instances into this space.
 - Steps unchanged otherwise.
 
