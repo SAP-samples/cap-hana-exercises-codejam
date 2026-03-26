@@ -31,6 +31,7 @@ It guides developers along a 'golden path' of proven **best practices**, while m
 The framework features a mix of broadly adopted **open-source** and **SAP** tools and technologies.
 
 ```mermaid
+%%{init: {'theme': 'default'}}%%
 mindmap
   root((CAP))
     SAP Tools
@@ -42,8 +43,7 @@ mindmap
       REST / OData / GraphQL
       Node.js / express
       Java EE / Spring
-    IDEs
-      Eclipse
+    IDEs      
       VSCode
       CLI
     Core
@@ -75,7 +75,7 @@ block-beta
   columns 3
   block:ide["web based IDE + local"]:1
     BAS["SAP BAS"]
-    Eclipse["Eclipse / VSCode / CLI"]
+    Eclipse["VSCode / CLI"]
   end
   block:cap["SAP Cloud Appl. Prog. Model"]:1
     UI["SAP Fiori + other"]
@@ -87,11 +87,9 @@ block-beta
     S4["SAP S/4HANA"]
     SF["SAP SuccessFactors"]
     Concur["SAP Concur"]
-    Hybris["SAP Hybris"]
     Fieldglass["SAP Fieldglass"]
   end
-  block:infra["Infrastructure"]:3
-  end
+  Infra["Infrastructure"]:3
 ```
 
 ---
@@ -101,42 +99,28 @@ block-beta
 CAP focuses on the **Develop / Run / Test** lifecycle for your services and applications, while platform services (CI/CD, Operate) and infrastructure concerns are handled by surrounding tools and the SAP Cloud SDK.
 
 ```mermaid
-flowchart LR
+flowchart TB
     subgraph Platform["Platform Ecosystem"]
-        FE["Frontends / UIs"]
-        Scale["Scaling"]
-        Profile["Profiling"]
-        Monitor["Monitoring"]
-        Identity["Identities"]
-        Auth["Authentication"]
-        API["API Management"]
-        Dest["Destinations"]
-        Conn["Connectivity"]
-        Cache["Caching"]
-        BigData["Big Data"]
-        HANA["SAP HANA"]
-        DB["Databases"]
-        CICD1["CI/CD"]
-        Prov["Provisioning"]
+        direction LR
+        PUI["Frontends · Scaling"]
+        PSec["Identities · Authentication · API Management"]
+        PInt["Destinations · Connectivity · Caching"]
+        PData["SAP HANA · Databases · Big Data"]
+        POps["Monitoring · Profiling · CI/CD · Provisioning"]
     end
 
     subgraph YourApp["Your Services and Apps"]
-        SVC["Services"]
-        DATA["Data"]
-        CON["Consumers"]
+        direction LR
+        CON["Consumers"] --- SVC["Services"] --- DATA["Data"]
     end
 
     subgraph Lifecycle["Development Lifecycle"]
-        Setup["Setup"]
-        Dev["Develop"]
-        Run["Run"]
-        Test["Test"]
-        CICD2["CI/CD"]
-        Operate["Operate"]
+        direction LR
+        Setup["Setup"] --> Dev["Develop"] --> Test["Test"] --> Run["Run"] --> CICD["CI/CD"] --> Operate["Operate"]
     end
 
-    YourApp --> Lifecycle
     Platform --> YourApp
+    YourApp --> Lifecycle
 ```
 
 ---
@@ -235,26 +219,16 @@ flowchart LR
 block-beta
   columns 4
 
-  block:fiori["SAP Fiori"]:1
-  end
-  block:bas["SAP Business Application Studio IDE"]:1
-  end
-  block:cli["CLI, VSCode, Eclipse, …"]:1
-  end
-  block:cicd["CI / CD"]:1
-  end
+  fiori["SAP Fiori"]:1
+  bas["SAP Business Application Studio IDE"]:1
+  cli["CLI, VSCode, Eclipse, …"]:1
+  cicd["CI / CD"]:1
 
-  block:cap["**SAP Cloud Appl. Prog. Model**"]:1
-  end
+  cap["**SAP Cloud Appl. Prog. Model**"]:1
+  sdk["SAP Service SDKs, Events, FaaS"]:1
+  cloud["Cloud-Native Technologies"]:2
 
-  block:sdk["SAP Service SDKs, Events, FaaS"]:1
-  end
-
-  block:cloud["Cloud-Native Technologies"]:2
-  end
-
-  block:infra["SAP BTP, SAP HANA, …"]:4
-  end
+  infra["SAP BTP, SAP HANA, …"]:4
 ```
 
 ---
@@ -262,8 +236,6 @@ block-beta
 ## Introduction to SAP Business Application Studio / Build Code
 
 ### SAP Business Application Studio on BTP
-
-**General Availability on Azure, AWS, Google, and Ali-Cloud**
 
 A modern development environment, tailored for efficient development of business applications for SAP enterprise scenarios.
 
