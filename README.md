@@ -22,12 +22,16 @@ Complete all 8 exercises at an in-person CodeJam event to earn a Credly badge.
 
 SAP CodeJam is a hands-on, collaborative event where developers come together to learn about SAP technologies, share knowledge, and work on practical exercises. These events are typically led by SAP experts and provide a great opportunity to network with peers, ask questions, and gain a deeper understanding of SAP solutions through guided tutorials and real-world scenarios.
 
-## Overview
+## Before you start
+
+Review the introductory slides and video below before or during the opening session.
 
 * [SAP Cloud Application Programming Model Presentation from Introduction](./slides/CAP_Small.pdf)
 * [SAP HANA Cloud Presentation from Introduction](./slides/HANA_Small.pdf)
 * [SAP Business Application Studio Presentation from Introduction](./slides/BAS_Small.pdf)
 * [Introduction to SAP Cloud Application Programming Model Video](https://youtu.be/T1gqalbwzHk)
+
+If you prefer to develop locally or in a container, see the [Dev Container and Codespace options](prerequisites.md) in the prerequisites.
 
 ## Requirements
 
