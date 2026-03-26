@@ -49,20 +49,6 @@ If you finish an exercise early, please resist the temptation to continue with t
 
 > The exercises are written in a conversational way; this is so that they have enough context and information to be completed outside the hands-on session itself. To help you navigate and find what you have to actually do next, there are pointers like this 👉 throughout that indicate the things you have to actually do (as opposed to just read for background information).
 
-### The exercises
-
-Here's an overview of the exercises in this CodeJam.
-
-* Make certain that you have successfully completed all the [prerequisites](prerequisites.md)
-* [Exercise 1 - Set Up SAP HANA Cloud and Development Environment](exercises/ex1/README.md)
-* [Exercise 2 - Create an SAP Cloud Application Programming Model Project for SAP HANA Cloud](exercises/ex2/README.md)
-* [Exercise 3 - Create Database Artifacts Using Core Data Services (CDS) for SAP HANA Cloud](exercises/ex3/README.md)
-* [Exercise 4 - Create a User Interface with CAP (SAP HANA Cloud)](exercises/ex4/README.md)
-* [Exercise 5 - Add User Authentication to Your Application (SAP HANA Cloud)](exercises/ex5/README.md)
-* [Exercise 6 - Create Calculation View and Expose via CAP (SAP HANA Cloud)](exercises/ex6/README.md)
-* [Exercise 7 - Create HANA Stored Procedure and Expose as CAP Service Function (SAP HANA Cloud)](exercises/ex7/README.md)
-* [Bonus Homework - Deploy CAP with SAP HANA Cloud project as MTA](exercises/ex8/README.md)
-
 ## Known Issues
 
 When creating the HDI Container instance in Exercise 3, the Business Application Studio tooling sometimes does not properly wait for the container creation. In these situations, simply wait a moment for creation to complete and then repeat the step.
