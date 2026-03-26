@@ -274,7 +274,7 @@ SAP has moved towards open tooling in the AI code assistant space. Rather than a
 
 ### GitHub Copilot
 
-[GitHub Copilot](https://github.com/features/copilot) is the most widely used AI code assistant in VS Code and GitHub Codespaces. It provides inline completions and a chat interface.
+[GitHub Copilot](https://github.com/features/copilot) is a widely used AI code assistant within VS Code and GitHub Codespaces. It provides inline completions and a chat interface.
 
 1. Subscribe to [GitHub Copilot](https://github.com/features/copilot) (free tier available for individual users).
 2. Install the [GitHub Copilot extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in VS Code.

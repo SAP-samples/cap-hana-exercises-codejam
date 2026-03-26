@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "WebSearch",
-      "mcp__plugin_playwright_playwright__browser_navigate"
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "Bash(git -C d:/projects/cap-hana-exercises-codejam log --oneline -10)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
