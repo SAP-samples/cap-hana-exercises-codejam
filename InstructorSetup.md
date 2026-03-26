@@ -62,13 +62,13 @@ Each participant needs both a BTP subaccount user and a Cloud Foundry space memb
 
 1. Assign the users to the Cloud Foundry `dev` Space ![Add Space Members](images/instructor/spaceMembers.png "Add Space Members")
 
-## Clean Up After the Event
+## After the Event
 
-Instructions on how to clean up resources after the event.
+Run these steps after every event to avoid ongoing costs and reset the subaccount for next time.
 
 1. Delete all the HDI container instances from the BTP Cockpit SubAccount/Instances views. ![Delete Service Instances](images/instructor/cleanupDeleteServiceInstances.png "Delete Service Instances")
 
-1. Disable the Cloud Foundry Enviroment. This will remove all user access at the CF level and clean up remaining resources. ![Disable Cloud Foundry](images/instructor/cleanupCloudFoundry.png "Disable Cloud Foundry")
+1. Disable the Cloud Foundry Environment. This will remove all user access at the CF level and clean up remaining resources. ![Disable Cloud Foundry](images/instructor/cleanupCloudFoundry.png "Disable Cloud Foundry")
 
 1. Delete the HANA Cloud Instance to save money.
    * From the Subscriptions click on `SAP HANA Cloud`![SAP HANA Cloud Tools](images/instructor/hanaCloudTools.png "SAP HANA Cloud Tools")
