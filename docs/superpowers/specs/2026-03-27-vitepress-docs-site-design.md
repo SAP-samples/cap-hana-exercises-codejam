@@ -406,7 +406,7 @@ export default withMermaid(
 - `locales` is a **top-level** `defineConfig` key — not inside `themeConfig`
 - `agentmarkup({...})` goes inside `vite: { plugins: [] }` — not as a standalone call
 - Mermaid options are the **second argument** to `withMermaid(config, options)` — not inside `defineConfig`
-- `editLink.pattern` uses `:path` which resolves relative to `srcDir` (repo root), so wrapper pages at `docs/exercises/ex1/index.md` correctly produce edit URLs at `.../edit/main/docs/exercises/ex1/index.md`
+- `editLink.pattern` uses `:path` which resolves relative to `srcDir` (`docs/`), so wrapper pages at `docs/exercises/ex1/index.md` produce `:path = 'exercises/ex1/index.md'` — the `docs/` prefix in the pattern completes the correct GitHub file path
 - `@agentmarkup/vite` entry URLs use full absolute URLs (including domain) to avoid base-path ambiguity
 - `vitepress-plugin-mermaid` is pinned to exact version `2.0.17` (no `^`) because this plugin has historically introduced breaking changes on minor VitePress version bumps
 
