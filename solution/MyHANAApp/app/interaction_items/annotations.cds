@@ -1,33 +1,80 @@
 using CatalogService as service from '../../srv/interaction_srv';
 
+// ── Field-level labels and text annotations ───────────────────────────────────
+
+annotate service.Interactions_Header with {
+    partner @(
+        Common.Label    : 'Partner',
+        Common.ValueList: {
+            Label         : 'Partners',
+            CollectionPath: 'Interactions_Header',
+            Parameters    : [
+                {
+                    $Type            : 'Common.ValueListParameterOut',
+                    LocalDataProperty: partner,
+                    ValueListProperty: 'partner',
+                },
+                {
+                    $Type            : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty: 'country_code',
+                }
+            ]
+        }
+    );
+    country @(
+        Common.Label          : 'Country',
+        Common.Text           : country.descr,
+        Common.TextArrangement: #TextOnly,
+    );
+};
+
+annotate service.Interactions_Items with {
+    text        @Common.Label: 'Text';
+    date        @Common.Label: 'Date';
+    price       @Common.Label: 'Price';
+    currency    @Common.Label: 'Currency';
+};
+
+// ── Interactions_Header ───────────────────────────────────────────────────────
+
 annotate service.Interactions_Header with @(
-UI.HeaderInfo                : {
+UI.HeaderInfo         : {
     Title         : {
         $Type: 'UI.DataField',
         Value: partner,
     },
     TypeName      : 'Incident',
     TypeNamePlural: 'Incidents',
-    Description   : {Value: country.descr}
+    Description   : {Value: country.descr},
+    TypeImageUrl  : 'sap-icon://customer',
+},
+UI.SelectionFields    : [partner, country_code],
+UI.PresentationVariant: {
+    SortOrder     : [{
+        $Type     : 'Common.SortOrderType',
+        Property  : partner,
+        Descending: false,
+    }],
+    Visualizations: ['@UI.LineItem'],
 },
 UI.FieldGroup #GeneratedGroup: {
     $Type: 'UI.FieldGroupType',
+    Label: 'Partner Details',
     Data : [
         {
             $Type: 'UI.DataField',
-            Label: 'Partner',
             Value: partner,
         },
         {
             $Type                  : 'UI.DataField',
-            Label                  : 'Country',
             ![@Common.FieldControl]: #ReadOnly,
             Value                  : country.descr,
         },
     ]
 },
-UI.FieldGroup #Admin         : {
+UI.FieldGroup #Admin  : {
     $Type: 'UI.FieldGroupType',
+    Label: 'Change Information',
     Data : [
         {
             $Type: 'UI.DataField',
@@ -47,7 +94,7 @@ UI.FieldGroup #Admin         : {
         }
     ]
 },
-UI.Facets                    : [
+UI.Facets             : [
     {
         $Type : 'UI.ReferenceFacet',
         ID    : 'GeneratedFacet1',
@@ -65,55 +112,60 @@ UI.Facets                    : [
         Target: '@UI.FieldGroup#Admin',
     }
 ],
-UI.LineItem                  : [
+UI.LineItem           : [
     {
-        $Type: 'UI.DataField',
-        Label: 'Partner',
-        Value: partner,
+        $Type     : 'UI.DataField',
+        Value     : partner,
+        Importance: #High,
     },
     {
         $Type                  : 'UI.DataField',
-        Label                  : 'Country',
         ![@Common.FieldControl]: #ReadOnly,
         Value                  : country.descr,
+        Importance             : #Medium,
     },
 ]
 );
 
+// ── Interactions_Items ────────────────────────────────────────────────────────
+
 annotate service.Interactions_Items with @(
-UI.HeaderInfo                : {
+UI.HeaderInfo         : {
     Title         : {
         $Type: 'UI.DataField',
         Value: text,
     },
     TypeName      : 'Interaction Item',
-    TypeNamePlural: 'Interaction Items'
+    TypeNamePlural: 'Interaction Items',
+    TypeImageUrl  : 'sap-icon://activity-items',
 },
-UI.DataPoint #Price          : {
-    Value: price,
-    Title: 'Price',
+UI.DataPoint #Price   : {
+    Value      : price,
+    Title      : 'Price',
+    ValueFormat: {
+        $Type                   : 'UI.NumberFormat',
+        NumberOfFractionalDigits: 2,
+    },
 },
 UI.FieldGroup #GeneratedGroup: {
     $Type: 'UI.FieldGroupType',
+    Label: 'Item Details',
     Data : [
         {
             $Type: 'UI.DataField',
-            Label: 'Text',
             Value: text,
         },
         {
             $Type: 'UI.DataField',
-            Label: 'Date',
             Value: date,
         },
         {
             $Type : 'UI.DataFieldForAnnotation',
-            Label : 'Price',
             Target: '@UI.DataPoint#Price',
         },
     ]
 },
-UI.Facets                    : [
+UI.Facets             : [
     {
         $Type : 'UI.ReferenceFacet',
         ID    : 'GeneratedFacet1',
@@ -126,42 +178,41 @@ UI.Facets                    : [
         Target: 'texts/@UI.LineItem'
     }
 ],
-UI.LineItem                  : [
+UI.LineItem           : [
     {
-        $Type: 'UI.DataField',
-        Label: 'Text',
-        Value: text,
+        $Type     : 'UI.DataField',
+        Value     : text,
+        Importance: #High,
     },
     {
-        $Type: 'UI.DataField',
-        Label: 'Date',
-        Value: date,
+        $Type     : 'UI.DataField',
+        Value     : date,
+        Importance: #Medium,
     },
     {
-        $Type : 'UI.DataFieldForAnnotation',
-        Label : 'Price',
-        Target: '@UI.DataPoint#Price',
+        $Type     : 'UI.DataFieldForAnnotation',
+        Target    : '@UI.DataPoint#Price',
+        Importance: #High,
     },
 ]
 );
 
-annotate service.Interactions_Items.texts with @(UI: {
-Identification : [{
-    $Type: 'UI.DataField',
-    Value: text
-}],
-SelectionFields: [
-    locale,
-    text
-],
-LineItem       : [
+// ── Interactions_Items.texts ──────────────────────────────────────────────────
+
+annotate service.Interactions_Items.texts with @(
+UI.LineItem: [
     {
+        $Type: 'UI.DataField',
         Value: locale,
         Label: 'Locale'
     },
-    {Value: text}
+    {
+        $Type: 'UI.DataField',
+        Value: text,
+        Label: 'Text'
+    }
 ]
-});
+);
 
 annotate service.Interactions_Items.texts with {
 ID @UI.Hidden;
