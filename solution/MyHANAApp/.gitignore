@@ -4,6 +4,8 @@ _out
 *.sqlite
 connection.properties
 default-*.json
+# CodeJam learning example only - no real credentials, destination URL is localhost only
+!app/router/default-env.json
 .cdsrc-private.json
 gen/
 node_modules/
