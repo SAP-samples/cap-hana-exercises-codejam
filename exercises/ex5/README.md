@@ -110,6 +110,8 @@ While you could use CAP's mock authentication for unit testing, this exercise go
 
 1. Why is the `redirect-uris` entry needed in `xs-security.json`, and why does it use a wildcard?
 
+   
+
    <details><summary>Answer</summary>
 
    After a successful login, XSUAA redirects the browser back to the application with an authorization code. XSUAA will **only** redirect to URIs explicitly listed (or matched by wildcard) in `xs-security.json` — any other target is rejected as a potential open-redirect attack.
@@ -118,9 +120,12 @@ While you could use CAP's mock authentication for unit testing, this exercise go
 
    In a production deployment the wildcard is replaced with the specific application URL from your Cloud Foundry space, which removes the security risk of an overly broad redirect target.
 
+   
    </details>
 
 1. What other [authentication strategies](https://cap.cloud.sap/docs/node.js/authentication#strategies) could you use with CAP, and when would you choose each?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -135,9 +140,12 @@ While you could use CAP's mock authentication for unit testing, this exercise go
 
    CAP's development default (`dummy`) is deliberately insecure so that local testing requires no setup. The strategy is changed in `package.json` (`cds.requires.auth`) and does not require code changes in the service layer — the `@requires` annotations remain the same regardless of strategy.
 
+   
    </details>
 
 1. Why did the request to `/user-api/` work? We didn't implement it, and it is not part of the CAP service. [Where does it come from](https://blogs.sap.com/2021/02/20/sap-tech-bytes-approuter-user-api-service/)?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -151,9 +159,12 @@ While you could use CAP's mock authentication for unit testing, this exercise go
 
    This is useful for displaying the current user's name in a Fiori UI without making a separate backend call, and for debugging which scopes the JWT actually contains.
 
+   
    </details>
 
 1. What is the difference between a **scope**, a **role template**, and a **role collection** in BTP, and how do they relate to each other?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -175,9 +186,12 @@ While you could use CAP's mock authentication for unit testing, this exercise go
 
    If you skip step 3–4, authentication still succeeds (the user can log in) but authorization fails (HTTP 403) because the `Admin` scope is absent from the JWT.
 
+   
    </details>
 
 1. What HTTP status code do you receive when calling a `@requires: 'Admin'` endpoint without the Admin role assigned? Is it the same code you get when not logged in at all?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -188,9 +202,12 @@ While you could use CAP's mock authentication for unit testing, this exercise go
 
    The practical diagnosis rule: a `302` or `401` means the authentication layer failed (no valid session or token). A `403` means authentication succeeded but authorization failed — the user is known but not permitted. When you see a `403` after deployment, the first thing to check is the role collection assignment in the BTP cockpit, not the XSUAA configuration.
 
+   
    </details>
 
 1. Look at the JWT that XSUAA issues for your user. Can you find your scopes in it?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -205,6 +222,7 @@ While you could use CAP's mock authentication for unit testing, this exercise go
 
    If you receive a `403` and cannot find your scope in the `scope` array, the role collection has not been assigned to your user in the BTP cockpit — that is the fix.
 
+   
    </details>
 
 ## Further Study

@@ -39,24 +39,36 @@ You now have an SAP HANA Cloud database instance provisioned and SAP Business Ap
 
 ### Questions for Discussion
 
-1. Why is SAP HANA Cloud provisioned in a "multi-environment" context rather than directly inside Cloud Foundry?<details><summary>Answer</summary>
-   The multi-environment approach decouples the HANA database lifecycle from any specific runtime. An SAP HANA Cloud instance provisioned at the subaccount level can be mapped to Cloud Foundry spaces, Kyma namespaces, or accessed directly via APIs — without needing to be re-provisioned for each environment. This is important for organizations that use multiple runtimes or want to share a single HANA instance across teams.</details>
+1. Why is SAP HANA Cloud provisioned in a "multi-environment" context rather than directly inside Cloud Foundry?
 
-1. Why does a free trial SAP HANA Cloud instance stop every night?<details><summary>Answer</summary>
-   Free trial accounts are designed to provide access to SAP technology at no cost for learning and development. Automatic nightly shutdown helps SAP manage infrastructure costs for these free accounts. In productive (paid) subscriptions, your HANA Cloud instance runs continuously unless you explicitly stop it.</details>
+   <details><summary>Answer</summary>
+   The multi-environment approach decouples the HANA database lifecycle from any specific runtime. An SAP HANA Cloud instance provisioned at the subaccount level can be mapped to Cloud Foundry spaces, Kyma namespaces, or accessed directly via APIs — without needing to be re-provisioned for each environment. This is important for organizations that use multiple runtimes or want to share a single HANA instance across teams.
+   </details>
 
-1. What is the difference between SAP Business Application Studio and a local development environment (e.g. VS Code on your laptop)?<details><summary>Answer</summary>
+1. Why does a free trial SAP HANA Cloud instance stop every night?
+
+   <details><summary>Answer</summary>
+   Free trial accounts are designed to provide access to SAP technology at no cost for learning and development. Automatic nightly shutdown helps SAP manage infrastructure costs for these free accounts. In productive (paid) subscriptions, your HANA Cloud instance runs continuously unless you explicitly stop it.
+   </details>
+
+1. What is the difference between SAP Business Application Studio and a local development environment (e.g. VS Code on your laptop)?
+
+   <details><summary>Answer</summary>
    SAP Business Application Studio is a hosted, browser-based IDE running in SAP BTP. Key differences:
    * **Pre-configured tooling:** Dev spaces come with SAP-specific extensions, the CDS CLI (`@sap/cds-dk`), Cloud Foundry CLI, and other tools already installed — no local setup required.
    * **Dev spaces:** Each dev space is a containerized environment tailored to a specific scenario (Full Stack Cloud Application, SAP Fiori, etc.), keeping tools scoped to what you need.
    * **Network access:** BAS runs inside the SAP BTP network, which can simplify connectivity to SAP services.
-   * **Trade-offs:** Because it runs in a browser, it depends on a stable internet connection. Local VS Code offers more flexibility and offline access. SAP also provides a [CDS language extension for VS Code](https://marketplace.visualstudio.com/items?itemName=SAPSE.vscode-cds) if you prefer working locally.</details>
+   * **Trade-offs:** Because it runs in a browser, it depends on a stable internet connection. Local VS Code offers more flexibility and offline access. SAP also provides a [CDS language extension for VS Code](https://marketplace.visualstudio.com/items?itemName=SAPSE.vscode-cds) if you prefer working locally.
+   </details>
 
-1. What is an HDI container, and how does it relate to SAP HANA Cloud?<details><summary>Answer</summary>
+1. What is an HDI container, and how does it relate to SAP HANA Cloud?
+
+   <details><summary>Answer</summary>
    HDI stands for **HANA Deployment Infrastructure**. An HDI container is an isolated schema within an SAP HANA database that is managed by the HDI service. Each container has its own set of database objects (tables, views, procedures, etc.) and its own deployment history.
    * HDI containers are created and managed as Cloud Foundry service instances (using the `hana` service with the `hdi-shared` plan), even though the HANA Cloud instance itself may not be running inside Cloud Foundry.
    * CAP projects use HDI containers to deploy all database artifacts. The `@sap/hdi-deploy` tool handles the actual deployment into the container.
-   * This isolation means multiple CAP applications can share one HANA Cloud instance without interfering with each other's schemas.</details>
+   * This isolation means multiple CAP applications can share one HANA Cloud instance without interfering with each other's schemas.
+   </details>
 
 ## Further Study
 

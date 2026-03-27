@@ -1,0 +1,18 @@
+/* ── Light mode: SAP Blue 7 ─────────────────────────────── */
+:root {
+  --vp-c-brand-1: #0070F2;          /* SAP Blue 7  — primary */
+  --vp-c-brand-2: #1B90FF;          /* SAP Blue 6  — hover   */
+  --vp-c-brand-3: #D1EFFF;          /* SAP Blue 2  — tint bg */
+  --vp-c-brand-soft: rgba(0, 112, 242, 0.14);
+}
+
+/* ── Dark mode: SAP Blue 6 on Blue 11 ───────────────────── */
+.dark {
+  --vp-c-brand-1: #1B90FF;          /* SAP Blue 6  — primary */
+  --vp-c-brand-2: #89D1FF;          /* SAP Blue 4  — hover   */
+  --vp-c-brand-3: #002A86;          /* SAP Blue 10 — tint bg */
+  --vp-c-brand-soft: rgba(27, 144, 255, 0.16);
+  --vp-c-bg: #00144A;               /* SAP Blue 11 — page bg */
+  --vp-c-bg-soft: #0d1f3c;          /* near Blue 11 — softer  */
+  --vp-c-bg-mute: #142340;
+}

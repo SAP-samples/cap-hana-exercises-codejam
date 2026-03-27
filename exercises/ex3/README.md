@@ -73,6 +73,8 @@ At the end of this exercise you have:
 
 1. We loaded data using the Database Explorer import wizard. Are there [alternatives](https://cap.cloud.sap/docs/guides/databases#providing-initial-data) for getting initial data into CAP tables?
 
+   
+
    <details><summary>Answer</summary>
 
    Yes — the most common CAP-native approach is to place CSV files in the `db/data/` folder. Name each file after the entity it targets using the fully qualified namespace, for example:
@@ -94,9 +96,12 @@ At the end of this exercise you have:
 
    The CSV-in-project approach wins for reproducibility: the data travels with the code and is automatically available in every developer environment and CI pipeline.
 
+   
    </details>
 
 1. Where does `Country` come from in `interactions.cds`? [Hint](https://cap.cloud.sap/docs/guides/reuse-and-compose)
+
+   
 
    <details><summary>Answer</summary>
 
@@ -125,9 +130,12 @@ At the end of this exercise you have:
 
    By reusing these common definitions you get consistent field names and structures across all CAP projects, and tools like Fiori Elements can automatically render country/currency pickers and locale-aware labels.
 
+   
    </details>
 
 1. What is the difference between [Composition](https://cap.cloud.sap/docs/guides/domain-modeling#_5-add-compositions) and [Association](https://cap.cloud.sap/docs/guides/domain-modeling#associations)?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -165,9 +173,12 @@ At the end of this exercise you have:
 
    **Rule of thumb:** if the child's existence is meaningless without the parent (like order line items), use Composition. If both sides can live and be managed independently, use Association.
 
+   
    </details>
 
 1. In `interaction_srv.cds`, how do you know that CAP is creating an OData service?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -202,9 +213,12 @@ At the end of this exercise you have:
 
    When you run the CAP server, you can confirm the service is live by navigating to `$metadata` (e.g. `http://localhost:4004/catalog/$metadata`) — this is the OData service document that describes every entity set, property, and function.
 
+   
    </details>
 
 1. What is a CDS aspect, and why are `cuid` and `managed` used here instead of defining the fields manually?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -234,9 +248,12 @@ At the end of this exercise you have:
    - Audit fields are guaranteed to be present and correctly populated without any custom handler code.
    - Fiori Elements can automatically detect and display the audit fields in the object page.
 
+   
    </details>
 
 1. After running `cds build --production`, look inside `db/src/gen/`. What files were generated, and how do they correspond to the CDS entities you defined?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -251,9 +268,12 @@ At the end of this exercise you have:
 
    If your CDS model includes views (e.g. projections with computed fields), CAP generates `.hdbview` files for those instead. These generated files are the bridge between your high-level CDS definitions and the HANA-native artifacts that `@sap/hdi-deploy` pushes into the database. Never edit them directly — regenerate them by re-running `cds build --production`.
 
+   
    </details>
 
 1. What would happen if you ran `cds build` without the `--production` flag? Why does HANA deployment require it?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -261,6 +281,7 @@ At the end of this exercise you have:
 
    The `--production` flag activates the HANA build profile, which tells CAP to generate HDI-compatible artifacts instead of SQLite-compatible ones. Forgetting the flag is one of the most common deployment mistakes: the `mbt build` command succeeds, the `.mtar` archive is created, `cf deploy` runs — but the db-deployer finds nothing to push into HANA and the deployment either fails or leaves the database schema unchanged.
 
+   
    </details>
 
 ## Further Study
