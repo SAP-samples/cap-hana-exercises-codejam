@@ -44,7 +44,7 @@ jobs:
           cache-dependency-path: 'docs/package-lock.json'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
         working-directory: docs
 
       - name: Run security audit
@@ -78,7 +78,7 @@ jobs:
             ${{ runner.os }}-vitepress-
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Build VitePress documentation
         run: npm run docs:build
