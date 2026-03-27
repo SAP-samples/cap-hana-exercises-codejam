@@ -190,6 +190,54 @@ You have deployed a CAP + SAP HANA Cloud application as a fully secured MTA. The
 
    </details>
 
+1. What is the difference between `cf push` and `cf deploy`, and when would you use each?
+
+   <details><summary>Answer</summary>
+
+   `cf push` deploys a single Cloud Foundry application from a local directory. It handles one module at a time, does not provision services, and has no concept of inter-module dependencies.
+
+   `cf deploy` (from the MultiApps CF CLI plugin) reads an `.mtar` archive and orchestrates the full application deployment: it creates or updates all required managed services, deploys modules in dependency order (db-deployer before srv, srv before approuter), and wires them together according to the `provides`/`requires` blocks in `mta.yaml` — all in a single command.
+
+   | | `cf push` | `cf deploy` |
+   | --- | --- | --- |
+   | **Scope** | Single app module | Entire multi-module application |
+   | **Service provisioning** | None — services must exist already | Creates/updates services automatically |
+   | **Dependency ordering** | None | Respects `requires` → `provides` graph |
+   | **Use case** | Simple single-module apps | CAP + HANA + XSUAA + AppRouter stacks |
+
+   For this project, `cf push` alone cannot deploy the application because it cannot provision the HANA HDI container or XSUAA service, nor can it wire the `srv-api` destination between the AppRouter and the CAP service.
+
+   </details>
+
+1. After a successful `cf deploy`, how would you roll back to a previous version if something was wrong?
+
+   <details><summary>Answer</summary>
+
+   The MultiApps CF CLI plugin maintains a deployment history per MTA. You can inspect it with:
+
+   ```bash
+   cf mta MyHANAApp          # shows the currently deployed version
+   cf mta-ops                # lists recent MTA operations
+   ```
+
+   To roll back, redeploy the previous `.mtar` archive:
+
+   ```bash
+   cf deploy mta_archives/MyHANAApp_1.0.0.mtar
+   ```
+
+   The deployer updates modules and services back to the state described in that archive.
+
+   **Important caveat — database rollbacks are not automatic.** If the current deployment ran HDI schema changes (added columns, dropped tables), the db-deployer for the previous version will attempt to revert those changes. Destructive changes (dropped columns, deleted data) cannot be automatically recovered. This is why **blue-green deployment** is preferred for production:
+
+   ```bash
+   cf deploy mta_archives/MyHANAApp_1.0.0.mtar --strategy blue-green
+   ```
+
+   Blue-green keeps the old version running and routes traffic to it while the new version is being validated. Only when you confirm the new version is healthy does the old one get stopped — significantly reducing the risk of a bad deployment affecting users.
+
+   </details>
+
 ## Further Study
 
 - [MTA Build Tool](https://sap.github.io/cloud-mta-build-tool/) — the MBT documentation, including all `mta.yaml` schema options and the `mbt build` command reference

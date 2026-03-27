@@ -84,6 +84,45 @@ At the end of this exercise you have:
 
    For ABAP developers in the room: Git-based version control in CAP works similarly to the abapGit / ABAP Development Tools (ADT) workflow you may already know, but operates at the file level rather than the transport level.</details>
 
+1. What is the difference between `npm install` and `npm ci`, and which should you use in a build pipeline?
+
+   <details><summary>Answer</summary>
+
+   `npm install` resolves the dependency tree fresh from `package.json`, potentially installing newer minor or patch versions than the last run. `npm ci` installs exactly the versions locked in `package-lock.json`, deletes `node_modules` first if it already exists, and fails if `package-lock.json` is missing or out of sync with `package.json`.
+
+   In a build pipeline — including the `before-all` hook in `mta.yaml` — `npm ci` is always preferred because it guarantees reproducible builds: every run installs exactly the same versions regardless of when the build runs or what has been published to the npm registry since `package-lock.json` was last updated.
+
+   Use `npm install` when you are intentionally updating dependencies and want npm to resolve fresh versions. Use `npm ci` everywhere else.
+
+   </details>
+
+1. Look at the generated `package.json`. What does the `cds.requires.db` section tell CAP about which database to use?
+
+   <details><summary>Answer</summary>
+
+   The `cds.requires.db` block is CAP's database configuration. By default the wizard generates something like:
+
+   ```json
+   "cds": {
+     "requires": {
+       "db": {
+         "kind": "sql"
+       },
+       "[production]": {
+         "db": {
+           "kind": "hana"
+         }
+       }
+     }
+   }
+   ```
+
+   `"kind": "sql"` tells CAP to use SQLite for local development — no HANA connection needed to run `cds watch` on your laptop. The `"[production]"` profile overrides this to `"kind": "hana"` when CAP is started with `--profile production` (which `cds build --production` activates).
+
+   At runtime on BTP, CAP reads the HDI container credentials from `VCAP_SERVICES` using the `db` key as the lookup name, so the service binding in `mta.yaml` must be named to match. This single block controls both the local development database and the production HANA connection.
+
+   </details>
+
 ## Further Study
 
 - [Video Version of this Tutorial](https://youtu.be/ydDOGz7P--8)

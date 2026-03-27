@@ -150,6 +150,69 @@ You've now built a Calculation View using the graphical editor in Business Appli
 
    </details>
 
+1. What would happen if you placed `V_INTERACTION` *inside* the `context app.interactions { }` block instead of outside it? What database object name would CAP look for?
+
+   <details><summary>Answer</summary>
+
+   If `V_INTERACTION` were inside the context block, CDS would prefix it with `app.interactions.`, producing the fully-qualified name `app.interactions.V_INTERACTION`. CAP would then map that to the HANA object name `APP_INTERACTIONS_V_INTERACTION` — but no such object exists in the HDI container. The actual Calculation View artifact is named `V_INTERACTION` (no prefix).
+
+   The result would be a runtime error when any OData request tried to query the entity: CAP would generate SQL targeting a view that does not exist. The error would only surface at runtime, not at build time, which makes it particularly easy to miss during development.
+
+   This is exactly why the tutorial converts the `namespace` declaration to a `context` block: it lets you keep the `app.interactions.` prefix on the CAP-managed entities while placing `V_INTERACTION` at the top level where its name matches the HDI artifact exactly.
+
+   </details>
+
+1. The `hana-cli inspectView` command was used to generate the CDS entity definition for `V_INTERACTION`. What problem does this tool solve, and what would you have to do without it?
+
+   <details><summary>Answer</summary>
+
+   Without `hana-cli inspectView`, you would have to:
+
+   1. Open the HANA Database Explorer and locate the Calculation View in your HDI container schema
+   2. Inspect each column's name and HANA data type manually (e.g. `NVARCHAR(255)`, `DECIMAL(10,2)`, `TIMESTAMP`)
+   3. Translate each HANA type to the corresponding CDS type (`String(255)`, `Decimal(10,2)`, `Timestamp`)
+   4. Write the CDS entity definition by hand, getting the exact column names right (case-sensitive)
+
+   `hana-cli inspectView` connects to your HDI container, queries the view's column metadata from the HANA system catalog, and generates a ready-to-paste CDS entity definition. This avoids transcription errors and is especially valuable for views with many columns or complex types. The broader `hana-cli` toolkit offers similar introspection commands for tables (`inspectTable`), procedures (`inspectProc`), and other HANA objects.
+
+   </details>
+
+1. You have now built a data model (Ex3), a UI (Ex4), and authentication (Ex5). Trace the full request path from the browser to SAP HANA Cloud for a `GET` that loads the list of `Interactions_Header` records. Which component handles each step?
+
+   <details><summary>Answer</summary>
+
+   ```text
+   Browser
+     │  GET /odata/v4/catalog/Interactions_Header
+     ▼
+   Application Router (xs-app.json)
+     │  Validates XSUAA session cookie
+     │  Forwards request to srv-api with JWT in Authorization header
+     ▼
+   CAP Service (interaction_srv.cds / interaction_srv.js)
+     │  Validates JWT (checks signature, expiry, issuer)
+     │  Checks @requires: 'authenticated-user' → passes
+     │  Translates OData request to SQL SELECT
+     ▼
+   HANA Cloud (HDI container)
+     │  Executes SELECT against APP_INTERACTIONS_HEADERS
+     │  Returns result set
+     ▼
+   CAP Service
+     │  Serialises rows to OData JSON format
+     ▼
+   Application Router
+     │  Passes response to browser unchanged
+     ▼
+   Browser (SAPUI5 Fiori Elements)
+     │  Receives OData JSON
+     │  Renders list table columns defined by UI.LineItem annotation
+   ```
+
+   Each layer has a single, well-defined responsibility: the AppRouter owns authentication and routing, CAP owns authorization and data translation, HANA owns storage and query execution, and Fiori Elements owns rendering. No layer reaches into another's concern. This separation is what makes the stack maintainable and individually testable.
+
+   </details>
+
 ## Further Study
 
 - [CAP - Using Native SAP HANA Artifacts](https://cap.cloud.sap/docs/advanced/hana) — full reference for proxy entities, `@cds.persistence.exists`, calc views, and user-defined functions
