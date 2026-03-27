@@ -83,7 +83,7 @@ node --version   # should print v24.x.x
 npm --version
 ```
 
-![Node.js Version Check](images/prereq/node_v_check.png)
+![Node.js Version Check](/images/prereq/node_v_check.png)
 
 #### Git
 
@@ -222,10 +222,10 @@ All Node.js, npm, Git, CF CLI, CAP tooling, and VS Code extensions are pre-confi
   > The license for Docker Desktop has changed — see [Docker is Updating and Extending Our Product Subscriptions](https://www.docker.com/blog/updating-product-subscriptions/) for an overview. For corporate laptops, check with your IT policy or consider [Podman Desktop](https://podman-desktop.io/) as a licence-free alternative.
 
 * [Clone this Repository](https://github.com/SAP-samples/cap-hana-exercises-codejam)
-  ![Clone Project](images/prereq/clone_project.png)
+  ![Clone Project](/images/prereq/clone_project.png)
 
 * When the project opens in VSCode you should receive a dialog in the lower right corner that the "Folder contains a Dev Container". Choose to `Reopen in Container`
-  ![Reopen in Container](images/prereq/reopen_remote_container.png)
+  ![Reopen in Container](/images/prereq/reopen_remote_container.png)
 
 ### Node.js Docker Images for Dev Containers
 
@@ -254,7 +254,7 @@ This is a hybrid scenario. It uses the Dev Container configuration but runs the 
 ### Codespaces Software
 
 * From GitHub choose the option to create a new codespace.
-  ![Create Codespace](images/prereq/codespace.png)
+  ![Create Codespace](/images/prereq/codespace.png)
 
 * You can then use this codespace from the browser or open it remotely in your locally installed VS Code. The codespace will be pre-configured with the correct Node.js runtime, all other development tools, and will already have the project cloned into it.
 

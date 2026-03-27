@@ -158,29 +158,40 @@ You have deployed a CAP + SAP HANA Cloud application as a fully secured MTA. The
 
 1. What is the Cloud MTA Build Tool?
 
+   
+
    <details><summary>Answer</summary>
 
    The Cloud MTA Build Tool (MBT) is a command-line tool that reads `mta.yaml`, executes the `before-all` build commands (`npm ci`, `npx cds build --production`), packages each module's output folder, and produces a single deployable `.mtar` archive. The `.mtar` is a ZIP file containing all module artifacts and the MTA descriptor, which can then be deployed to SAP BTP with `cf deploy`.
 
+   
    </details>
 
 1. Why is the db-deployer application in a Stopped status?
+
+   
 
    <details><summary>Answer</summary>
 
    The `MyHANAApp-db-deployer` module is a one-shot HDI deployer: it connects to the HDI container, pushes the compiled database artifacts, and then exits. Cloud Foundry reports a process that has exited cleanly as "Stopped". This is expected — the deployer has no incoming requests to serve at runtime. All database access goes through the running CAP service (`MyHANAApp-srv`), which stays in "Started" status.
 
+   
    </details>
 
 1. What does `forwardAuthToken: true` do in `mta.yaml`, and what happens if it is missing?
+
+   
 
    <details><summary>Answer</summary>
 
    `forwardAuthToken: true` tells the AppRouter to include the user's XSUAA JWT in the `Authorization` header when it proxies a request to the CAP service backend. Without it, the AppRouter strips the token before forwarding, and the CAP service receives an unauthenticated request — every call to a `@requires`-protected endpoint returns `403 Forbidden`, even for logged-in users.
 
+   
    </details>
 
 1. Why do users get a `403 Forbidden` response immediately after a successful deployment, and how do you fix it?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -188,9 +199,12 @@ You have deployed a CAP + SAP HANA Cloud application as a fully secured MTA. The
 
    Fix: in the BTP cockpit, create a Role Collection, add the `Admin` role from `MyHANAApp` to it, and assign the Role Collection to the relevant user under **Security → Users**.
 
+   
    </details>
 
 1. What is the difference between `cf push` and `cf deploy`, and when would you use each?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -207,9 +221,12 @@ You have deployed a CAP + SAP HANA Cloud application as a fully secured MTA. The
 
    For this project, `cf push` alone cannot deploy the application because it cannot provision the HANA HDI container or XSUAA service, nor can it wire the `srv-api` destination between the AppRouter and the CAP service.
 
+   
    </details>
 
 1. After a successful `cf deploy`, how would you roll back to a previous version if something was wrong?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -236,6 +253,7 @@ You have deployed a CAP + SAP HANA Cloud application as a fully secured MTA. The
 
    Blue-green keeps the old version running and routes traffic to it while the new version is being validated. Only when you confirm the new version is healthy does the old one get stopped — significantly reducing the risk of a bad deployment affecting users.
 
+   
    </details>
 
 ## Further Study
