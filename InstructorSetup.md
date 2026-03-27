@@ -23,16 +23,16 @@ This is a shared, persistent subaccount used for all CAP CodeJams — do not cre
 
 1. Log in the [SAP BTP Global Account: Developer Advocates Free Tier](https://emea.cockpit.btp.cloud.sap/cockpit/#/globalaccount/275320f9-4c26-4622-8728-b6f5196075f5/accountModel&//?section=HierarchySection&view=TreeTableView).
 1. Navigate to the Directories and SubAccounts section. There you will find a folder for CodeJams. Within that is the Subaccount [CAP CodeJam](https://emea.cockpit.btp.cloud.sap/cockpit/#/globalaccount/275320f9-4c26-4622-8728-b6f5196075f5/subaccount/13f4f274-4515-4c67-8274-cbde80a4e744/subaccountoverview). That's where we will work.
-![SAP BTP SubAccount](images/instructor/subaccount.png "SAP BTP SubAccount")
+![SAP BTP SubAccount](/images/instructor/subaccount.png "SAP BTP SubAccount")
 
 ### Enable Cloud Foundry and Create a `dev` Space
 
 CF is required because participants deploy HDI container service instances into this space.
 
-1. Enable the Cloud Foundry Environment. ![Enable Cloud Foundry](images/instructor/enableCloudFoundry.png "Enable Cloud Foundry")
+1. Enable the Cloud Foundry Environment. ![Enable Cloud Foundry](/images/instructor/enableCloudFoundry.png "Enable Cloud Foundry")
 1. Use the default Enablement dialog choices.
-1. Once the org is created, create a space named `dev` ![Create Space](images/instructor/createSpace.png "Create Space")![Create Space Dialog](images/instructor/createSpace2.png "Create Space Dialog")
-1. Add the other instructors as Space Members with all roles.![Add Space Members](images/instructor/spaceMembers.png "Add Space Members")
+1. Once the org is created, create a space named `dev` ![Create Space](/images/instructor/createSpace.png "Create Space")![Create Space Dialog](/images/instructor/createSpace2.png "Create Space Dialog")
+1. Add the other instructors as Space Members with all roles.![Add Space Members](/images/instructor/spaceMembers.png "Add Space Members")
 
 ### Provisioning of SAP HANA Cloud
 
@@ -53,31 +53,31 @@ Each participant needs both a BTP subaccount user and a Cloud Foundry space memb
 
 **Action 1: Create the subaccount user and assign the Role Collection**
 
-1. Navigate to the "Security" section in your SubAccount. `Security -> Users` ![Navigate to User Management](images/instructor/securityUsers.png "Navigate to User Management")
-1. Create User ![Create User](images/instructor/createUser.png "Create User")
-1. Enter the email addresses of the participants and use the `Default identity provider` ![Create User Dialog](images/instructor/createUserDialog.png "Create User Dialog")
-1. Assign them to the `CodeJam` Role Collection. ![Assign Role Collection](images/instructor/assignRoleCollection.png "Assign Role Collection") ![Assign CodeJam Role Collection](images/instructor/assignCodeJamRC.png "Assign CodeJam Role Collection")
+1. Navigate to the "Security" section in your SubAccount. `Security -> Users` ![Navigate to User Management](/images/instructor/securityUsers.png "Navigate to User Management")
+1. Create User ![Create User](/images/instructor/createUser.png "Create User")
+1. Enter the email addresses of the participants and use the `Default identity provider` ![Create User Dialog](/images/instructor/createUserDialog.png "Create User Dialog")
+1. Assign them to the `CodeJam` Role Collection. ![Assign Role Collection](/images/instructor/assignRoleCollection.png "Assign Role Collection") ![Assign CodeJam Role Collection](/images/instructor/assignCodeJamRC.png "Assign CodeJam Role Collection")
 
 **Action 2: Add users to the Cloud Foundry space**
 
-1. Assign the users to the Cloud Foundry `dev` Space ![Add Space Members](images/instructor/spaceMembers.png "Add Space Members")
+1. Assign the users to the Cloud Foundry `dev` Space ![Add Space Members](/images/instructor/spaceMembers.png "Add Space Members")
 
 ## After the Event
 
 Run these steps after every event to avoid ongoing costs and reset the subaccount for next time.
 
-1. Delete all the HDI container instances from the BTP Cockpit SubAccount/Instances views. ![Delete Service Instances](images/instructor/cleanupDeleteServiceInstances.png "Delete Service Instances")
+1. Delete all the HDI container instances from the BTP Cockpit SubAccount/Instances views. ![Delete Service Instances](/images/instructor/cleanupDeleteServiceInstances.png "Delete Service Instances")
 
-1. Disable the Cloud Foundry Environment. This will remove all user access at the CF level and clean up remaining resources. ![Disable Cloud Foundry](images/instructor/cleanupCloudFoundry.png "Disable Cloud Foundry")
+1. Disable the Cloud Foundry Environment. This will remove all user access at the CF level and clean up remaining resources. ![Disable Cloud Foundry](/images/instructor/cleanupCloudFoundry.png "Disable Cloud Foundry")
 
 1. Delete the HANA Cloud Instance to save money.
-   * From the Subscriptions click on `SAP HANA Cloud`![SAP HANA Cloud Tools](images/instructor/hanaCloudTools.png "SAP HANA Cloud Tools")
-   * Then `Actions -> Delete`![Delete](images/instructor/hanaCloudDelete.png "Delete")
+   * From the Subscriptions click on `SAP HANA Cloud`![SAP HANA Cloud Tools](/images/instructor/hanaCloudTools.png "SAP HANA Cloud Tools")
+   * Then `Actions -> Delete`![Delete](/images/instructor/hanaCloudDelete.png "Delete")
 
 1. Remove Users
-   * `Security -> Users` ![Navigate to User Management](images/instructor/securityUsers.png "Navigate to User Management")
-   * Manually delete all workshop users ![Delete Users](images/instructor/deleteUsers.png "Delete Users")
+   * `Security -> Users` ![Navigate to User Management](/images/instructor/securityUsers.png "Navigate to User Management")
+   * Manually delete all workshop users ![Delete Users](/images/instructor/deleteUsers.png "Delete Users")
 
 1. Remove Role Collections created by participants during the event
    * `Security -> Role Collections`
-   * Delete any Role Collections that participants created during the event. Do **not** delete the `CodeJam` Role Collection — it is pre-existing and reused across events. ![Delete Role Collection](images/instructor/deleterolecollection.png)
+   * Delete any Role Collections that participants created during the event. Do **not** delete the `CodeJam` Role Collection — it is pre-existing and reused across events. ![Delete Role Collection](/images/instructor/deleterolecollection.png)

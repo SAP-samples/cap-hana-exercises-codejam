@@ -110,6 +110,8 @@ You've now built a Calculation View using the graphical editor in Business Appli
 
 1. What is a [Calculation View](https://help.sap.com/docs/SAP_HANA_PLATFORM/52715f71adba4aaeb480d946c742d1f6/18e1d60a75524e43b81acff652dae772.html) and how is it different from a [SQL View](https://help.sap.com/docs/HANA_CLOUD_DATABASE/c1d3f60099654ecfb3fe36ac93c121bb/20d5fa9b75191014a33eee92692f1702.html)?
 
+   
+
    <details><summary>Answer</summary>
 
    A SQL View is a stored `SELECT` statement that is re-evaluated each time it is queried. It runs on the SQL engine and has no special awareness of column-store optimisations.
@@ -118,9 +120,12 @@ You've now built a Calculation View using the graphical editor in Business Appli
 
    The graphical editor in BAS (or HANA Studio) generates the underlying `.hdbcalculationview` XML definition — you are authoring a model, not writing SQL.
 
+   
    </details>
 
 1. Why did we change from a [namespace](https://cap.cloud.sap/docs/guides/domain-modeling#using-namespaces) to a [context](https://cap.cloud.sap/docs/cds/cdl#context) in the tutorial steps?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -128,9 +133,12 @@ You've now built a Calculation View using the graphical editor in Business Appli
 
    The proxy entity for the Calculation View must have a name that matches the HDI object name exactly — `V_INTERACTION`, not `app.interactions.V_INTERACTION`. By placing the existing `Headers` and `Items` entities inside a `context app.interactions { ... }` block and declaring `V_INTERACTION` outside it, we keep the namespaced names for the CAP-managed entities while giving the proxy entity the exact bare name HANA expects.
 
+   
    </details>
 
 1. What is [`@cds.persistence.exists`](https://cap.cloud.sap/docs/cds/annotations#persistence) doing?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -138,9 +146,12 @@ You've now built a Calculation View using the graphical editor in Business Appli
 
    This annotation applies to any pre-existing database artifact you want to bring into a CAP service: tables from a legacy schema, SQL views created outside CAP, or — as here — HANA Calculation Views. The entity definition in CDS acts purely as a type description so the service layer knows the column names and types.
 
+   
    </details>
 
 1. What is [`@cds.persistence.calcview`](https://cap.cloud.sap/docs/advanced/hana#calculated-views-and-user-defined-functions) doing?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -148,9 +159,12 @@ You've now built a Calculation View using the graphical editor in Business Appli
 
    Without `@cds.persistence.calcview`, CAP would still skip creation of the object (because `@cds.persistence.exists` is also set) but would not generate the wrapper, and runtime queries against the entity would fail.
 
+   
    </details>
 
 1. What would happen if you placed `V_INTERACTION` *inside* the `context app.interactions { }` block instead of outside it? What database object name would CAP look for?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -160,9 +174,12 @@ You've now built a Calculation View using the graphical editor in Business Appli
 
    This is exactly why the tutorial converts the `namespace` declaration to a `context` block: it lets you keep the `app.interactions.` prefix on the CAP-managed entities while placing `V_INTERACTION` at the top level where its name matches the HDI artifact exactly.
 
+   
    </details>
 
 1. The `hana-cli inspectView` command was used to generate the CDS entity definition for `V_INTERACTION`. What problem does this tool solve, and what would you have to do without it?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -175,9 +192,12 @@ You've now built a Calculation View using the graphical editor in Business Appli
 
    `hana-cli inspectView` connects to your HDI container, queries the view's column metadata from the HANA system catalog, and generates a ready-to-paste CDS entity definition. This avoids transcription errors and is especially valuable for views with many columns or complex types. The broader `hana-cli` toolkit offers similar introspection commands for tables (`inspectTable`), procedures (`inspectProc`), and other HANA objects.
 
+   
    </details>
 
 1. You have now built a data model (Ex3), a UI (Ex4), and authentication (Ex5). Trace the full request path from the browser to SAP HANA Cloud for a `GET` that loads the list of `Interactions_Header` records. Which component handles each step?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -211,6 +231,7 @@ You've now built a Calculation View using the graphical editor in Business Appli
 
    Each layer has a single, well-defined responsibility: the AppRouter owns authentication and routing, CAP owns authorization and data translation, HANA owns storage and query execution, and Fiori Elements owns rendering. No layer reaches into another's concern. This separation is what makes the stack maintainable and individually testable.
 
+   
    </details>
 
 ## Further Study

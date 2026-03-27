@@ -100,6 +100,8 @@ At the end of this exercise you have:
 
 1. We added an [Application Router](https://www.npmjs.com/package/@sap/approuter) to the project. What is it, and why is it needed?
 
+   
+
    <details><summary>Answer</summary>
 
    The Application Router (`@sap/approuter`) is a Node.js reverse proxy that acts as the **single entry point** for the browser. In the MTA architecture, the browser never talks directly to the CAP service — it always goes through the router.
@@ -112,9 +114,12 @@ At the end of this exercise you have:
 
    Without the router, every BTP microservice would need to implement its own OAuth2 flow — the router centralises that complexity in one place.
 
+   
    </details>
 
 1. Why does `default-env.json` work for local development? What role does [@sap/xsenv](https://www.npmjs.com/package/@sap/xsenv) play, and how does `cds bind` [avoid the need for it](https://cap.cloud.sap/docs/advanced/hybrid-testing#bind-to-cloud-services)?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -124,9 +129,12 @@ At the end of this exercise you have:
 
    **`cds bind` is a cleaner alternative.** Running `cds bind --to <service-instance-name>` stores a reference to the live BTP service binding in a `.cdsrc-private.json` file (never committed to git). When you start the CAP server locally, it resolves those bindings on the fly — no credential file to manage, no risk of committing secrets, and the bindings stay in sync with BTP automatically.
 
+   
    </details>
 
 1. What is the difference between a standalone and a managed Application Router, and when would you use each?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -139,9 +147,12 @@ At the end of this exercise you have:
 
    In this CodeJam we use the **standalone** router because it makes the routing configuration explicit and visible in `xs-app.json`, which is the best way to understand how the pieces connect. In production SAP BTP projects, the managed router is more common for standard Fiori apps because it reduces operational overhead.
 
+   
    </details>
 
 1. What is CAP hybrid testing (`cds bind`), and why does it matter for developers?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -158,9 +169,12 @@ At the end of this exercise you have:
    cds watch --profile hybrid         # start server using the live bindings
    ```
 
+   
    </details>
 
 1. Open `app/interaction_items/annotations.cds`. Which annotation controls the columns shown in the list table? What would you change to add a new column — for example, the `date` field?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -183,9 +197,12 @@ At the end of this exercise you have:
 
    No JavaScript or controller code is needed — Fiori Elements reads the annotation at runtime and renders the column automatically. This is the core value proposition of the metadata-driven UI model: the UI is configured through data, not code.
 
+   
    </details>
 
 1. What is the OData `$metadata` endpoint, and what can you learn from it? Try navigating to it after starting the CAP server.
+
+   
 
    <details><summary>Answer</summary>
 
@@ -205,6 +222,7 @@ At the end of this exercise you have:
 
    Checking `$metadata` is the first diagnostic step when a Fiori Elements UI behaves unexpectedly — if a field is missing from the metadata, it will never appear in the UI regardless of annotations.
 
+   
    </details>
 
 ## Further Study

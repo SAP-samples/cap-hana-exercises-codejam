@@ -101,13 +101,18 @@ You have now wired a native HANA stored procedure into your CAP service as an OD
 
 1. What's [`SQLSCRIPT_SYNC`](https://help.sap.com/docs/HANA_CLOUD_DATABASE/d1cb63c8dd8e4c35a0f18aef632687f0/31321d64e34e4a808fb448e6fa312c03.html)?
 
+   
+
    <details><summary>Answer</summary>
 
    `SQLSCRIPT_SYNC` is a built-in SQLScript library that provides `SLEEP_SECONDS` and `WAKEUP_CONNECTION` procedures. Its purpose is to introduce a controlled pause inside a procedure without "busy waiting" (spinning a loop and consuming CPU doing nothing useful). Importing it with `USING SQLSCRIPT_SYNC AS SyncLib` and calling `SyncLib:SLEEP_SECONDS(10)` makes the procedure pause for 10 seconds before returning.
 
+   
    </details>
 
 1. Why did we have to redeploy to the HANA database after adding the Calculation View in Exercise 6 but didn't need to after adding the Stored Procedure here?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -115,9 +120,12 @@ You have now wired a native HANA stored procedure into your CAP service as an OD
 
    The stored procedure, by contrast, is already present in the HDI container from the initial `db/src/` deployment. Declaring it as a CAP function adds an entry to the OData metadata document and registers a handler, but creates nothing new in the database. Restarting the CAP server is enough.
 
+   
    </details>
 
 1. What's the difference between a [function and an action](https://cap.cloud.sap/docs/guides/providing-services#actions-vs-functions)?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -128,9 +136,12 @@ You have now wired a native HANA stored procedure into your CAP service as an OD
 
    The `sleep` procedure is a function because the underlying SQLScript uses `READS SQL DATA` — it only reads, never writes.
 
+   
    </details>
 
 1. Why did we use `cds.run()` instead of the `hdb` module directly to call the stored procedure?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -138,9 +149,12 @@ You have now wired a native HANA stored procedure into your CAP service as an OD
 
    Using `hdb` directly would hard-code a dependency on a specific client, require you to manage the connection lifecycle manually, and break in environments (such as local SQLite development) where `hdb` is not available. See [CAP: Driver-agnostic results for stored procedures](https://cap.cloud.sap/docs/releases/archive/2022/mar22#driver-agnostic-results-for-stored-procedures) for more detail.
 
+   
    </details>
 
 1. Try changing the `sleep` CDS declaration from `function` to `action`. What changes in the OData metadata document, and what HTTP method would you use to call it?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -154,9 +168,12 @@ You have now wired a native HANA stored procedure into your CAP service as an OD
 
    Use `function` (GET) for read-only operations with no side effects. Use `action` (POST) for operations that modify data, trigger a process, or have observable side effects — for example, a procedure that inserts an audit log entry or sends a notification.
 
+   
    </details>
 
 1. The `sleep` procedure uses `SQL SECURITY INVOKER`. What is the difference between `SQL SECURITY INVOKER` and `SQL SECURITY DEFINER`, and why does it matter?
+
+   
 
    <details><summary>Answer</summary>
 
@@ -167,6 +184,7 @@ You have now wired a native HANA stored procedure into your CAP service as an OD
 
    `DEFINER` is used when a procedure legitimately needs to access objects the calling user cannot reach directly — for example, a reporting procedure that aggregates data from a restricted audit table. However, `DEFINER` introduces a privilege escalation risk: a caller can do things through the procedure that they could not do directly. SAP recommends defaulting to `INVOKER` and only switching to `DEFINER` when there is a clear, justified need.
 
+   
    </details>
 
 ## Further Study
