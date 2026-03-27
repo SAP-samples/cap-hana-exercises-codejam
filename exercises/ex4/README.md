@@ -160,6 +160,53 @@ At the end of this exercise you have:
 
    </details>
 
+1. Open `app/interaction_items/annotations.cds`. Which annotation controls the columns shown in the list table? What would you change to add a new column — for example, the `date` field?
+
+   <details><summary>Answer</summary>
+
+   The `UI.LineItem` annotation controls the list table columns. In `annotations.cds` it looks something like:
+
+   ```cds
+   annotate service.Interactions_Header with @(
+       UI.LineItem: [
+           { $Type: 'UI.DataField', Label: 'Partner', Value: partner },
+           { $Type: 'UI.DataField', Label: 'Country',  Value: country_code }
+       ]
+   );
+   ```
+
+   To add a `date` column from the `Interactions_Items` entity, you would add another `DataField` entry to the array:
+
+   ```cds
+   { $Type: 'UI.DataField', Label: 'Date', Value: date }
+   ```
+
+   No JavaScript or controller code is needed — Fiori Elements reads the annotation at runtime and renders the column automatically. This is the core value proposition of the metadata-driven UI model: the UI is configured through data, not code.
+
+   </details>
+
+1. What is the OData `$metadata` endpoint, and what can you learn from it? Try navigating to it after starting the CAP server.
+
+   <details><summary>Answer</summary>
+
+   The `$metadata` endpoint is the OData **service document** — an XML document that describes every entity set, property, association, function import, and capability that the service exposes. It is what OData clients (including Fiori Elements) read to understand the shape of the data and the available operations.
+
+   With your CAP server running, navigate to:
+
+   ```text
+   http://localhost:4004/odata/v4/catalog/$metadata
+   ```
+
+   In the document you can verify:
+   - All entity sets are present (`Interactions_Header`, `Interactions_Items`, `V_Interaction`, `Languages`)
+   - Each property's name and type matches your CDS definition
+   - The `sleep` function import is registered (after Exercise 7)
+   - The `@odata.draft.enabled` flag on `Interactions_Header` appears as `Org.OData.Capabilities.V1.NavigationRestrictions`
+
+   Checking `$metadata` is the first diagnostic step when a Fiori Elements UI behaves unexpectedly — if a field is missing from the metadata, it will never appear in the UI regardless of annotations.
+
+   </details>
+
 ## Further Study
 
 - [@sap/approuter on npm](https://www.npmjs.com/package/@sap/approuter) — full `xs-app.json` configuration reference

@@ -236,6 +236,33 @@ At the end of this exercise you have:
 
    </details>
 
+1. After running `cds build --production`, look inside `db/src/gen/`. What files were generated, and how do they correspond to the CDS entities you defined?
+
+   <details><summary>Answer</summary>
+
+   Inside `db/src/gen/` you will find files like:
+
+   ```text
+   APP_INTERACTIONS_HEADERS.hdbtable
+   APP_INTERACTIONS_ITEMS.hdbtable
+   ```
+
+   Each `.hdbtable` file is an HDI table artifact containing the SQL `CREATE TABLE` DDL that HANA will execute when the HDI deployer runs. CAP derives the filename from the CDS entity's fully-qualified name: the context prefix `app.interactions` becomes `APP_INTERACTIONS_`, and the entity name `Headers` becomes `HEADERS`, all uppercased.
+
+   If your CDS model includes views (e.g. projections with computed fields), CAP generates `.hdbview` files for those instead. These generated files are the bridge between your high-level CDS definitions and the HANA-native artifacts that `@sap/hdi-deploy` pushes into the database. Never edit them directly — regenerate them by re-running `cds build --production`.
+
+   </details>
+
+1. What would happen if you ran `cds build` without the `--production` flag? Why does HANA deployment require it?
+
+   <details><summary>Answer</summary>
+
+   Without `--production`, `cds build` generates artifacts for the default local database — SQLite. It produces a `gen/srv/` folder containing the CAP Node.js runtime bundle but does **not** generate the `.hdbtable`/`.hdbview` files in `db/src/gen/` that `@sap/hdi-deploy` needs.
+
+   The `--production` flag activates the HANA build profile, which tells CAP to generate HDI-compatible artifacts instead of SQLite-compatible ones. Forgetting the flag is one of the most common deployment mistakes: the `mbt build` command succeeds, the `.mtar` archive is created, `cf deploy` runs — but the db-deployer finds nothing to push into HANA and the deployment either fails or leaves the database schema unchanged.
+
+   </details>
+
 ## Further Study
 
 - [Video Version of this Tutorial](https://youtu.be/hlHY7eBriRA)

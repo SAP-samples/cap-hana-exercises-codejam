@@ -140,6 +140,35 @@ You have now wired a native HANA stored procedure into your CAP service as an OD
 
    </details>
 
+1. Try changing the `sleep` CDS declaration from `function` to `action`. What changes in the OData metadata document, and what HTTP method would you use to call it?
+
+   <details><summary>Answer</summary>
+
+   In the OData `$metadata` document:
+   - Before: `sleep` appears as a `<FunctionImport>` element
+   - After: `sleep` appears as an `<ActionImport>` element
+
+   The HTTP method changes from `GET` to `POST`. Calling `GET /odata/v4/catalog/sleep()` after the change will return an error — the runtime now expects `POST /odata/v4/catalog/sleep`.
+
+   The underlying `sleep.hdbprocedure` does not need to change — `READS SQL DATA` is a database-level declaration about side effects, not an HTTP-level one. The CAP service definition is the only file to update.
+
+   Use `function` (GET) for read-only operations with no side effects. Use `action` (POST) for operations that modify data, trigger a process, or have observable side effects — for example, a procedure that inserts an audit log entry or sends a notification.
+
+   </details>
+
+1. The `sleep` procedure uses `SQL SECURITY INVOKER`. What is the difference between `SQL SECURITY INVOKER` and `SQL SECURITY DEFINER`, and why does it matter?
+
+   <details><summary>Answer</summary>
+
+   - **`SQL SECURITY INVOKER`** — the procedure runs with the permissions of the *calling* user. If the caller cannot read a table, the procedure cannot read it either.
+   - **`SQL SECURITY DEFINER`** — the procedure runs with the permissions of the procedure *owner* (typically the HDI container's technical user / schema owner), regardless of who calls it.
+
+   For the `sleep` procedure, `INVOKER` is appropriate: the procedure only calls a library function and reads no business data, so there is no reason to elevate the caller's privileges.
+
+   `DEFINER` is used when a procedure legitimately needs to access objects the calling user cannot reach directly — for example, a reporting procedure that aggregates data from a restricted audit table. However, `DEFINER` introduces a privilege escalation risk: a caller can do things through the procedure that they could not do directly. SAP recommends defaulting to `INVOKER` and only switching to `DEFINER` when there is a clear, justified need.
+
+   </details>
+
 ## Further Study
 
 - [CAP - Using Native SAP HANA Artifacts](https://cap.cloud.sap/docs/advanced/hana) — proxy entities, user-defined functions, and stored procedures in CAP

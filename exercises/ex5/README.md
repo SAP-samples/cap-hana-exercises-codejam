@@ -177,6 +177,36 @@ While you could use CAP's mock authentication for unit testing, this exercise go
 
    </details>
 
+1. What HTTP status code do you receive when calling a `@requires: 'Admin'` endpoint without the Admin role assigned? Is it the same code you get when not logged in at all?
+
+   <details><summary>Answer</summary>
+
+   They are different, and the difference is meaningful:
+
+   - **Not logged in** — the Application Router intercepts the request before it reaches CAP and issues an HTTP `302 Found` redirect to the XSUAA login page. If you call the CAP service directly (bypassing the router), you get `401 Unauthorized`.
+   - **Logged in but missing the Admin scope** — the user has a valid JWT, so authentication passes. CAP validates the `@requires: 'Admin'` check, finds the scope absent, and returns `403 Forbidden`.
+
+   The practical diagnosis rule: a `302` or `401` means the authentication layer failed (no valid session or token). A `403` means authentication succeeded but authorization failed — the user is known but not permitted. When you see a `403` after deployment, the first thing to check is the role collection assignment in the BTP cockpit, not the XSUAA configuration.
+
+   </details>
+
+1. Look at the JWT that XSUAA issues for your user. Can you find your scopes in it?
+
+   <details><summary>Answer</summary>
+
+   Navigate to `/user-api/currentUser` via the Application Router preview URL in BAS. The built-in `sap-approuter-userapi` service returns a JSON object with your user attributes (name, email, and more) extracted from the validated JWT.
+
+   To inspect the raw JWT, open the browser's developer tools (F12), go to the **Network** tab, and find any request to the CAP service. Look at the `Authorization: Bearer <token>` request header. Copy the token value and paste it into [jwt.io](https://jwt.io) to decode it — **never do this with production tokens in a shared environment**. In the decoded payload you will find:
+
+   - `scope` — the list of granted scopes; `<xsappname>.Admin` appears here once the role collection is assigned
+   - `sub` — the user's unique identity
+   - `email` — the user's email address
+   - `exp` — the token expiry time (Unix timestamp)
+
+   If you receive a `403` and cannot find your scope in the `scope` array, the role collection has not been assigned to your user in the BTP cockpit — that is the fix.
+
+   </details>
+
 ## Further Study
 
 - [CAP Authentication Strategies](https://cap.cloud.sap/docs/node.js/authentication#strategies) — full reference for dummy, mocked, XSUAA, IAS, and custom strategies
