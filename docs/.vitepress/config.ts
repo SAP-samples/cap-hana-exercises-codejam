@@ -27,6 +27,26 @@ export default withMermaid(
 
     markdown: {
       languageAlias: { cds: 'typescript' },
+      // Fix: markdown-it wraps loose list items in <p>, but <details> is a
+      // block element that cannot be inside <p> (HTML5 content model).
+      // Vue's strict SFC parser throws "Element is missing end tag" for this.
+      // Patch md.render to post-process the rendered HTML and replace <p> wrappers
+      // around <details> with <div>. Two passes cover both the single-paragraph
+      // case (<p>text<details>...</details></p>) and the multi-paragraph case
+      // where <details> spans multiple markdown paragraphs and the opening <p>
+      // never closes before </details>.
+      config(md) {
+        const originalRender = md.render.bind(md)
+        md.render = function (src, env) {
+          const html = originalRender(src, env)
+          if (!html.includes('<details')) return html
+          return html
+            // Pass 1: <p> that opens a <details> (text doesn't cross a </p> boundary)
+            .replace(/<p>((?:(?!<\/p>).)*<details[\s\S]*?)<\/p>/g, '<div>$1</div>')
+            // Pass 2: <p> that closes a </details> opened in an earlier paragraph
+            .replace(/<p>((?:(?!<details).)*<\/details>[\s\S]*?)<\/p>/g, '<div>$1</div>')
+        }
+      },
     },
 
     // locales is a top-level defineConfig key — NOT inside themeConfig
@@ -171,7 +191,6 @@ export default withMermaid(
     vite: {
       build: { chunkSizeWarningLimit: 2000 },
       plugins: [
-        // agentmarkup must be inside vite.plugins — NOT a standalone call
         agentmarkup({
           site: SITE_URL,
           name: 'CAP + SAP HANA Cloud CodeJam',
