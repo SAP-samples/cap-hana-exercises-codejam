@@ -6,20 +6,21 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@cap-js/hana": "^1",
-    "@sap/cds": "^8",
-    "@sap/cds-common-content": "^2.1.0",
+    "@cap-js/hana": "^2.7.0",
+    "@sap/cds": "^9.8.4",
+    "@sap/cds-common-content": "^3.1.0",
     "@sap/xssec": "^4",
-    "express": "^4"
+    "express": "^5"
   },
   "devDependencies": {
-    "@cap-js/cds-types": "^0.7.0",
-    "@cap-js/sqlite": "^1",
-    "@sap/cds-dk": "^8"
+    "@cap-js/cds-types": "^0.16.0",
+    "@cap-js/sqlite": "^2",
+    "@sap/cds-dk": "^9"
   },
   "scripts": {
     "start": "cds-serve",
-    "watch-interaction_items": "cds watch --open interaction_items/webapp/index.html?sap-ui-xx-viewCache=false"
+    "watch-interaction_items": "cds watch --open interaction_items/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-hybrid": "cds watch --profile hybrid"
   },
   "cds": {
     "requires": {
