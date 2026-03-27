@@ -41,6 +41,6 @@ key     CREATEDAT: Timestamp  @title: 'CREATEDAT: CREATEDAT' ;
         COUNTRY_CODE: String(3)  @title: 'COUNTRY_CODE: COUNTRY_CODE' ; 
         TEXT: String(1024)  @title: 'TEXT: TEXT' ; 
         DATE: String  @title: 'DATE: DATE' ; 
-        PRICE: Decimal(10)  @title: 'PRICE: PRICE' ; 
+        PRICE: Decimal(10,2)  @title: 'PRICE: PRICE' ; 
         CURRENCY_CODE: String(3)  @title: 'CURRENCY_CODE: CURRENCY_CODE' ; 
 }

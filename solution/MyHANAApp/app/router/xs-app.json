@@ -1,6 +1,6 @@
 {
   "authenticationMethod": "route",
-  "welcomeFile": "/app/interaction_items/webapp/index.html",
+  "welcomeFile": "/interaction_items/webapp/index.html",
   "compression": {
     "minSize": 2048
   },

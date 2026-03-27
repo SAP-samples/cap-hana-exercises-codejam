@@ -20,7 +20,10 @@
   "scripts": {
     "start": "cds-serve",
     "watch-interaction_items": "cds watch --open interaction_items/webapp/index.html?sap-ui-xx-viewCache=false",
-    "watch-hybrid": "cds watch --profile hybrid"
+    "watch-hybrid": "cds watch --profile hybrid",
+    "deploy-hana": "cds deploy --to hana:MyHANAApp-db-dev",
+    "create-xsuaa": "cf create-service xsuaa application MyHANAApp-auth -c xs-security.json && cds bind --to MyHANAApp-auth",
+    "start-router": "cds bind --exec -- npm start --prefix app/router"
   },
   "cds": {
     "requires": {
