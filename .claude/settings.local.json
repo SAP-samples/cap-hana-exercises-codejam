@@ -5,7 +5,8 @@
       "mcp__plugin_playwright_playwright__browser_navigate",
       "Bash(git -C d:/projects/cap-hana-exercises-codejam log --oneline -10)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "WebFetch(domain:raw.githubusercontent.com)"
     ]
   }
 }
