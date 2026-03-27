@@ -108,7 +108,6 @@
             "settings": {
               "contextPath": "/Interactions_Header",
               "variantManagement": "Page",
-              "hideFilterBar": true,
               "navigation": {
                 "Interactions_Header": {
                   "detail": {
