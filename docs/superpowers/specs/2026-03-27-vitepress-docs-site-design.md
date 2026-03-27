@@ -42,7 +42,7 @@ Source files (exercise READMEs, root markdown files) are **never modified**. The
 
 For external repo content: add the external repo as a git submodule at `external/<repo-name>/`, then include files from it the same way. GitHub Actions checkout uses `submodules: true`.
 
-> **Note on dev mode:** Running `vitepress dev .` from `docs/` with `srcDir: '..'` will serve all non-excluded repo markdown files as pages. During development, validate `srcExclude` carefully — stray pages will appear in dev mode if the exclude list is incomplete.
+> **Note on dev mode:** Running `vitepress dev .` from `docs/` serves only files under `docs/` (the srcDir). Source files in `exercises/`, `slides/`, etc. are never served directly — they are only included by reference via wrapper pages.
 
 ---
 
@@ -50,12 +50,10 @@ For external repo content: add the external repo as a git submodule at `external
 
 ```text
 repo root
-├── index.md                              ← NEW: VitePress home page (audience hero)
-│                                            With srcDir: '..', this maps to URL: /
-│                                            GitHub continues to use README.md
+├── README.md                             ← unchanged (GitHub-facing)
 ├── exercises/
-│   ├── ex1–ex8/README.md                 ← unchanged source files
-│   └── template.md                       ← excluded from VitePress output (see srcExclude)
+│   ├── ex1–ex8/README.md                 ← unchanged source files — included by wrapper pages
+│   └── template.md                       ← unchanged — never served (outside srcDir)
 ├── prerequisites.md                      ← unchanged
 ├── InstructorSetup.md                    ← unchanged
 ├── AGENT_INSTRUCTIONS.md                 ← unchanged
@@ -143,7 +141,7 @@ Complete the [Prerequisites](/prerequisites/) before beginning this exercise.
 
 Callout blocks (`::: tip`, `::: warning`, `::: info`) are the primary web-enhancement mechanism. Each wrapper page may also add a short lead-in paragraph. Source files are included verbatim.
 
-> **Include path depth note:** With `srcDir: '..'`, all paths in `<!--@include-->` are relative to the wrapper page's location within the `docs/` directory. A file at `docs/exercises/ex1/index.md` needs `../../../exercises/ex1/README.md` to reach the repo root.
+> **Include path depth note:** `<!--@include-->` paths are relative to the wrapper file's location within `docs/`. A wrapper at `docs/exercises/ex1/index.md` navigates: `../` = `docs/exercises/`, `../../` = `docs/`, `../../../` = repo root. So `../../../exercises/ex1/README.md` correctly resolves to the source file. VitePress resolves includes relative to the file, not srcDir.
 
 ---
 
@@ -162,22 +160,15 @@ const SITE_URL = 'https://SAP-samples.github.io/cap-hana-exercises-codejam'
 export default withMermaid(
   defineConfig({
     base: BASE,
-    srcDir: '..',
+    // No srcDir override — VitePress uses docs/ as the source root (the default when
+    // run as `vitepress dev .` from inside docs/).
+    // This means all wrapper pages in docs/ produce clean URLs:
+    //   docs/exercises/ex1/index.md  →  /exercises/ex1/
+    //   docs/prerequisites/index.md  →  /prerequisites/
+    // Source files outside docs/ (exercises/, slides/, etc.) are never served directly.
+    // All <!--@include--> paths are relative to each wrapper file's location in docs/.
     srcExclude: [
-      '**/node_modules/**',
-      '.github/**',
-      '.vscode/**',
-      '.devcontainer/**',
-      '.claude/**',
-      'docs/.vitepress/**',
-      'docs/superpowers/**',       // spec/plan authoring artifacts — not public pages
-      'CLAUDE.md',                  // AI assistant instructions — not user-facing
-      'slides/**',                  // source slides excluded — wrapper pages in docs/slides/ handle them
-      'exercises/template.md',      // workshop authoring template — not user-facing
-      'solution/MyHANAApp/db/**',
-      'solution/MyHANAApp/srv/**',
-      'solution/MyHANAApp/app/**',
-      'solution/MyHANAApp/package*.json',
+      'superpowers/**',            // spec/plan authoring artifacts — not public pages
     ],
 
     title: 'CAP + SAP HANA Cloud CodeJam',
@@ -323,10 +314,11 @@ export default withMermaid(
       },
 
       // ── Edit link ─────────────────────────────────────────────────────────
-      // :path resolves relative to srcDir (repo root), so docs/exercises/ex1/index.md
-      // produces :path = 'docs/exercises/ex1/index.md' — no 'docs/' prefix needed here.
+      // :path resolves relative to srcDir (docs/), so exercises/ex1/index.md
+      // within docs/ produces :path = 'exercises/ex1/index.md'.
+      // The 'docs/' prefix is required to reach the correct GitHub file path.
       editLink: {
-        pattern: 'https://github.com/SAP-samples/cap-hana-exercises-codejam/edit/main/:path',
+        pattern: 'https://github.com/SAP-samples/cap-hana-exercises-codejam/edit/main/docs/:path',
         text: 'Edit this page on GitHub',
       },
 
@@ -460,9 +452,9 @@ export default {
 
 ---
 
-## Home Page (`index.md` — repo root)
+## Home Page (`docs/index.md`)
 
-> **Important:** With `srcDir: '..'`, the VitePress home page is `index.md` at the **repo root** (not `docs/index.md`). The repo root `README.md` remains untouched for GitHub; VitePress prefers `index.md` over `README.md` when both exist.
+> **Important:** With `docs/` as srcDir, `docs/index.md` maps to `/` — the VitePress home page. The root `README.md` is never touched (GitHub continues to use it). No new file is needed at the repo root.
 
 Audience-driven hero using VitePress `layout: home` frontmatter with a custom features grid routing visitors by role:
 
@@ -540,9 +532,7 @@ steps:
   - uses: actions/configure-pages@v4
     if: github.event_name != 'pull_request'
 
-  - uses: actions/upload-pages-artifact@v3   # v3 is current stable; note asymmetry with @v4
-    # configure-pages and deploy-pages use @v4 — upload-pages-artifact @v4 does not yet exist.
-    # Pin this to @v3 until the upload action ships a v4 release.
+  - uses: actions/upload-pages-artifact@v4
     if: github.event_name != 'pull_request'
     with:
       path: docs/.vitepress/dist             # path relative to repo root
@@ -552,6 +542,7 @@ steps:
 ### 3. deploy
 
 ```yaml
+if: github.event_name != 'pull_request'   # skip deploy on PRs — no artifact uploaded for PRs
 environment:
   name: github-pages
   url: ${{ steps.deployment.outputs.page_url }}
@@ -595,7 +586,9 @@ steps:
 
 | File | Purpose |
 | --- | --- |
-| `index.md` | VitePress home page — audience-driven hero (repo root) |
+| `docs/index.md` | VitePress home page — audience-driven hero (maps to `/`) |
+| `docs/public/logo.svg` | SAP logo SVG — source from SAP brand portal |
+| `docs/public/favicon.ico` | Site favicon — source from SAP brand portal or generate from logo |
 | `docs/package.json` | VitePress toolchain |
 | `docs/package-lock.json` | Generated by `npm install` — do not create manually |
 | `docs/.vitepress/config.ts` | Full VitePress config (see above) |
@@ -627,11 +620,11 @@ steps:
 | `docs/i18n/README.md` | Translation instructions for AI/human translators |
 | `.github/workflows/deploy-docs.yml` | GitHub Actions deploy pipeline |
 
-## Files Modified
+## Files Created or Modified
 
 | File | Change |
 | --- | --- |
-| `.gitignore` | Add `docs/.vitepress/dist/`, `docs/.vitepress/cache/`, `.superpowers/`, `llms.txt`, `llms-full.txt` |
+| `.gitignore` | Create new (does not currently exist): add `docs/.vitepress/dist/`, `docs/.vitepress/cache/`, `.superpowers/`, `llms.txt`, `llms-full.txt` |
 
 ## Files Removed from Source Control
 
