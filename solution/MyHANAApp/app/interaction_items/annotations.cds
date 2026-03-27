@@ -7,13 +7,9 @@ UI.HeaderInfo                : {
         Value: partner,
     },
     TypeName      : 'Incident',
-    TypeNamePlural: 'Incidens',
+    TypeNamePlural: 'Incidents',
     Description   : {Value: country.descr}
 },
-UI.HeaderFacets            : [{
-        $Type             : 'UI.ReferenceFacet',
-        Target            : '@UI.FieldGroup#Admin'
-}],
 UI.FieldGroup #GeneratedGroup: {
     $Type: 'UI.FieldGroupType',
     Data : [
@@ -23,11 +19,6 @@ UI.FieldGroup #GeneratedGroup: {
             Value: partner,
         },
         {
-            $Type: 'UI.DataField',
-            Label: 'Country',
-            Value: country_code,
-        },
-        {
             $Type                  : 'UI.DataField',
             Label                  : 'Country',
             ![@Common.FieldControl]: #ReadOnly,
@@ -35,23 +26,25 @@ UI.FieldGroup #GeneratedGroup: {
         },
     ]
 },
-UI.FieldGroup #Admin       : {Data : [
-    {
-        $Type : 'UI.DataField',
-        Value : createdBy
-    },
-    {
-        $Type : 'UI.DataField',
-        Value : modifiedBy
-    },
-    {
-        $Type : 'UI.DataField',
-        Value : createdAt
-    },
-    {
-        $Type : 'UI.DataField',
-        Value : modifiedAt
-    }
+UI.FieldGroup #Admin         : {
+    $Type: 'UI.FieldGroupType',
+    Data : [
+        {
+            $Type: 'UI.DataField',
+            Value: createdBy
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: modifiedBy
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: createdAt
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: modifiedAt
+        }
     ]
 },
 UI.Facets                    : [
@@ -64,7 +57,12 @@ UI.Facets                    : [
     {
         $Type : 'UI.ReferenceFacet',
         Label : 'Interaction Items',
-        Target: 'items/@UI.LineItem'
+        Target: 'items/@UI.LineItem',
+    },
+    {
+        $Type : 'UI.ReferenceFacet',
+        Label : 'Administration',
+        Target: '@UI.FieldGroup#Admin',
     }
 ],
 UI.LineItem                  : [
@@ -77,7 +75,7 @@ UI.LineItem                  : [
         $Type                  : 'UI.DataField',
         Label                  : 'Country',
         ![@Common.FieldControl]: #ReadOnly,
-        Value                  : country.name,
+        Value                  : country.descr,
     },
 ]
 );
@@ -90,6 +88,10 @@ UI.HeaderInfo                : {
     },
     TypeName      : 'Interaction Item',
     TypeNamePlural: 'Interaction Items'
+},
+UI.DataPoint #Price          : {
+    Value: price,
+    Title: 'Price',
 },
 UI.FieldGroup #GeneratedGroup: {
     $Type: 'UI.FieldGroupType',
@@ -105,15 +107,10 @@ UI.FieldGroup #GeneratedGroup: {
             Value: date,
         },
         {
-            $Type: 'UI.DataField',
-            Label: 'Price',
-            Value: price,
+            $Type : 'UI.DataFieldForAnnotation',
+            Label : 'Price',
+            Target: '@UI.DataPoint#Price',
         },
-        {
-            $Type: 'UI.DataField',
-            Label: 'Currency',
-            Value: currency_code,
-        }
     ]
 },
 UI.Facets                    : [
@@ -141,20 +138,18 @@ UI.LineItem                  : [
         Value: date,
     },
     {
-        $Type: 'UI.DataField',
-        Label: 'Price',
-        Value: price,
+        $Type : 'UI.DataFieldForAnnotation',
+        Label : 'Price',
+        Target: '@UI.DataPoint#Price',
     },
-    {
-        $Type: 'UI.DataField',
-        Label: 'Currency',
-        Value: currency_code,
-    }
 ]
 );
 
 annotate service.Interactions_Items.texts with @(UI: {
-Identification : [{Value: text}],
+Identification : [{
+    $Type: 'UI.DataField',
+    Value: text
+}],
 SelectionFields: [
     locale,
     text
