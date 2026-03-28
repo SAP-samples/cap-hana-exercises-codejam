@@ -5,15 +5,17 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "docs:dev":   "vitepress dev .",
+    "docs:dev": "vitepress dev .",
     "docs:build": "vitepress build . && echo '' > .vitepress/dist/.nojekyll",
-    "docs:serve": "vitepress serve ."
+    "docs:serve": "vitepress serve .",
+    "test": "vitest run"
   },
   "devDependencies": {
-    "@agentmarkup/vite":        "^0.4.0",
-    "mermaid":                  "^11.12.3",
-    "vitepress":                "^1.6.0",
+    "@agentmarkup/vite": "^0.4.0",
+    "mermaid": "^11.12.3",
+    "vitepress": "^1.6.0",
     "vitepress-plugin-mermaid": "2.0.17",
-    "vue":                      "^3.5.29"
+    "vitest": "^2.1.9",
+    "vue": "^3.5.29"
   }
 }
