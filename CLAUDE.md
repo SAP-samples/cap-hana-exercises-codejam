@@ -119,4 +119,4 @@ Exercise READMEs link to SAP tutorials on `developers.sap.com`. The VitePress bu
 | `docs/.vitepress/plugins/transform-tutorial.test.ts` | 13 unit tests for the transform pipeline |
 | `docs/.vitepress/plugins/md-expand-tutorials.test.ts` | 7 unit tests for the expansion/detection logic |
 
-**Note:** If a tutorial's source markdown has been removed from the upstream GitHub repo (returns 404), do not add it to the config — the link will render as-is in the VitePress site, which is acceptable. Document the reason in a comment next to the missing entry.
+**Note:** Most tutorials live in `sap-tutorials/Tutorials` on `master`, but some have moved to other repos (e.g. `appstudio-onboarding` is in `sap-tutorials/btp-adai` on `main`). If a raw URL returns 404, check the tutorial's GitHub link on the `developers.sap.com` page to find the correct repo and branch.
