@@ -82,7 +82,7 @@ export default withMermaid(
     themeConfig: {
       logo: '/logo.svg',
       siteTitle: 'CAP + HANA CodeJam',
-      outline: { level: [2, 3], label: 'On this page' },
+      outline: { level: [2, 4], label: 'On this page' },
 
       nav: [
         { text: 'Home', link: '/' },
