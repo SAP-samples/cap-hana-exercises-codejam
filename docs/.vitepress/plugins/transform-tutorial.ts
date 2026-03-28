@@ -11,7 +11,7 @@ function stripFrontmatter(src: string): string {
 
 /** 2. Remove SAP Tutorials HTML processing directives (<!-- border -->, <!-- description -->, etc.). */
 function stripHtmlComments(src: string): string {
-  return src.replace(/<!--[^>]*-->/g, '')
+  return src.replace(/<!--[\s\S]*?-->/g, '')
 }
 
 /**

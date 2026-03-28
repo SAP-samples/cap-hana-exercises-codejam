@@ -87,4 +87,17 @@ describe('transformTutorial', () => {
     expect(result).toContain('1. item')
     expect(result).toContain('1. more')
   })
+
+  it('strips HTML comments that contain a > character', () => {
+    const src = '---\n---\n\n### Step\n\n<!-- description --> Create instances where n > 0'
+    const result = transformTutorial(src, BASE)
+    expect(result).not.toContain('<!-- description -->')
+  })
+
+  it('does not treat frontmatter content as the first ### step heading', () => {
+    const src = '---\nparser: v2\n### not-a-step: value\n---\n\n### Real Step\n\n1. Do it.'
+    const result = transformTutorial(src, BASE)
+    expect(result).not.toContain('parser: v2')
+    expect(result).toContain('Real Step')
+  })
 })
