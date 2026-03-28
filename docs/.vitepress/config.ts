@@ -1,6 +1,8 @@
 import { defineConfig } from 'vitepress'
 import { withMermaid } from 'vitepress-plugin-mermaid'
 import { agentmarkup } from '@agentmarkup/vite'
+import { externalTutorialsPlugin } from './plugins/external-tutorials.js'
+import { expandTutorialsPlugin } from './plugins/md-expand-tutorials.js'
 
 const BASE = '/cap-hana-exercises-codejam/'
 const SITE_URL = 'https://SAP-samples.github.io/cap-hana-exercises-codejam'
@@ -46,6 +48,7 @@ export default withMermaid(
             // Pass 2: <p> that closes a </details> opened in an earlier paragraph
             .replace(/<p>((?:(?!<details).)*<\/details>[\s\S]*?)<\/p>/g, '<div>$1</div>')
         }
+        expandTutorialsPlugin(md)
       },
     },
 
@@ -191,6 +194,7 @@ export default withMermaid(
     vite: {
       build: { chunkSizeWarningLimit: 2000 },
       plugins: [
+        externalTutorialsPlugin(),
         agentmarkup({
           site: SITE_URL,
           name: 'CAP + SAP HANA Cloud CodeJam',
