@@ -68,3 +68,55 @@ The graphical calculation view editor is BAS-only. Do not suggest unsupported lo
 - Link to `prerequisites.md`, `CONTRIBUTING.md`, `README.md`, or `InstructorSetup.md` rather than duplicating their content
 - Validate internal links when moving or renaming sections
 - Keep SAP CAP / SAP HANA Cloud / SAP Business Application Studio terminology consistent with what is already used in the repo
+
+## VitePress site (`docs/`)
+
+The VitePress site lives in `docs/`. Each exercise has a thin wrapper page at `docs/exercises/ex*/index.md` that includes the source README via `<!--@include: ../../../exercises/ex*/README.md-->`.
+
+### Commands (run from `docs/`)
+
+```bash
+npm run docs:dev    # Start dev server
+npm run docs:build  # Production build → docs/.vitepress/dist/
+npm test            # Run Vitest unit tests (20 tests)
+```
+
+### External tutorial inline expansion
+
+Exercise READMEs link to SAP tutorials on `developers.sap.com`. The VitePress build automatically expands these links inline — fetching the tutorial markdown from GitHub at build time and replacing the link paragraph with the full tutorial steps plus an attribution banner.
+
+**How it works:**
+
+- Any block in a README that contains `👉` **and** a `developers.sap.com/tutorials/{ID}.html` link where `{ID}` is a key in the config map gets expanded inline.
+- Source READMEs are never modified — expansion happens during VitePress rendering only.
+- Two `👉` paragraph variants are both handled:
+  - `👉 Perform all the steps in the tutorial: [Title](URL)` (ex1–ex4, ex8)
+  - `Perform all the steps in 👉 [tutorial: Title](URL)` (ex5–ex7)
+
+**To add a new tutorial expansion:**
+
+1. Confirm the tutorial markdown exists in the upstream repo. The URL pattern is:
+   `https://raw.githubusercontent.com/sap-tutorials/Tutorials/master/tutorials/{ID}/{ID}.md`
+   Verify with: `curl -s -o /dev/null -w "%{http_code}" <url>`
+
+2. Add one entry to [`docs/.vitepress/external-tutorials.config.ts`](docs/.vitepress/external-tutorials.config.ts):
+
+   ```ts
+   'tutorial-id-here':
+     'https://raw.githubusercontent.com/sap-tutorials/Tutorials/master/tutorials/tutorial-id-here/tutorial-id-here.md',
+   ```
+
+3. Run `npm run docs:build` from `docs/` and verify the page shows exactly 1 attribution banner per tutorial link.
+
+**Key files:**
+
+| File | Purpose |
+| ---- | ------- |
+| `docs/.vitepress/external-tutorials.config.ts` | Config map: tutorial ID → raw GitHub URL |
+| `docs/.vitepress/plugins/external-tutorials.ts` | Vite plugin: fetches tutorials at build start |
+| `docs/.vitepress/plugins/md-expand-tutorials.ts` | markdown-it plugin: substitutes link blocks with expanded content |
+| `docs/.vitepress/plugins/transform-tutorial.ts` | Pure transform pipeline: strips frontmatter/intro, rewrites image paths and cross-links, shifts headings |
+| `docs/.vitepress/plugins/transform-tutorial.test.ts` | 13 unit tests for the transform pipeline |
+| `docs/.vitepress/plugins/md-expand-tutorials.test.ts` | 7 unit tests for the expansion/detection logic |
+
+**Note:** If a tutorial's source markdown has been removed from the upstream GitHub repo (returns 404), do not add it to the config — the link will render as-is in the VitePress site, which is acceptable. Document the reason in a comment next to the missing entry.
