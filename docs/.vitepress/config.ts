@@ -3,6 +3,12 @@ import { withMermaid } from 'vitepress-plugin-mermaid'
 import { agentmarkup } from '@agentmarkup/vite'
 import { externalTutorialsPlugin } from './plugins/external-tutorials.js'
 import { expandTutorialsPlugin } from './plugins/md-expand-tutorials.js'
+import { readFileSync } from 'fs'
+import { fileURLToPath } from 'url'
+import { join, dirname } from 'path'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const cdsGrammar = JSON.parse(readFileSync(join(__dirname, 'grammars/cds.tmLanguage.json'), 'utf-8'))
 
 const BASE = '/cap-hana-exercises-codejam/'
 const SITE_URL = 'https://SAP-samples.github.io/cap-hana-exercises-codejam'
@@ -28,7 +34,9 @@ export default withMermaid(
     appearance: true,
 
     markdown: {
-      languageAlias: { cds: 'typescript' },
+      languages: [
+        { ...cdsGrammar, name: 'cds', aliases: ['cap', 'name'] },
+      ],
       // Fix: markdown-it wraps loose list items in <p>, but <details> is a
       // block element that cannot be inside <p> (HTML5 content model).
       // Vue's strict SFC parser throws "Element is missing end tag" for this.
