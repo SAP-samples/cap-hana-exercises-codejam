@@ -5,6 +5,16 @@ import { getTutorialContent } from './external-tutorials.js'
 const SAP_TUTORIAL_PATTERN = /https:\/\/developers\.sap\.com\/tutorials\/([a-z0-9-]+)\.html/g
 
 /**
+ * Rewrites relative exercise README links to VitePress clean URLs.
+ * e.g. ../ex2/README.md → /exercises/ex2/
+ * These links are valid on GitHub but 404 in the VitePress site because
+ * the wrapper pages live at docs/exercises/exN/index.md, not README.md.
+ */
+export function rewriteExerciseLinks(src: string): string {
+  return src.replace(/\.\.\/(ex\d)\/README\.md/g, '/exercises/$1/')
+}
+
+/**
  * Performs pre-parse source substitution on a single markdown source string.
  * Exported separately so it can be unit-tested without a MarkdownIt instance.
  *
@@ -63,7 +73,8 @@ export function expandTutorialsInSource(
 export function expandTutorialsPlugin(md: MarkdownIt): void {
   const originalRender = md.render.bind(md)
   md.render = function (src: string, env?: unknown): string {
-    const expanded = expandTutorialsInSource(src, getTutorialContent)
+    const rewritten = rewriteExerciseLinks(src)
+    const expanded = expandTutorialsInSource(rewritten, getTutorialContent)
     return originalRender(expanded, env)
   }
 }

@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest'
-import { expandTutorialsInSource } from './md-expand-tutorials.js'
+import { expandTutorialsInSource, rewriteExerciseLinks } from './md-expand-tutorials.js'
 
 // Simulates the in-memory cache for testing (no Vite context needed)
 const fakeCache = new Map<string, string>([
@@ -79,5 +79,22 @@ describe('expandTutorialsInSource', () => {
     const src = '## Nothing to expand\n\nJust regular markdown.\n'
     const result = expandTutorialsInSource(src, mockGetContent)
     expect(result).toBe(src)
+  })
+})
+
+describe('rewriteExerciseLinks', () => {
+  it('rewrites ../exN/README.md to /exercises/exN/', () => {
+    const src = '👉 [Exercise 2](../ex2/README.md)'
+    expect(rewriteExerciseLinks(src)).toBe('👉 [Exercise 2](/exercises/ex2/)')
+  })
+
+  it('rewrites all occurrences in a document', () => {
+    const src = 'See [ex1](../ex1/README.md) and [ex8](../ex8/README.md).'
+    expect(rewriteExerciseLinks(src)).toBe('See [ex1](/exercises/ex1/) and [ex8](/exercises/ex8/).')
+  })
+
+  it('does not modify unrelated links', () => {
+    const src = '[GitHub](https://github.com) and [prereqs](../prerequisites.md)'
+    expect(rewriteExerciseLinks(src)).toBe(src)
   })
 })
