@@ -14,8 +14,9 @@ export const EXTERNAL_TUTORIALS: Record<string, string> = {
   // ex1.1
   'hana-cloud-deploying':
     'https://raw.githubusercontent.com/sap-tutorials/Tutorials/master/tutorials/hana-cloud-deploying/hana-cloud-deploying.md',
-  // ex1.2 — appstudio-onboarding has been removed from the upstream GitHub repo;
-  // the link in ex1 line 34 renders as-is (no expansion)
+  // ex1.2 — source lives in sap-tutorials/btp-adai, not the main Tutorials repo
+  'appstudio-onboarding':
+    'https://raw.githubusercontent.com/sap-tutorials/btp-adai/main/tutorials/appstudio-onboarding/appstudio-onboarding.md',
   // ex2
   'hana-cloud-cap-create-project':
     'https://raw.githubusercontent.com/sap-tutorials/Tutorials/master/tutorials/hana-cloud-cap-create-project/hana-cloud-cap-create-project.md',
