@@ -22,6 +22,7 @@ export function externalTutorialsPlugin(): Plugin {
     name: 'vitepress-external-tutorials',
 
     async buildStart() {
+      cache.clear()
       const entries = Object.entries(EXTERNAL_TUTORIALS)
       if (entries.length === 0) return
 

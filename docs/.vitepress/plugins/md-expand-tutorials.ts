@@ -2,7 +2,7 @@ import type MarkdownIt from 'markdown-it'
 import { getTutorialContent } from './external-tutorials.js'
 
 /** URL prefix all SAP tutorial links share. */
-const SAP_TUTORIAL_RE = /https:\/\/developers\.sap\.com\/tutorials\/([a-z0-9-]+)\.html/g
+const SAP_TUTORIAL_PATTERN = /https:\/\/developers\.sap\.com\/tutorials\/([a-z0-9-]+)\.html/g
 
 /**
  * Performs pre-parse source substitution on a single markdown source string.
@@ -24,12 +24,10 @@ export function expandTutorialsInSource(
     if (!block.includes('👉')) return block
 
     // Find the first configured tutorial link in this block (iterate all matches)
-    SAP_TUTORIAL_RE.lastIndex = 0
-    let match: RegExpExecArray | null
     let id: string | undefined
     let content: string | undefined
 
-    while ((match = SAP_TUTORIAL_RE.exec(block)) !== null) {
+    for (const match of block.matchAll(SAP_TUTORIAL_PATTERN)) {
       const candidateId = match[1]
       const candidateContent = getContent(candidateId)
       if (candidateContent !== undefined) {
