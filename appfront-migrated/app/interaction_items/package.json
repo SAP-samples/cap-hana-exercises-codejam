@@ -1,0 +1,21 @@
+{
+  "name": "interaction_items",
+  "version": "0.0.1",
+  "description": "Interaction Items List",
+  "keywords": [
+    "ui5",
+    "openui5",
+    "sapui5"
+  ],
+  "main": "webapp/index.html",
+  "dependencies": {},
+  "devDependencies": {
+    "@ui5/cli": "^4",
+    "@sap/ux-ui5-tooling": "^1",
+    "ui5-task-zipper": "^3"
+  },
+  "scripts": {
+    "build:cf": "ui5 build --dest dist --clean-dest",
+    "deploy-config": "npx -p @sap/ux-ui5-tooling fiori add deploy-config cf"
+  }
+}

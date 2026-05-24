@@ -1,0 +1,29 @@
+{
+  "authenticationMethod": "route",
+  "welcomeFile": "/index.html",
+  "compression": {
+    "minSize": 2048
+  },
+  "logout": {
+    "logoutEndpoint": "/app-logout",
+    "logoutPage": "/"
+  },
+  "routes": [
+    {
+      "source": "^/user-api(.*)",
+      "target": "$1",
+      "service": "sap-approuter-userapi"
+    },
+    {
+      "source": "^/odata/.*",
+      "destination": "srv-api",
+      "csrfProtection": true,
+      "authenticationType": "xsuaa"
+    },
+    {
+      "source": "^/(.*)$",
+      "service": "app-front",
+      "authenticationType": "xsuaa"
+    }
+  ]
+}

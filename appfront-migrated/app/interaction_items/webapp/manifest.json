@@ -1,0 +1,164 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "interactionitems",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:worklist",
+      "version": "1.15.7",
+      "toolsId": "64f88c49-5e13-468f-8bb5-b5c1cc7cc4e9"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/catalog/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.146.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "interactionitems.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "Interactions_HeaderList",
+          "target": "Interactions_HeaderList"
+        },
+        {
+          "pattern": "Interactions_Header({key}):?query:",
+          "name": "Interactions_HeaderObjectPage",
+          "target": "Interactions_HeaderObjectPage"
+        },
+        {
+          "pattern": "Interactions_Header({key})/items({key2}):?query:",
+          "name": "Interactions_ItemsObjectPage",
+          "target": "Interactions_ItemsObjectPage"
+        }
+      ],
+      "targets": {
+        "Interactions_HeaderList": {
+          "type": "Component",
+          "id": "Interactions_HeaderList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/Interactions_Header",
+              "variantManagement": "Page",
+              "navigation": {
+                "Interactions_Header": {
+                  "detail": {
+                    "route": "Interactions_HeaderObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "Interactions_HeaderObjectPage": {
+          "type": "Component",
+          "id": "Interactions_HeaderObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Interactions_Header",
+              "navigation": {
+                "items": {
+                  "detail": {
+                    "route": "Interactions_ItemsObjectPage"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "Interactions_ItemsObjectPage": {
+          "type": "Component",
+          "id": "Interactions_ItemsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Interactions_Header/items"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}
