@@ -4,6 +4,9 @@ In this exercise you will build your first SAP HANA Calculation View inside Busi
 
 Perform all the steps in 👉 [tutorial: Create Calculation View and Expose via CAP (SAP HANA Cloud)](https://developers.sap.com/tutorials/hana-cloud-cap-calc-view.html)
 
+> [!WARNING]
+> **Heads-up on a screenshot typo in the upstream tutorial.** A couple of screenshots in the tutorial show the artifact name as `V_INTERATION` (missing the second **C**). The correct name — used in the surrounding text, your CDS file, and every later step — is **`V_INTERACTION`**. When you create the Calculation View artifact, type `V_INTERACTION` regardless of what the screenshot shows. (Tracked upstream; this note will be removed once the screenshots are refreshed.)
+
 ## Background
 
 ### What is a Calculation View?
