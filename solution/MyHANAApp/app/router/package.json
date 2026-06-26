@@ -3,6 +3,9 @@
   "dependencies": {
     "@sap/approuter": "^22.0.1"
   },
+  "overrides": {
+    "ws": "^7.5.11"
+  },
   "engines": {
     "node": "^24"
   },
