@@ -1,7 +1,7 @@
 {
   "name": "approuter",
   "dependencies": {
-    "@sap/approuter": "^22.0.1"
+    "@sap/approuter": "^23.0.0"
   },
   "overrides": {
     "ws": "^7.5.11"
