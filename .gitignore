@@ -12,3 +12,9 @@ llms-full.txt
 # Node dependencies
 node_modules/
 docs/node_modules/
+
+# Environment / credential files — never commit (service bindings, VCAP_SERVICES, etc.)
+.env
+*.env
+!*.sample.env
+default-env.json
